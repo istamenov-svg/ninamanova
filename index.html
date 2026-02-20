@@ -1931,8 +1931,10 @@ footer {
           </div>
         </div>
 
-        <form class="contact-form" action="https://formspree.io/f/xnjbbked" method="POST">
-          <form onsubmit="handleFormSubmit(event)">
+        <div class="contact-form">
+          <form action="https://formspree.io/f/xnjbbked" method="POST">
+            <input type="hidden" name="_subject" value="New consultation request — NinaManova.com">
+            <input type="hidden" name="_next" value="https://istamenov-svg.github.io/ninamanova/">
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name</label>
@@ -1977,7 +1979,6 @@ footer {
             </div>
             <button type="submit" class="form-submit">Request Consultation</button>
           </form>
-          <p id="formSuccess" style="display:none; margin-top:1.5rem; color:var(--sage); font-size:0.95rem;">Thank you. I'll be in touch within 24 hours.</p>
         </div>
       </div>
     </div>
@@ -2048,13 +2049,6 @@ function toggleMenu() {
 }
 
 // ===== FORM HANDLER =====
-function handleFormSubmit(e) {
-  e.preventDefault();
-  // In production, this would POST to a backend or service like Formspree/Netlify Forms
-  e.target.style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-}
-
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
   showPage('home');
