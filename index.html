@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nina Manova — Movement & Longevity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --stone-50: #faf8f9;
+  --stone-100: #f5f0f3;
+  --stone-200: #e8dfe4;
+  --stone-300: #d6cbd0;
+  --stone-400: #b0a0a8;
+  --stone-500: #8a7a82;
+  --stone-600: #6b5c64;
+  --stone-700: #4e4148;
+  --stone-800: #332a2f;
+  --stone-900: #231c20;
+  --sage: #cfb3c1;
+  --sage-light: #deccd5;
+  --sage-pale: #f3ecef;
+  --warm-white: #fcfafb;
+  --linen: #f8f3f6;
+  --accent: #b8879e;
+  --accent-light: #d4b8c7;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Jost', sans-serif;
+  --max-width: 1200px;
+  --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--stone-700);
+  background: var(--warm-white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===== GLOBAL UTILITIES ===== */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(253, 252, 250, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(214, 211, 209, 0.3);
+  transition: var(--transition);
+}
+
+nav.scrolled {
+  background: rgba(253, 252, 250, 0.97);
+  box-shadow: 0 1px 30px rgba(0,0,0,0.04);
+}
+
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--stone-800);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-logo span {
+  font-weight: 300;
+  color: var(--stone-500);
+  margin-left: 0.3em;
+  font-size: 0.75em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+}
+
+.nav-links { display: flex; gap: 2.5rem; align-items: center; list-style: none; }
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-600);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition);
+  cursor: pointer;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--sage);
+  transition: width var(--transition);
+}
+
+.nav-links a:hover { color: var(--stone-800); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--stone-800); }
+.nav-links a.active::after { width: 100%; }
+
+.nav-cta {
+  font-size: 0.78rem !important;
+  letter-spacing: 0.12em !important;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid var(--stone-300);
+  border-radius: 0;
+  transition: all var(--transition) !important;
+}
+
+.nav-cta:hover {
+  background: var(--stone-800) !important;
+  color: var(--warm-white) !important;
+  border-color: var(--stone-800) !important;
+}
+
+.nav-cta::after { display: none !important; }
+
+/* Mobile menu */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--stone-700);
+  transition: var(--transition);
+}
+
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--warm-white);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--stone-200);
+    transform: translateY(-120%);
+    transition: transform var(--transition);
+    z-index: 999;
+  }
+  .nav-links.open { transform: translateY(0); }
+}
+
+/* ===== PAGE CONTAINER ===== */
+.page { display: none; opacity: 0; transition: opacity 0.5s ease; }
+.page.active { display: block; opacity: 1; }
+
+/* ===== HERO (HOME) ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  margin-top: 72px;
+  height: calc(100vh - 72px);
+}
+
+.hero-bg-img {
+  height: 100%;
+  width: auto;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(
+      to right,
+      rgba(35, 28, 32, 0.82) 0%,
+      rgba(35, 28, 32, 0.5) 40%,
+      rgba(35, 28, 32, 0.1) 60%,
+      transparent 75%
+    ),
+    linear-gradient(
+      to top,
+      rgba(35, 28, 32, 0.5) 0%,
+      transparent 30%
+    );
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding-bottom: 0;
+  z-index: 1;
+}
+
+.hero-content .container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage-light);
+  margin-bottom: 0.4rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.3s forwards;
+}
+
+.hero-locations-serving {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.4s forwards;
+}
+
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  max-width: 500px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+
+.hero-h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--sage-light);
+}
+
+.hero-body {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.7);
+  max-width: 420px;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.7s forwards;
+}
+
+.hero-cta {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--stone-800);
+  background: #fff;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  transition: all var(--transition);
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.9s forwards;
+}
+
+.hero-cta:hover {
+  background: var(--sage-light);
+  color: var(--stone-800);
+}
+
+.hero-locations {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.85s forwards;
+}
+
+.hero-location-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.85);
+}
+
+.hero-loc-icon {
+  font-size: 0.9rem;
+  color: var(--sage-light);
+}
+
+.hero-location-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255,255,255,0.25);
+}
+
+@media (max-width: 900px) {
+  .hero-content { padding-bottom: 2rem; }
+  .hero-h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); }
+  .hero-body { font-size: 0.88rem; }
+  .hero-locations { flex-wrap: wrap; gap: 0.8rem; }
+  .hero-location-divider { display: none; }
+}
+
+/* ===== SECTION STYLES ===== */
+section { padding: 7rem 0; }
+
+.section-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--stone-800);
+  margin-bottom: 1.5rem;
+}
+
+.section-title em { font-style: italic; color: var(--sage); }
+
+.section-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--stone-500);
+  max-width: 600px;
+}
+
+/* ===== HOME: SERVICES PREVIEW ===== */
+.services-preview {
+  background: var(--linen);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 3.5rem;
+}
+
+.service-card {
+  background: var(--warm-white);
+  padding: 3rem;
+  border: 1px solid var(--stone-200);
+  transition: all var(--transition);
+}
+
+.service-card:hover {
+  border-color: var(--sage-light);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+}
+
+.service-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  margin-bottom: 1rem;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--stone-500);
+  margin-bottom: 1.5rem;
+}
+
+.service-card .card-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.service-card .card-link:hover { color: var(--stone-800); }
+
+@media (max-width: 700px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== HOME: PHILOSOPHY STRIP ===== */
+.philosophy-strip {
+  background: var(--stone-800);
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.philosophy-strip .section-eyebrow { color: var(--sage-light); }
+
+.philosophy-strip blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--stone-200);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ===== HOME: ABOUT PREVIEW ===== */
+
+.nourishment-preview {
+  background: var(--stone-800);
+  padding: 7rem 0;
+}
+
+.nourishment-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.nourishment-preview .section-eyebrow { color: var(--sage-light); }
+.nourishment-preview .section-title { color: #fff; }
+.nourishment-preview .section-title em { color: var(--sage-light); }
+.nourishment-preview .section-body { color: rgba(255,255,255,0.6); max-width: none; margin-bottom: 2rem; }
+
+.nourishment-certs {
+  margin-bottom: 2rem;
+}
+
+.certs-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage-light);
+  margin-bottom: 0.8rem;
+}
+
+.cert-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.cert-tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.5);
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  font-style: italic;
+}
+
+.nourishment-preview .text-link { color: var(--sage-light); }
+.nourishment-preview .text-link:hover { color: #fff; }
+
+.nourishment-image-area {
+  position: relative;
+}
+
+.nourishment-img-main {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.3);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  padding: 1rem;
+}
+
+.nourishment-img-main .img-note {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(35,28,32,0.85);
+  padding: 0.8rem 1rem;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.5);
+  font-style: normal;
+  letter-spacing: 0.03em;
+  text-align: left;
+}
+
+.nourishment-img-accent {
+  position: absolute;
+  bottom: -2rem;
+  left: -2rem;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.25);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  padding: 0.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.nourishment-img-accent .img-note {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .nourishment-grid { grid-template-columns: 1fr; }
+  .nourishment-img-accent { display: none; }
+}
+
+
+.about-preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.about-preview-image {
+  aspect-ratio: 4/5;
+  background: var(--stone-200);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-preview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-preview-image .img-note {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(253,252,250,0.9);
+  padding: 0.8rem 1rem;
+  font-size: 0.7rem;
+  color: var(--stone-500);
+  letter-spacing: 0.03em;
+}
+
+.about-preview-text .section-body { margin-bottom: 2rem; }
+
+.text-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.text-link:hover { color: var(--stone-800); }
+.text-link::after { content: '→'; transition: transform var(--transition); }
+.text-link:hover::after { transform: translateX(4px); }
+
+@media (max-width: 800px) {
+  .about-preview-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== MOVEMENT PAGE ===== */
+.page-hero {
+  padding-top: calc(72px + 5rem);
+  padding-bottom: 5rem;
+  position: relative;
+}
+
+.page-hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.page-hero-image {
+  aspect-ratio: 4/3;
+  background: var(--stone-200);
+  overflow: hidden;
+  position: relative;
+}
+
+.page-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-hero-image .img-note {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(253,252,250,0.9);
+  padding: 0.8rem 1rem;
+  font-size: 0.7rem;
+  color: var(--stone-500);
+}
+
+@media (max-width: 800px) {
+  .page-hero-inner { grid-template-columns: 1fr; }
+}
+
+/* Sessions layout */
+.sessions-section { background: var(--linen); }
+
+.sessions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.session-card {
+  background: var(--warm-white);
+  padding: 2.5rem;
+  border: 1px solid var(--stone-200);
+}
+
+.session-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  margin-bottom: 0.8rem;
+}
+
+.session-card .session-for {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 1.2rem;
+}
+
+.session-card p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--stone-500);
+}
+
+@media (max-width: 700px) {
+  .sessions-grid { grid-template-columns: 1fr; }
+}
+
+/* Principles */
+.principles-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.principle {
+  padding: 2rem 0;
+  border-top: 1px solid var(--stone-200);
+}
+
+.principle h4 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  margin-bottom: 0.8rem;
+}
+
+.principle p {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--stone-500);
+}
+
+@media (max-width: 700px) {
+  .principles-list { grid-template-columns: 1fr; }
+}
+
+/* ===== NUTRITION PAGE ===== */
+.nutrition-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.nutrition-image {
+  aspect-ratio: 1;
+  background: var(--stone-200);
+  overflow: hidden;
+  position: relative;
+}
+
+.nutrition-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nutrition-image .img-note {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(253,252,250,0.9);
+  padding: 0.8rem 1rem;
+  font-size: 0.7rem;
+  color: var(--stone-500);
+}
+
+@media (max-width: 800px) {
+  .nutrition-intro { grid-template-columns: 1fr; }
+}
+
+.nutrition-pillars {
+  background: var(--linen);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.pillar {
+  background: var(--warm-white);
+  padding: 2.5rem;
+  border: 1px solid var(--stone-200);
+}
+
+.pillar-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--sage-light);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.pillar h4 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  margin-bottom: 0.8rem;
+}
+
+.pillar p {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--stone-500);
+}
+
+@media (max-width: 700px) {
+  .pillars-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== ABOUT PAGE ===== */
+.about-hero {
+  padding-top: calc(72px + 5rem);
+  padding-bottom: 3rem;
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-portrait {
+  aspect-ratio: 3/4;
+  background: var(--stone-200);
+  overflow: hidden;
+  position: sticky;
+  top: 100px;
+}
+
+.about-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-portrait .img-note {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(253,252,250,0.9);
+  padding: 0.8rem 1rem;
+  font-size: 0.7rem;
+  color: var(--stone-500);
+}
+
+.about-text h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 300;
+  color: var(--stone-800);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--stone-500);
+  margin-bottom: 1.5rem;
+}
+
+.about-text p:first-of-type {
+  font-size: 1.1rem;
+  color: var(--stone-600);
+}
+
+.credentials-strip {
+  background: var(--stone-800);
+  padding: 4rem 0;
+}
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.credential-item .credential-number {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--sage-light);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.credential-item .credential-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--stone-400);
+}
+
+@media (max-width: 800px) {
+  .about-hero-grid { grid-template-columns: 1fr; }
+  .about-portrait { position: relative; top: 0; }
+  .credentials-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+/* ===== BLOG PAGE ===== */
+.blog-hero {
+  padding-top: calc(72px + 5rem);
+  padding-bottom: 3rem;
+  text-align: center;
+}
+
+.blog-hero .section-body { margin: 0 auto; }
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  padding-bottom: 5rem;
+}
+
+.blog-card {
+  border: 1px solid var(--stone-200);
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.blog-card:hover {
+  border-color: var(--sage-light);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+}
+
+.blog-card-image {
+  aspect-ratio: 16/10;
+  background: var(--stone-200);
+  overflow: hidden;
+  position: relative;
+}
+
+.blog-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-card-image .img-note {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0.6rem;
+  right: 0.6rem;
+  background: rgba(253,252,250,0.9);
+  padding: 0.5rem 0.7rem;
+  font-size: 0.65rem;
+  color: var(--stone-500);
+}
+
+.blog-card-body { padding: 1.8rem; }
+
+.blog-card-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.8rem;
+}
+
+.blog-card-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  line-height: 1.35;
+  margin-bottom: 0.8rem;
+}
+
+.blog-card-body p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--stone-500);
+}
+
+.blog-card-meta {
+  padding: 1rem 1.8rem;
+  border-top: 1px solid var(--stone-100);
+  font-size: 0.75rem;
+  color: var(--stone-400);
+}
+
+@media (max-width: 900px) {
+  .blog-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
+}
+
+/* ===== CONTACT PAGE ===== */
+.contact-hero {
+  padding-top: calc(72px + 5rem);
+  padding-bottom: 2rem;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+  padding-bottom: 5rem;
+}
+
+.contact-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--stone-500);
+  margin-bottom: 2rem;
+}
+
+.contact-detail {
+  margin-bottom: 1.5rem;
+}
+
+.contact-detail .detail-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.3rem;
+}
+
+.contact-detail .detail-value {
+  font-size: 0.95rem;
+  color: var(--stone-600);
+}
+
+.contact-form { }
+
+.form-group { margin-bottom: 1.5rem; }
+
+.form-group label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--stone-700);
+  padding: 0.9rem 0;
+  border: none;
+  border-bottom: 1px solid var(--stone-300);
+  background: transparent;
+  outline: none;
+  transition: border-color var(--transition);
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-bottom-color: var(--sage);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.7;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-submit {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  background: var(--stone-800);
+  padding: 1rem 2.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  margin-top: 1rem;
+}
+
+.form-submit:hover { background: var(--sage); }
+
+@media (max-width: 800px) {
+  .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--stone-900);
+  padding: 4rem 0 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--stone-300);
+  margin-bottom: 0.8rem;
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  color: var(--stone-500);
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
+.footer-links { display: flex; gap: 2rem; }
+
+.footer-links a {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  text-decoration: none;
+  transition: color var(--transition);
+  cursor: pointer;
+}
+
+.footer-links a:hover { color: var(--stone-300); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--stone-600);
+}
+
+@media (max-width: 700px) {
+  .footer-inner { flex-direction: column; gap: 2rem; }
+}
+
+/* ===== CTA BANNER ===== */
+.cta-banner {
+  background: var(--sage-pale);
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.cta-banner .section-title { margin-bottom: 1rem; }
+
+.cta-banner .section-body {
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.cta-btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  background: var(--stone-800);
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.cta-btn:hover { background: var(--stone-700); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== IMAGE PLACEHOLDER HELPER ===== */
+.placeholder-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone-400);
+  background: linear-gradient(135deg, var(--stone-200), var(--stone-100));
+}
+
+
+/* ===== COMPREHENSIVE RESPONSIVE ===== */
+
+/* Tablet landscape */
+@media (max-width: 1024px) {
+  .container { padding: 0 1.5rem; }
+  .nav-inner { padding: 0 1.5rem; }
+  section { padding: 5rem 0; }
+  .hero-content .container { padding: 0 1.5rem; }
+  .services-grid { gap: 2rem; }
+  .service-card { padding: 2rem; }
+  .session-card { padding: 2rem; }
+  .about-hero-grid { gap: 3rem; }
+  .contact-layout { gap: 3rem; }
+}
+
+/* Tablet portrait */
+@media (max-width: 900px) {
+  .nav-inner { height: 64px; }
+  .nav-links { top: 64px; }
+  
+  .hero { margin-top: 64px; height: calc(100vh - 64px); }
+  .hero-bg-img { height: 100%; }
+  .hero-h1 { font-size: clamp(1.8rem, 6vw, 2.6rem); }
+  .hero-body { font-size: 0.9rem; max-width: 360px; }
+  .hero-locations { gap: 0.8rem; }
+  .hero-location-divider { display: none; }
+  .hero-locations-serving { font-size: 0.7rem; }
+  .hero-cta { padding: 0.85rem 2rem; }
+  
+  .page-hero { padding-top: calc(64px + 3rem); padding-bottom: 3rem; }
+  .page-hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+  
+  .about-hero { padding-top: calc(64px + 3rem); }
+  .about-hero-grid { grid-template-columns: 1fr; }
+  .about-portrait { position: relative; top: 0; max-height: 500px; }
+  
+  .blog-hero { padding-top: calc(64px + 3rem); }
+  .blog-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
+  
+  .contact-hero { padding-top: calc(64px + 3rem); }
+  .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+  
+  .credentials-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  
+  .nourishment-preview { padding: 5rem 0; }
+  .nourishment-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .nourishment-img-accent { display: none; }
+  
+  .nutrition-intro { grid-template-columns: 1fr; gap: 2rem; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  
+  .about-preview-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .about-preview-image { max-height: 400px; }
+  
+  .footer-inner { flex-direction: column; gap: 1.5rem; }
+  .footer-links { flex-wrap: wrap; gap: 1.2rem; }
+}
+
+/* Large phone */
+@media (max-width: 600px) {
+  .container { padding: 0 1.25rem; }
+  .nav-inner { padding: 0 1.25rem; }
+  
+  section { padding: 3.5rem 0; }
+  
+  .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  .section-body { font-size: 0.92rem; }
+  
+  .hero-content .container { padding: 0 1.25rem; }
+  .hero-h1 { font-size: clamp(1.6rem, 7vw, 2.2rem); max-width: 320px; }
+  .hero-body { font-size: 0.85rem; max-width: 300px; }
+  .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.2em; }
+  .hero-locations-serving { font-size: 0.65rem; }
+  .hero-location-item { font-size: 0.7rem; }
+  .hero-cta { font-size: 0.72rem; padding: 0.8rem 1.8rem; }
+  
+  .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .service-card { padding: 1.8rem; }
+  .service-card h3 { font-size: 1.3rem; }
+  
+  .philosophy-strip { padding: 3.5rem 0; }
+  .philosophy-strip blockquote { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+  
+  .nourishment-preview { padding: 3.5rem 0; }
+  .nourishment-certs { margin-bottom: 1.5rem; }
+  .cert-tags { gap: 0.4rem; }
+  .cert-tag { font-size: 0.68rem; padding: 0.4rem 0.8rem; }
+  
+  .sessions-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .session-card { padding: 1.8rem; }
+  
+  .principles-list { grid-template-columns: 1fr; gap: 1.5rem; }
+  .principle { padding: 1.5rem 0; }
+  
+  .pillar { padding: 1.8rem; }
+  
+  .blog-card-body { padding: 1.3rem; }
+  .blog-card-body h3 { font-size: 1.15rem; }
+  .blog-card-meta { padding: 0.8rem 1.3rem; }
+  
+  .about-text h1 { font-size: clamp(2rem, 7vw, 2.6rem); }
+  .about-text p { font-size: 0.92rem; }
+  
+  .credentials-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .credential-item .credential-number { font-size: 2.2rem; }
+  .credential-item .credential-label { font-size: 0.65rem; }
+  
+  .contact-info h3 { font-size: 1.3rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .form-submit { width: 100%; text-align: center; }
+  
+  .cta-banner { padding: 3.5rem 0; }
+  .cta-btn { font-size: 0.72rem; padding: 0.85rem 2rem; }
+  
+  footer { padding: 3rem 0 1.5rem; }
+  .footer-links { gap: 1rem; }
+  .footer-links a { font-size: 0.68rem; }
+}
+
+/* Small phone */
+@media (max-width: 400px) {
+  .container { padding: 0 1rem; }
+  .nav-inner { padding: 0 1rem; }
+  .nav-logo img { height: 36px !important; }
+  
+  .hero-content .container { padding: 0 1rem; }
+  .hero-h1 { font-size: 1.5rem; }
+  .hero-body { font-size: 0.8rem; }
+  .hero-location-item { font-size: 0.65rem; }
+  .hero-cta { padding: 0.75rem 1.5rem; font-size: 0.7rem; }
+  
+  .section-title { font-size: 1.5rem; }
+  .section-eyebrow { font-size: 0.65rem; }
+  
+  .service-card { padding: 1.5rem; }
+  .session-card { padding: 1.5rem; }
+  .pillar { padding: 1.5rem; }
+  
+  .credentials-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select { font-size: 16px; } /* Prevents iOS zoom on focus */
+}
+
+/* Touch targets - ensure all interactive elements are at least 44px */
+@media (pointer: coarse) {
+  .nav-links a { padding: 0.5rem 0; }
+  .nav-cta { padding: 0.7rem 1.5rem !important; }
+  .nav-toggle { padding: 8px; }
+  .text-link { padding: 0.3rem 0; }
+  .card-link { padding: 0.3rem 0; display: inline-block; }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 1rem 0;
+    min-height: 44px;
+  }
+  
+  .form-submit {
+    min-height: 48px;
+    padding: 1rem 2.5rem;
+  }
+}
+
+/* Landscape phone */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero { height: auto; min-height: 100vh; }
+  .hero-bg-img { height: 100vh; }
+  .hero-content { padding-bottom: 1.5rem; }
+  .hero-h1 { font-size: 1.6rem; margin-bottom: 0.8rem; }
+  .hero-body { font-size: 0.8rem; margin-bottom: 1rem; }
+  .hero-locations { margin-bottom: 1rem; }
+}
+
+/* High-DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-bg-img { image-rendering: -webkit-optimize-contrast; }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a class="nav-logo" onclick="showPage('home')"><img src="images/logo.png" alt="Nina Manova" style="height:48px; display:block;"></a>
+    <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a onclick="showPage('movement')" data-page="movement">Movement</a></li>
+      <li><a onclick="showPage('nutrition')" data-page="nutrition">Nourishment</a></li>
+      <li><a onclick="showPage('about')" data-page="about">About</a></li>
+      <li><a onclick="showPage('blog')" data-page="blog">Journal</a></li>
+      <li><a onclick="showPage('contact')" data-page="contact" class="nav-cta">Begin</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===================================================== -->
+<!-- HOME PAGE -->
+<!-- ===================================================== -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <img src="images/nourishment-bowl.jpg" alt="Nina Manova in her Pilates studio" class="hero-bg-img">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="container">
+        <p class="hero-eyebrow">Private &amp; Semi-Private Pilates</p>
+        <p class="hero-locations-serving">Coral Ridge · The Landings · Bay Colony · Sea Ranch Lakes &amp; nearby neighborhoods</p>
+        <h1 class="hero-h1">Move with <em>intention.</em><br>Age with confidence.</h1>
+        <p class="hero-body">Personalized Pilates sessions rooted in classical technique and designed around your body, your nutrition, your goals, and your life.<br>Fifteen years of teaching distilled into focused, one-on-one guidance.</p>
+        <div class="hero-locations">
+          <div class="hero-location-item">
+            <span class="hero-loc-icon">⌂</span>
+            <span>In Your Home</span>
+          </div>
+          <div class="hero-location-divider"></div>
+          <div class="hero-location-item">
+            <span class="hero-loc-icon">◻</span>
+            <span>Your Building Gym</span>
+          </div>
+          <div class="hero-location-divider"></div>
+          <div class="hero-location-item">
+            <span class="hero-loc-icon">▪</span>
+            <span>In Studio</span>
+          </div>
+        </div>
+        <a class="hero-cta" onclick="showPage('contact')">Book a Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview -->
+  <section class="services-preview">
+    <div class="container">
+      <p class="section-eyebrow">What I Offer</p>
+      <h2 class="section-title">Sessions designed around <em>you</em></h2>
+      <p class="section-body">Every body arrives with its own history. I work with yours — not against it — to build strength, restore mobility, and create movement patterns that serve you for decades.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Private Sessions</h3>
+          <p>One-on-one work tailored entirely to your body. We address specific concerns — posture, pain, stiffness, deconditioning — and build a practice that fits your life.</p>
+          <a class="card-link" onclick="showPage('movement')">Learn more</a>
+        </div>
+        <div class="service-card">
+          <h3>Semi-Private Sessions</h3>
+          <p>Work alongside a partner or friend in a focused two-person setting. The same precision and attention, with the added motivation of shared commitment.</p>
+          <a class="card-link" onclick="showPage('movement')">Learn more</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Strip -->
+  <section class="philosophy-strip">
+    <div class="container">
+      <p class="section-eyebrow">Philosophy</p>
+      <blockquote>"The body doesn't lie. How you move tells the story of how you live — and that story can always be rewritten."</blockquote>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  
+  <!-- Nourishment Preview -->
+  <section class="nourishment-preview">
+    <div class="container">
+      <div class="nourishment-grid">
+        <div class="nourishment-text">
+          <p class="section-eyebrow">Movement + Nourishment</p>
+          <h2 class="section-title">How you eat shapes<br>how you <em>move</em></h2>
+          <p class="section-body">Strength and mobility don't happen in a vacuum. What you eat affects your energy, your recovery, your inflammation levels, and ultimately how your body responds to the work we do together. Nina integrates nutritional awareness into her practice — not as a diet plan, but as a foundational layer of lasting health.</p>
+          <div class="nourishment-certs">
+            <p class="certs-label">Nutrition Credentials</p>
+            <div class="cert-tags">
+              <span class="cert-tag">Certification Placeholder</span>
+              <span class="cert-tag">Certification Placeholder</span>
+              <span class="cert-tag">Certification Placeholder</span>
+            </div>
+          </div>
+          <a class="text-link" onclick="showPage('nutrition')">Explore the approach</a>
+        </div>
+        <div class="nourishment-image-area">
+          <div class="nourishment-img-main" style="aspect-ratio:4/5;">
+            <img src="images/legumes.jpg" alt="Colorful whole food bowl with fresh vegetables" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="nourishment-img-accent" style="aspect-ratio:1;">
+            <img src="images/movement-pilates.jpg" alt="Fresh legumes and lentils" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="about-preview-grid">
+        <div class="about-preview-image">
+          <!-- IMAGE RECOMMENDATION: Warmer, more personal photo. Nina at a farmers market or in a lifestyle setting.
+               The Ninamarket.jpg could work here — it connects the movement+nutrition philosophy visually. -->
+          <div class="placeholder-bg" style="width:100%;height:100%;position:absolute;top:0;left:0;">
+            Nina — Lifestyle
+          </div>
+          <div class="img-note">📷 Recommendation: Lifestyle portrait. Could be at a market, outdoors, or at home. More personal than the studio shot. Connects the human side — not just the instructor. Ninamarket.jpg is an option.</div>
+        </div>
+        <div class="about-preview-text">
+          <p class="section-eyebrow">About Nina</p>
+          <h2 class="section-title">Former athlete.<br><em>Lifelong</em> teacher.</h2>
+          <p class="section-body">From professional sport in Macedonia to over fifteen years of teaching movement across private homes, hospitals, corporate programs, and leading Pilates studios — my work has always been about one thing: helping people live in their bodies with less friction and more confidence.</p>
+          <a class="text-link" onclick="showPage('about')">Read my story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="section-title">Begin with a conversation</h2>
+      <p class="section-body">Every new client starts with a complimentary 30-minute movement consultation. No pressure, no commitment — just a chance to understand where you are and where you want to go.</p>
+      <a class="cta-btn" onclick="showPage('contact')">Schedule Your Consultation</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- MOVEMENT PAGE -->
+<!-- ===================================================== -->
+<div class="page" id="page-movement">
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div>
+          <p class="section-eyebrow">Movement</p>
+          <h1 class="section-title" style="font-size:clamp(2.4rem,4vw,3.4rem);">Classical foundation.<br><em>Personal</em> application.</h1>
+          <p class="section-body">Pilates is not a workout — it's a practice. My sessions are built on classical Pilates principles but adapted entirely to the person in front of me. The goal is never to impress. It's to improve how you feel, function, and move through your day.</p>
+        </div>
+        <div class="page-hero-image">
+          <img src="images/hero.jpg" alt="Hands gripping Pilates reformer bar" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sessions -->
+  <section class="sessions-section">
+    <div class="container">
+      <p class="section-eyebrow">Sessions</p>
+      <h2 class="section-title">Two formats, one standard</h2>
+      <p class="section-body">Whether you work alone or with a partner, the quality of attention remains the same. I don't teach classes — I teach people.</p>
+      <div class="sessions-grid">
+        <div class="session-card">
+          <h3>Private Sessions</h3>
+          <p class="session-for">Best for</p>
+          <p>Individuals with specific goals, injuries, postural concerns, or anyone who wants undivided attention. The session is built entirely around you — your body, your pace, your objectives. This is where the deepest work happens.</p>
+        </div>
+        <div class="session-card">
+          <h3>Semi-Private Sessions</h3>
+          <p class="session-for">Best for</p>
+          <p>Pairs — partners, friends, siblings — who want to train together. You share the space and the time, while each receiving individualized cueing. A good fit for people who are motivated by consistency and companionship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section>
+    <div class="container">
+      <p class="section-eyebrow">Approach</p>
+      <h2 class="section-title">What guides the work</h2>
+      <div class="principles-list">
+        <div class="principle">
+          <h4>Precision Over Intensity</h4>
+          <p>Doing less, correctly, produces more lasting change than doing more with poor form. Every repetition is intentional.</p>
+        </div>
+        <div class="principle">
+          <h4>The Body as a System</h4>
+          <p>A stiff shoulder isn't always a shoulder problem. I look at how your whole body organizes — posture, breathing, alignment — before isolating anything.</p>
+        </div>
+        <div class="principle">
+          <h4>Longevity as the Metric</h4>
+          <p>I don't train people for next week. The question is always: will this serve you in ten years? Twenty? The practice should compound over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultation CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="section-title">Not sure where to start?</h2>
+      <p class="section-body">The complimentary consultation is exactly for that. We'll talk about your history, your goals, and whether this is the right fit — no obligation.</p>
+      <a class="cta-btn" onclick="showPage('contact')">Book Your Free Consultation</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- NUTRITION PAGE -->
+<!-- ===================================================== -->
+<div class="page" id="page-nutrition">
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-eyebrow">Nourishment</p>
+      <h1 class="section-title" style="font-size:clamp(2.4rem,4vw,3.4rem);">What you eat is part of <em>how you move</em></h1>
+      <div class="nutrition-intro">
+        <div>
+          <p class="section-body" style="max-width:none;">Movement doesn't happen in isolation. How you digest, how you sleep, how much energy you carry into a session — these all connect back to what's on your plate. I don't offer nutrition coaching or meal plans. What I do offer is a perspective shaped by years of studying how food, movement, and recovery interact.</p>
+          <p class="section-body" style="max-width:none; margin-top:1.5rem;">This page — and the journal articles linked below — reflect that perspective. Think of it as a shared library of what I've learned, what the research supports, and what I've seen work in my own life and in the lives of my clients.</p>
+        </div>
+        <div class="nutrition-image">
+          <!-- IMAGE RECOMMENDATION: Colorful whole-food bowl or market produce. 
+               The uploaded salad bowl image (Image 1) is strong for this — vibrant, real, not styled to death. -->
+          <div class="placeholder-bg" style="width:100%;height:100%;position:absolute;top:0;left:0;">
+            Whole Food
+          </div>
+          <div class="img-note">📷 Recommendation: The colorful salad bowl from Image 1 works well here. Real food, vibrant, not overly styled. Alternatively, a flat-lay of seasonal produce. Avoid stock-photo "clean eating" clichés.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars -->
+  <section class="nutrition-pillars">
+    <div class="container">
+      <p class="section-eyebrow">Principles</p>
+      <h2 class="section-title">A simple framework</h2>
+      <p class="section-body">Not a diet. Not a program. Just a set of ideas that consistently hold up — in research and in practice.</p>
+      <div class="pillars-grid">
+        <div class="pillar">
+          <div class="pillar-number">01</div>
+          <h4>Eat Whole, Mostly Plants</h4>
+          <p>The simplest nutritional truth that survives every fad cycle. Whole, minimally processed foods — with an emphasis on vegetables, fruits, legumes, nuts, and seeds — form the foundation of durable health.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-number">02</div>
+          <h4>Support Recovery</h4>
+          <p>What you eat after you move matters. Adequate protein, anti-inflammatory foods, and proper hydration aren't performance hacks — they're basic maintenance for a body that works hard.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-number">03</div>
+          <h4>Reduce the Noise</h4>
+          <p>Most nutritional confusion comes from overconsumption of advice, not food. Eat real food. Pay attention to how it makes you feel. Adjust. That's most of the work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connection to Journal -->
+  <section>
+    <div class="container" style="text-align:center;">
+      <p class="section-eyebrow">Go Deeper</p>
+      <h2 class="section-title">From the journal</h2>
+      <p class="section-body" style="margin: 0 auto 2rem;">I write about the intersection of movement, food, and long-term health — with sources. No opinions without evidence.</p>
+      <a class="cta-btn" onclick="showPage('blog')">Read the Journal</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="section-title">Movement and nourishment start together</h2>
+      <p class="section-body">The consultation is a chance to talk about your whole picture — not just how you move, but how you live.</p>
+      <a class="cta-btn" onclick="showPage('contact')">Book Your Free Consultation</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- ABOUT PAGE -->
+<!-- ===================================================== -->
+<div class="page" id="page-about">
+
+  <section class="about-hero">
+    <div class="container">
+      <div class="about-hero-grid">
+        <div class="about-portrait" style="position:relative;">
+          <!-- IMAGE RECOMMENDATION: The strongest portrait you have. Head-to-waist minimum. 
+               Natural expression, not grinning. The IMG_0012.png headshot or the Dreamwave portrait both work,
+               but a real photograph (not AI-generated) would be far more credible for this page. -->
+          <div class="placeholder-bg" style="width:100%;height:100%;position:absolute;top:0;left:0;">
+            Nina — Portrait
+          </div>
+          <div class="img-note">📷 Recommendation: Your most authentic portrait. Real photograph, not AI-generated. Warm but not grinning. Chest-up or three-quarter. This is the trust page — the image needs to feel real and grounded.</div>
+        </div>
+        <div class="about-text">
+          <p class="section-eyebrow">About</p>
+          <h1>Nina Manova</h1>
+          <p>I grew up in Macedonia as a competitive athlete. Sport taught me discipline, resilience, and an intimate awareness of what a body can and cannot do on any given day. When I moved to the United States, I carried that awareness into a new career — teaching movement.</p>
+          <p>For the past fifteen years, I've taught Pilates in every setting imaginable: in people's living rooms, in residential building gyms, inside corporate wellness programs, in hospital employee health initiatives, and across multiple dedicated Pilates studios. Each environment taught me something different about how people relate to their bodies and what they actually need from a movement practice.</p>
+          <p>What they need, in most cases, is not more intensity. It's more attention. More precision. More honesty about where they are and what will actually help them get to where they want to be.</p>
+          <p>My approach is rooted in classical Pilates — the original system designed by Joseph Pilates — but it's adapted to every individual I work with. I don't follow trends. I follow the body in front of me.</p>
+          <p>Today, I work with private and semi-private clients in my neighborhood community. I'm also a mother, which has reshaped my understanding of energy, recovery, and the importance of building a practice that bends with your life rather than competing with it.</p>
+          <p>If you're looking for someone to push you through a hard workout, I'm probably not your person. If you're looking for someone to help you understand your body and build strength that lasts, I'd like to talk with you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials -->
+  <section class="credentials-strip">
+    <div class="container">
+      <div class="credentials-grid">
+        <div class="credential-item">
+          <div class="credential-number">15+</div>
+          <div class="credential-label">Years Teaching</div>
+        </div>
+        <div class="credential-item">
+          <div class="credential-number">5</div>
+          <div class="credential-label">Teaching Environments</div>
+        </div>
+        <div class="credential-item">
+          <div class="credential-number">1</div>
+          <div class="credential-label">Approach — Yours</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="section-title">Let's start with a conversation</h2>
+      <p class="section-body">The 30-minute consultation is free, no-pressure, and entirely about understanding what you need.</p>
+      <a class="cta-btn" onclick="showPage('contact')">Book Your Free Consultation</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- BLOG PAGE -->
+<!-- ===================================================== -->
+<div class="page" id="page-blog">
+
+  <section class="blog-hero">
+    <div class="container">
+      <p class="section-eyebrow">Journal</p>
+      <h1 class="section-title">Movement, nourishment, <em>evidence</em></h1>
+      <p class="section-body">Articles on what the research actually says about how we move, eat, and age — written without hype.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="blog-grid">
+
+        <!-- Blog Post 1 -->
+        <div class="blog-card" onclick="alert('Full blog post view — to be built in next phase')">
+          <div class="blog-card-image">
+            <div class="placeholder-bg" style="width:100%;height:100%;position:absolute;top:0;left:0;">Article Image</div>
+            <div class="img-note">📷 Rec: Person walking outdoors, or an older adult in movement. Not a gym.</div>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Movement &amp; Longevity</div>
+            <h3>Why Strength Training After 40 Is Non-Negotiable</h3>
+            <p>Sarcopenia begins in your 30s. By 50, you're losing muscle mass at roughly 1–2% per year. Here's what the research says about reversing that trajectory.</p>
+          </div>
+          <div class="blog-card-meta">Coming Soon</div>
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="blog-card" onclick="alert('Full blog post view — to be built in next phase')">
+          <div class="blog-card-image">
+            <div class="placeholder-bg" style="width:100%;height:100%;position:absolute;top:0;left:0;">Article Image</div>
+            <div class="img-note">📷 Rec: Fresh produce or a simple meal. Real, not styled. Use the cherry or mango images.</div>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Nourishment</div>
+            <h3>Anti-Inflammatory Eating: What the Science Actually Supports</h3>
+            <p>Chronic inflammation is linked to nearly every age-related disease. A look at which dietary patterns have the strongest evidence — and which are marketing.</p>
+          </div>
+          <div class="blog-card-meta">Coming Soon</div>
+        </div>
+
+        <!-- Blog Post 3 -->
+        <div class="blog-card" onclick="alert('Full blog post view — to be built in next phase')">
+          <div class="blog-card-image">
+            <div class="placeholder-bg" style="width:100%;height:100%;position:absolute;top:0;left:0;">Article Image</div>
+            <div class="img-note">📷 Rec: Someone stretching at home, or a quiet morning routine scene.</div>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Movement &amp; Recovery</div>
+            <h3>The Case for Moving Less — But Better</h3>
+            <p>Volume is overrated. Precision, consistency, and recovery produce better long-term outcomes than doing more. Here's the evidence.</p>
+          </div>
+          <div class="blog-card-meta">Coming Soon</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- CONTACT PAGE -->
+<!-- ===================================================== -->
+<div class="page" id="page-contact">
+
+  <section class="contact-hero">
+    <div class="container">
+      <p class="section-eyebrow">Contact</p>
+      <h1 class="section-title">Start with a <em>conversation</em></h1>
+      <p class="section-body">The complimentary 30-minute consultation is a chance for us to talk — about your body, your goals, and whether working together makes sense. No pressure, no commitment.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-info">
+          <h3>What to Expect</h3>
+          <p>We'll spend 30 minutes discussing your movement history, any concerns or goals you have, and what a session with me looks like. This isn't a sales call — it's a genuine conversation to see if we're a good fit.</p>
+
+          <div class="contact-detail">
+            <div class="detail-label">Location</div>
+            <div class="detail-value">Fort Lauderdale, FL — neighborhood-based sessions</div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-label">Sessions</div>
+            <div class="detail-value">Private (1:1) &amp; Semi-Private (2 people)</div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-label">Consultation</div>
+            <div class="detail-value">30 minutes, complimentary</div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form onsubmit="handleFormSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone (optional)</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+              <label for="interest">I'm interested in</label>
+              <select id="interest" name="interest">
+                <option value="">Select one...</option>
+                <option value="private">Private Sessions (1:1)</option>
+                <option value="semi-private">Semi-Private Sessions (2 people)</option>
+                <option value="unsure">Not sure yet — let's talk</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="location">Preferred location</label>
+              <select id="location" name="location">
+                <option value="">Select one...</option>
+                <option value="home">In my home</option>
+                <option value="building">My building gym</option>
+                <option value="studio">In studio</option>
+                <option value="flexible">Flexible — let's discuss</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Anything you'd like me to know?</label>
+              <textarea id="message" name="message" placeholder="Movement goals, injuries, concerns, questions — anything is helpful."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Request Consultation</button>
+          </form>
+          <p id="formSuccess" style="display:none; margin-top:1.5rem; color:var(--sage); font-size:0.95rem;">Thank you. I'll be in touch within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Nina Manova</div>
+        <div class="footer-tagline">Movement educator. Longevity practitioner.</div>
+      </div>
+      <div class="footer-links">
+        <a onclick="showPage('movement')">Movement</a>
+        <a onclick="showPage('nutrition')">Nourishment</a>
+        <a onclick="showPage('about')">About</a>
+        <a onclick="showPage('blog')">Journal</a>
+        <a onclick="showPage('contact')">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Nina Manova. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== ROUTING =====
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
+    p.style.display = 'none';
+  });
+  const target = document.getElementById('page-' + page);
+  if (target) {
+    target.style.display = 'block';
+    requestAnimationFrame(() => { target.classList.add('active'); });
+  }
+  
+  // Update nav active state
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const navLink = document.querySelector(`.nav-links a[data-page="${page}"]`);
+  if (navLink) navLink.classList.add('active');
+  
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  
+  // Close mobile menu
+  document.getElementById('navLinks').classList.remove('open');
+}
+
+// ===== NAV SCROLL EFFECT =====
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  if (window.scrollY > 40) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+// ===== MOBILE MENU =====
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ===== FORM HANDLER =====
+function handleFormSubmit(e) {
+  e.preventDefault();
+  // In production, this would POST to a backend or service like Formspree/Netlify Forms
+  e.target.style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+  showPage('home');
+});
+</script>
+
+</body>
+</html>
