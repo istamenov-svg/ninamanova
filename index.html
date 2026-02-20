@@ -389,7 +389,7 @@ section { padding: 7rem 0; }
 
 .services-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
   margin-top: 3.5rem;
 }
@@ -1542,6 +1542,11 @@ footer {
           <p>Work alongside a partner or friend in a focused two-person setting. The same precision and attention, with the added motivation of shared commitment.</p>
           <a class="card-link" onclick="showPage('movement')">Learn more</a>
         </div>
+        <div class="service-card">
+          <h3>Online Sessions</h3>
+          <p>Live, one-on-one guidance over Zoom — the same focused attention as in-person, from wherever you are. Ideal for travel, busy schedules, or clients outside South Florida.</p>
+          <a class="card-link" onclick="showPage('contact')">Book a session</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1952,6 +1957,7 @@ footer {
                 <option value="">Select one...</option>
                 <option value="private">Private Sessions (1:1)</option>
                 <option value="semi-private">Semi-Private Sessions (2 people)</option>
+                <option value="online">Online Sessions (Zoom)</option>
                 <option value="unsure">Not sure yet — let's talk</option>
               </select>
             </div>
