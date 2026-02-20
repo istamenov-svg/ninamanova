@@ -1248,13 +1248,20 @@ footer {
   .nav-links { top: 64px; }
   
   .hero { margin-top: 64px; height: calc(100vh - 64px); }
-  .hero-bg-img { height: 100%; }
-  .hero-h1 { font-size: clamp(1.8rem, 6vw, 2.6rem); }
-  .hero-body { font-size: 0.9rem; max-width: 360px; }
+  .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    object-position: 55% top;
+  }
+  .hero-content { align-items: flex-end; padding-bottom: 3rem; }
+  .hero-h1 { font-size: clamp(2.2rem, 7vw, 3rem); }
+  .hero-body { font-size: 1.05rem; max-width: 360px; }
   .hero-locations { gap: 0.8rem; }
   .hero-location-divider { display: none; }
-  .hero-locations-serving { font-size: 0.7rem; }
-  .hero-cta { padding: 0.85rem 2rem; }
+  .hero-locations-serving { font-size: 0.85rem; }
+  .hero-cta { padding: 1rem 2.2rem; font-size: 0.85rem; }
   
   .page-hero { padding-top: calc(64px + 3rem); padding-bottom: 3rem; }
   .page-hero-inner { grid-template-columns: 1fr; gap: 2rem; }
@@ -1287,67 +1294,110 @@ footer {
 
 /* Large phone */
 @media (max-width: 600px) {
+  html { font-size: 18px; }
   .container { padding: 0 1.25rem; }
   .nav-inner { padding: 0 1.25rem; }
   
   section { padding: 3.5rem 0; }
   
-  .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
-  .section-body { font-size: 0.92rem; }
+  .section-title { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+  .section-body { font-size: 1.05rem; }
+  .section-eyebrow { font-size: 0.8rem; }
   
   .hero-content .container { padding: 0 1.25rem; }
-  .hero-h1 { font-size: clamp(1.6rem, 7vw, 2.2rem); max-width: 320px; }
-  .hero-body { font-size: 0.85rem; max-width: 300px; }
-  .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.2em; }
-  .hero-locations-serving { font-size: 0.65rem; }
-  .hero-location-item { font-size: 0.7rem; }
-  .hero-cta { font-size: 0.72rem; padding: 0.8rem 1.8rem; }
+  .hero-h1 { font-size: clamp(2rem, 8vw, 2.6rem); max-width: 320px; }
+  .hero-body { font-size: 1rem; max-width: 300px; }
+  .hero-eyebrow { font-size: 0.8rem; letter-spacing: 0.2em; }
+  .hero-locations-serving { font-size: 0.8rem; }
+  .hero-location-item { font-size: 0.85rem; }
+  .hero-cta { font-size: 0.85rem; padding: 1rem 2rem; }
+  .hero-bg-img { object-position: 50% top; }
+  
+  .hero-overlay {
+    background: 
+      linear-gradient(
+        to right,
+        rgba(35, 28, 32, 0.88) 0%,
+        rgba(35, 28, 32, 0.6) 50%,
+        rgba(35, 28, 32, 0.3) 75%,
+        rgba(35, 28, 32, 0.15) 100%
+      ),
+      linear-gradient(
+        to top,
+        rgba(35, 28, 32, 0.7) 0%,
+        transparent 50%
+      );
+  }
   
   .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .service-card { padding: 1.8rem; }
-  .service-card h3 { font-size: 1.3rem; }
+  .service-card h3 { font-size: 1.5rem; }
+  .service-card p { font-size: 1.05rem; }
+  .card-link { font-size: 0.85rem; }
   
   .philosophy-strip { padding: 3.5rem 0; }
-  .philosophy-strip blockquote { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+  .philosophy-strip blockquote { font-size: clamp(1.4rem, 5vw, 1.8rem); }
   
   .nourishment-preview { padding: 3.5rem 0; }
   .nourishment-certs { margin-bottom: 1.5rem; }
   .cert-tags { gap: 0.4rem; }
-  .cert-tag { font-size: 0.68rem; padding: 0.4rem 0.8rem; }
+  .cert-tag { font-size: 0.8rem; padding: 0.5rem 1rem; }
+  .certs-label { font-size: 0.8rem; }
+  .text-link { font-size: 0.85rem; }
   
   .sessions-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .session-card { padding: 1.8rem; }
+  .session-card h3 { font-size: 1.5rem; }
+  .session-card p { font-size: 1.05rem; }
+  .session-card .session-for { font-size: 0.8rem; }
   
   .principles-list { grid-template-columns: 1fr; gap: 1.5rem; }
   .principle { padding: 1.5rem 0; }
+  .principle h4 { font-size: 1.4rem; }
+  .principle p { font-size: 1.05rem; }
   
   .pillar { padding: 1.8rem; }
+  .pillar h4 { font-size: 1.4rem; }
+  .pillar p { font-size: 1.05rem; }
+  .pillar-number { font-size: 2.8rem; }
   
   .blog-card-body { padding: 1.3rem; }
-  .blog-card-body h3 { font-size: 1.15rem; }
-  .blog-card-meta { padding: 0.8rem 1.3rem; }
+  .blog-card-body h3 { font-size: 1.3rem; }
+  .blog-card-body p { font-size: 1rem; }
+  .blog-card-tag { font-size: 0.8rem; }
+  .blog-card-meta { padding: 0.8rem 1.3rem; font-size: 0.85rem; }
   
-  .about-text h1 { font-size: clamp(2rem, 7vw, 2.6rem); }
-  .about-text p { font-size: 0.92rem; }
+  .about-text h1 { font-size: clamp(2.2rem, 8vw, 2.8rem); }
+  .about-text p { font-size: 1.05rem; }
   
   .credentials-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-  .credential-item .credential-number { font-size: 2.2rem; }
-  .credential-item .credential-label { font-size: 0.65rem; }
+  .credential-item .credential-number { font-size: 2.4rem; }
+  .credential-item .credential-label { font-size: 0.8rem; }
   
-  .contact-info h3 { font-size: 1.3rem; }
+  .contact-info h3 { font-size: 1.5rem; }
+  .contact-info p { font-size: 1.05rem; }
+  .contact-detail .detail-label { font-size: 0.8rem; }
+  .contact-detail .detail-value { font-size: 1.05rem; }
+  .form-group label { font-size: 0.8rem; }
+  .form-group input,
+  .form-group textarea,
+  .form-group select { font-size: 16px; }
   .form-row { grid-template-columns: 1fr; }
-  .form-submit { width: 100%; text-align: center; }
+  .form-submit { width: 100%; text-align: center; font-size: 0.85rem; }
   
   .cta-banner { padding: 3.5rem 0; }
-  .cta-btn { font-size: 0.72rem; padding: 0.85rem 2rem; }
+  .cta-btn { font-size: 0.85rem; padding: 1rem 2rem; }
   
   footer { padding: 3rem 0 1.5rem; }
   .footer-links { gap: 1rem; }
-  .footer-links a { font-size: 0.68rem; }
+  .footer-links a { font-size: 0.8rem; }
+  .footer-tagline { font-size: 0.95rem; }
+  .footer-bottom { font-size: 0.85rem; }
 }
 
 /* Small phone */
 @media (max-width: 400px) {
+  html { font-size: 19px; }
   .container { padding: 0 1rem; }
   .nav-inner { padding: 0 1rem; }
   .nav-logo img { height: 36px !important; }
