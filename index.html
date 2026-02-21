@@ -186,12 +186,49 @@
         }
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Why Strength Training After 40 Is Non-Negotiable",
+    "description": "Sarcopenia begins in your 30s. By 50, you're losing muscle mass at roughly 1-2% per year. Here's what the research says about reversing that trajectory.",
+    "image": "https://istamenov-svg.github.io/ninamanova/images/blog-strength.jpg",
+    "datePublished": "2026-02-20",
+    "author": { "@id": "https://istamenov-svg.github.io/ninamanova/#person" },
+    "publisher": { "@id": "https://istamenov-svg.github.io/ninamanova/#business" },
+    "mainEntityOfPage": "https://istamenov-svg.github.io/ninamanova/#blog",
+    "keywords": ["sarcopenia", "strength training", "muscle loss", "aging", "bone density", "resistance training", "longevity"]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Anti-Inflammatory Eating: What the Science Actually Supports",
+    "description": "Chronic inflammation is linked to nearly every age-related disease. A look at which dietary patterns have the strongest evidence.",
+    "image": "https://istamenov-svg.github.io/ninamanova/images/blog-nutrition.jpg",
+    "datePublished": "2026-02-20",
+    "author": { "@id": "https://istamenov-svg.github.io/ninamanova/#person" },
+    "publisher": { "@id": "https://istamenov-svg.github.io/ninamanova/#business" },
+    "mainEntityOfPage": "https://istamenov-svg.github.io/ninamanova/#blog",
+    "keywords": ["anti-inflammatory diet", "Mediterranean diet", "chronic inflammation", "nutrition", "whole foods", "longevity"]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Case for Moving Less — But Better",
+    "description": "Volume is overrated. Precision, consistency, and recovery produce better long-term outcomes than doing more.",
+    "image": "https://istamenov-svg.github.io/ninamanova/images/blog-movement.jpg",
+    "datePublished": "2026-02-20",
+    "author": { "@id": "https://istamenov-svg.github.io/ninamanova/#person" },
+    "publisher": { "@id": "https://istamenov-svg.github.io/ninamanova/#business" },
+    "mainEntityOfPage": "https://istamenov-svg.github.io/ninamanova/#blog",
+    "keywords": ["mindful movement", "Pilates", "movement quality", "recovery", "interoceptive awareness", "mind-body connection"]
   }
 ]
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
 <style>
 :root {
   --stone-50: #faf8f9;
@@ -1400,6 +1437,119 @@ footer {
 }
 
 /* ===== IMAGE PLACEHOLDER HELPER ===== */
+/* Blog Article View */
+.blog-article { display: none; }
+.blog-article.active { display: block; }
+.blog-article-header { margin-bottom: 3rem; }
+.blog-article-back {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 2rem;
+  transition: color 0.3s;
+}
+.blog-article-back:hover { color: var(--stone-800); }
+.blog-article-tag {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.blog-article-title {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--stone-900);
+  margin-bottom: 1rem;
+}
+.blog-article-date {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--stone-400);
+  margin-bottom: 2rem;
+}
+.blog-article-hero-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 3rem;
+}
+.blog-article-body {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.blog-article-body p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--stone-700);
+  margin-bottom: 1.6rem;
+}
+.blog-article-body h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  margin-top: 3rem;
+  margin-bottom: 1.2rem;
+}
+.blog-article-body blockquote {
+  border-left: 3px solid var(--sage);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--stone-600);
+}
+.blog-article-body .highlight-stat {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  text-align: center;
+  padding: 2rem;
+  margin: 2.5rem 0;
+  background: var(--sage-pale);
+  border-radius: 4px;
+}
+.blog-sources {
+  max-width: 700px;
+  margin: 3rem auto 0;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--stone-200);
+}
+.blog-sources h3 {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  margin-bottom: 1.2rem;
+}
+.blog-sources ol {
+  padding-left: 1.2rem;
+}
+.blog-sources li {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--stone-500);
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+}
+.blog-sources li em { color: var(--stone-600); }
+
 .placeholder-bg {
   display: flex;
   align-items: center;
@@ -1653,6 +1803,21 @@ footer {
   html { scroll-behavior: auto; }
 }
 
+/* Blog Article Responsive */
+@media (max-width: 900px) {
+  .blog-article-title { font-size: 2.2rem; }
+  .blog-article-body p { font-size: 1rem; }
+  .blog-article-body h2 { font-size: 1.5rem; }
+  .blog-article-hero-img { max-height: 320px; }
+  .blog-sources li { font-size: 0.8rem; }
+}
+@media (max-width: 600px) {
+  .blog-article-title { font-size: 1.8rem; }
+  .blog-article-body p { font-size: 1rem; line-height: 1.75; }
+  .blog-article-body h2 { font-size: 1.35rem; margin-top: 2.2rem; }
+  .blog-article-hero-img { max-height: 240px; }
+  .highlight-stat { font-size: 1.15rem; padding: 1.5rem; }
+}
 </style>
 </head>
 <body>
@@ -1660,7 +1825,7 @@ footer {
 <!-- ===== NAVIGATION ===== -->
 <nav id="mainNav">
   <div class="nav-inner">
-    <a class="nav-logo" onclick="showPage('home')"><img src="images/logo.png" alt="Nina Manova" style="height:48px; display:block;"></a>
+    <a class="nav-logo" onclick="showPage('home')"><img src="images/logo.png" alt="Nina Manova" width="159" height="48" style="height:48px;width:auto;display:block;"></a>
     <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -1681,7 +1846,7 @@ footer {
 
   <!-- Hero -->
   <section class="hero">
-    <img src="images/nourishment-bowl.jpg" alt="Nina Manova in her Pilates studio" class="hero-bg-img">
+    <img src="images/nourishment-bowl.jpg" alt="Nina Manova in her Pilates studio" class="hero-bg-img" fetchpriority="high" width="1400" height="557">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="container">
@@ -1766,10 +1931,10 @@ footer {
         </div>
         <div class="nourishment-image-area">
           <div class="nourishment-img-main" style="aspect-ratio:4/5;">
-            <img src="images/legumes.jpg" alt="Colorful whole food bowl with fresh vegetables" style="width:100%;height:100%;object-fit:cover;">
+            <img src="images/legumes.jpg" alt="Colorful whole food bowl with fresh vegetables" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="nourishment-img-accent" style="aspect-ratio:1;">
-            <img src="images/movement-pilates.jpg" alt="Fresh legumes and lentils" style="width:100%;height:100%;object-fit:cover;">
+            <img src="images/movement-pilates.jpg" alt="Fresh legumes and lentils" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
           </div>
         </div>
       </div>
@@ -1814,7 +1979,7 @@ footer {
           <p class="section-body">Pilates is not a workout — it's a practice. My sessions are built on classical Pilates principles but adapted entirely to the person in front of me. The goal is never to impress. It's to improve how you feel, function, and move through your day.</p>
         </div>
         <div class="page-hero-image">
-          <img src="images/hero.jpg" alt="Hands gripping Pilates reformer bar" style="width:100%;height:100%;object-fit:cover;">
+          <img src="images/hero.jpg" alt="Hands gripping Pilates reformer bar" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
         </div>
       </div>
     </div>
@@ -1889,7 +2054,7 @@ footer {
           <p class="section-body" style="max-width:none; margin-top:1.5rem;">This page — and the journal articles linked below — reflect that perspective. Think of it as a shared library of what I've learned, what the research supports, and what I've seen work in my own life and in the lives of my clients.</p>
         </div>
         <div class="nutrition-image">
-          <img src="images/farmacy.jpg" alt="Fresh produce at a farmers market" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+          <img src="images/farmacy.jpg" alt="Fresh produce at a farmers market" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
         </div>
       </div>
     </div>
@@ -1951,7 +2116,7 @@ footer {
     <div class="container">
       <div class="about-hero-grid">
         <div class="about-portrait" style="position:relative;">
-          <img src="images/nina-park.jpg" alt="Nina Manova" style="width:100%;height:100%;object-fit:cover;">
+          <img src="images/nina-park.jpg" alt="Nina Manova" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="about-text">
           <p class="section-eyebrow">About</p>
@@ -2011,54 +2176,264 @@ footer {
     </div>
   </section>
 
-  <section style="padding-top:0;">
+  <!-- Blog Grid (card listing) -->
+  <section style="padding-top:0;" id="blog-grid-section">
     <div class="container">
       <div class="blog-grid">
 
-        <!-- Blog Post 1 -->
-        <div class="blog-card" onclick="alert('Full blog post view — to be built in next phase')">
+        <div class="blog-card" onclick="showBlogPost('strength')">
           <div class="blog-card-image">
-            <img src="images/blog-strength.jpg" alt="Older couple dancing outdoors in a park" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+            <img src="images/blog-strength.jpg" alt="Older couple dancing outdoors in a park" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
           </div>
           <div class="blog-card-body">
             <div class="blog-card-tag">Movement &amp; Longevity</div>
             <h3>Why Strength Training After 40 Is Non-Negotiable</h3>
             <p>Sarcopenia begins in your 30s. By 50, you're losing muscle mass at roughly 1–2% per year. Here's what the research says about reversing that trajectory.</p>
           </div>
-          <div class="blog-card-meta">Coming Soon</div>
+          <div class="blog-card-meta">February 2026 &middot; 6 min read</div>
         </div>
 
-        <!-- Blog Post 2 -->
-        <div class="blog-card" onclick="alert('Full blog post view — to be built in next phase')">
+        <div class="blog-card" onclick="showBlogPost('antiinflammatory')">
           <div class="blog-card-image">
-            <img src="images/blog-nutrition.jpg" alt="Fresh whole foods on a wooden table" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+            <img src="images/blog-nutrition.jpg" alt="Fresh whole foods on a wooden table" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
           </div>
           <div class="blog-card-body">
             <div class="blog-card-tag">Nourishment</div>
             <h3>Anti-Inflammatory Eating: What the Science Actually Supports</h3>
             <p>Chronic inflammation is linked to nearly every age-related disease. A look at which dietary patterns have the strongest evidence — and which are marketing.</p>
           </div>
-          <div class="blog-card-meta">Coming Soon</div>
+          <div class="blog-card-meta">February 2026 &middot; 7 min read</div>
         </div>
 
-        <!-- Blog Post 3 -->
-        <div class="blog-card" onclick="alert('Full blog post view — to be built in next phase')">
+        <div class="blog-card" onclick="showBlogPost('moveless')">
           <div class="blog-card-image">
-            <img src="images/blog-movement.jpg" alt="Woman practicing Pilates with magic circle on reformer" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+            <img src="images/blog-movement.jpg" alt="Woman practicing Pilates with magic circle on reformer" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
           </div>
           <div class="blog-card-body">
             <div class="blog-card-tag">Movement &amp; Recovery</div>
             <h3>The Case for Moving Less — But Better</h3>
             <p>Volume is overrated. Precision, consistency, and recovery produce better long-term outcomes than doing more. Here's the evidence.</p>
           </div>
-          <div class="blog-card-meta">Coming Soon</div>
+          <div class="blog-card-meta">February 2026 &middot; 6 min read</div>
         </div>
 
       </div>
     </div>
   </section>
 
+  <!-- ==================== BLOG POST 1 ==================== -->
+  <div class="blog-article" id="blog-strength">
+    <section>
+      <div class="container">
+        <div class="blog-article-header">
+          <div class="blog-article-back" onclick="closeBlogPost()">&larr; Back to Journal</div>
+          <div class="blog-article-tag">Movement &amp; Longevity</div>
+          <h1 class="blog-article-title">Why Strength Training After 40 Is Non-Negotiable</h1>
+          <div class="blog-article-date">February 2026</div>
+        </div>
+        <img src="images/blog-strength.jpg" alt="Older couple dancing outdoors" class="blog-article-hero-img" loading="lazy" width="900" height="600">
+        <div class="blog-article-body">
+
+          <p>There's a quiet thief that starts visiting you in your thirties. It doesn't announce itself. It doesn't hurt — not yet. It simply removes, slowly and steadily, the thing you've always taken for granted: the ability to carry, to climb, to catch yourself when you stumble, to stand up from a low chair without thinking about it.</p>
+
+          <p>By the time most people notice, they've already lost years of ground.</p>
+
+          <h2>What the science calls it</h2>
+
+          <p>The medical term is sarcopenia — from the Greek <em>sarx</em> (flesh) and <em>penia</em> (loss). It describes the progressive, age-related decline in skeletal muscle mass, strength, and function. It was first named by Irwin Rosenberg in the late 1980s, and since then, research has only deepened the urgency around it.</p>
+
+          <p>The numbers are stark. You begin losing muscle mass sometime in your thirties. By your forties and fifties, strength declines at roughly 10–15% per decade. After 70, that rate accelerates sharply — 25–40% per decade. By age 80, between 11% and 50% of people meet the clinical criteria for sarcopenia, depending on how it's measured.</p>
+
+          <div class="highlight-stat">Strength declines at roughly 10–15% per decade after 40. After 70, the rate accelerates to 25–40% per decade.</div>
+
+          <p>These aren't just numbers on a chart. They translate directly into whether you can carry your own groceries at 75. Whether you can get off the floor if you fall. Whether a hip fracture is something you recover from — or something that ends your independence.</p>
+
+          <h2>It's not just about muscle</h2>
+
+          <p>Sarcopenia doesn't exist in isolation. As muscle mass decreases, fat mass tends to increase, changing your entire body composition. This shift is associated with greater insulin resistance, higher rates of type 2 diabetes, cardiovascular disease, and osteoporosis. Research from the European Working Group on Sarcopenia in Older People found that people with sarcopenia had significantly higher prevalence of diabetes, chronic kidney disease, and cardiovascular conditions.</p>
+
+          <p>Bone density drops alongside muscle. This is not a coincidence — muscles pull on bones, and that mechanical loading is one of the primary signals that keeps bones rebuilding themselves. When the muscle goes, the bone follows. A 2022 meta-analysis of resistance training in older adults found that consistent training produced a positive effect on bone mineral density at the hip (0.64%) and lumbar spine (0.62%), enough to prevent age-related decline — not reverse it, but hold the line.</p>
+
+          <h2>The intervention that works</h2>
+
+          <p>There's no pharmaceutical replacement for what resistance training does. Hormonal therapies are being investigated, but the evidence remains inconclusive and the side effects significant. The single most effective intervention, backed by decades of randomized controlled trials, is progressive resistance training.</p>
+
+          <p>That doesn't mean CrossFit. It doesn't mean lifting until failure. It means loading your muscles against resistance — bodyweight, bands, springs, machines, free weights — in a progressive, controlled manner, with enough intensity to stimulate adaptation, and enough recovery to let adaptation happen.</p>
+
+          <p>The protocols that show the most consistent results in the literature involve two to three sessions per week, compound movements targeting both upper and lower body, moderate to high intensity (70–90% of one-rep maximum where applicable), and a minimum duration of twelve weeks — though the benefits compound over months and years.</p>
+
+          <p>Pilates-based resistance work, particularly on the reformer, fits squarely within this framework. The spring system provides variable resistance. The exercises are compound. The environment is controlled enough to maintain proper form — which matters more as you age, not less.</p>
+
+          <h2>What this really means</h2>
+
+          <p>This article isn't meant to scare you. It's meant to give you something more useful than fear: information, and the agency that comes with it.</p>
+
+          <p>Sarcopenia is not inevitable in the way we once assumed. It is accelerated by inactivity and poor nutrition, and it is slowed — sometimes substantially — by consistent, structured resistance training. The research is not ambiguous on this point. The question is not whether to start, but when.</p>
+
+          <p>And the answer to that, for anyone reading this, is now.</p>
+
+        </div>
+
+        <div class="blog-sources">
+          <h3>Sources</h3>
+          <ol>
+            <li>Rosenberg, I.H. (1997). Sarcopenia: Origins and clinical relevance. <em>Journal of Nutrition, 127</em>(5), 990S–991S.</li>
+            <li>Cruz-Jentoft, A.J. et al. (2019). Sarcopenia: revised European consensus on definition and diagnosis. <em>Age and Ageing, 48</em>(1), 16–31.</li>
+            <li>Mitchell, W.K. et al. (2012). Sarcopenia, dynapenia, and the impact of advancing age on human skeletal muscle size and strength. <em>Frontiers in Physiology, 3</em>, 260.</li>
+            <li>Şenoymak, C. et al. (2024). Sarcopenia and associated factors in adults aged 40 and above. <em>Cureus, 16</em>(9), e68831.</li>
+            <li>Marques, E.A. et al. (2022). The effect of resistance training on bone mineral density in older adults: A systematic review and meta-analysis. <em>Healthcare, 10</em>(6), 1129.</li>
+            <li>Nowakowska-Lipiec, K. et al. (2025). Progressive loss of muscle strength: The effects of ageing and sarcopenia on muscle function in older females. <em>Applied Sciences, 15</em>(20), 11230.</li>
+            <li>Cleveland Clinic (2025). Sarcopenia (Muscle Loss): Symptoms &amp; Causes.</li>
+            <li>Haque, I. et al. (2024). The effects of high velocity resistance training on bone mineral density in older adults: A systematic review. <em>Bone, 179</em>, 116986.</li>
+            <li>Nascimento, D.D.C. et al. (2022). Progressive resistance training for concomitant increases in muscle strength and bone mineral density in older adults. <em>Sports Medicine, 52</em>, 1939–1960.</li>
+            <li>Nature Bone Research (2025). Research progress on sarcopenia in the musculoskeletal system. <em>Bone Research, 13</em>.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== BLOG POST 2 ==================== -->
+  <div class="blog-article" id="blog-antiinflammatory">
+    <section>
+      <div class="container">
+        <div class="blog-article-header">
+          <div class="blog-article-back" onclick="closeBlogPost()">&larr; Back to Journal</div>
+          <div class="blog-article-tag">Nourishment</div>
+          <h1 class="blog-article-title">Anti-Inflammatory Eating: What the Science Actually Supports</h1>
+          <div class="blog-article-date">February 2026</div>
+        </div>
+        <img src="images/blog-nutrition.jpg" alt="Fresh whole foods on a wooden table" class="blog-article-hero-img" loading="lazy" width="900" height="590">
+        <div class="blog-article-body">
+
+          <p>There's a version of you at 70 that moves easily, thinks clearly, sleeps deeply, and wakes up without stiffness. And there's another version — one who hurts in places that can't be traced to a single injury, who feels heavy even after resting, who watches their world slowly narrow.</p>
+
+          <p>The distance between those two versions is shaped by many things. But one of the most modifiable — the one most under your daily control — is what you eat.</p>
+
+          <h2>The inflammation you don't feel</h2>
+
+          <p>Acute inflammation is your body doing exactly what it should — responding to injury, infection, or damage. It's the redness around a cut, the swelling after a sprain. It's temporary, localized, and purposeful.</p>
+
+          <p>Chronic low-grade inflammation is something different entirely. It operates below the threshold of symptoms for years. You don't feel it happening. But it's measurable — elevated C-reactive protein, interleukin-6, tumor necrosis factor alpha — and it's associated with nearly every major age-related disease: cardiovascular disease, type 2 diabetes, certain cancers, Alzheimer's, and autoimmune conditions.</p>
+
+          <p>Six out of ten adults in the United States have at least one chronic condition, and chronic diseases cause seven in ten deaths each year. Inflammation is a common thread running through almost all of them.</p>
+
+          <div class="highlight-stat">Chronic low-grade inflammation is a common pathological feature linking cardiovascular disease, diabetes, cancer, and neurodegenerative conditions.</div>
+
+          <h2>What actually has evidence</h2>
+
+          <p>The nutrition space is cluttered with claims. Superfoods, detoxes, elimination protocols — most lack rigorous evidence. But a few dietary patterns have been studied extensively and hold up under scrutiny.</p>
+
+          <p>The Mediterranean dietary pattern has the deepest evidence base. A 2025 umbrella review in <em>Nutrition Reviews</em>, synthesizing 30 systematic reviews and over 225 primary studies, found consistent associations between Mediterranean-style eating and reductions in inflammatory biomarkers, particularly C-reactive protein. The DASH diet showed high-certainty evidence for reducing blood pressure and was associated with lower cancer-related and all-cause mortality.</p>
+
+          <p>What these diets share matters more than what differentiates them: high intake of vegetables, fruits, legumes, whole grains, nuts, and fish rich in omega-3 fatty acids. Low intake of processed foods, refined carbohydrates, and added sugars. Moderate use of olive oil. Minimal ultra-processed products.</p>
+
+          <p>A 2025 systematic review of 75 chronic dietary intervention studies found that fruits and vegetables reduced circulating pro-inflammatory cytokines in 80% of studies examined. Fish showed similar results in 78% of trials. The pattern is consistent: whole foods, minimally processed, in variety — not a single magic ingredient.</p>
+
+          <h2>What doesn't hold up</h2>
+
+          <p>The supplement industry has capitalized on anti-inflammatory language. Turmeric pills, concentrated antioxidant capsules, collagen powders marketed for joint health — most have thin clinical evidence when isolated from whole-food contexts. The bioactive compounds in anti-inflammatory foods work synergistically, and that synergy appears to be difficult to replicate in a capsule.</p>
+
+          <p>Extreme elimination diets — removing all grains, all dairy, all nightshades — are popular online but poorly supported by controlled research for general populations. Some individuals with autoimmune conditions may benefit from specific exclusions, but blanket elimination without clinical guidance often leads to nutritional gaps and a difficult-to-sustain relationship with food.</p>
+
+          <p>The VA Evidence Synthesis Program's 2024 evidence map put it plainly: despite lack of perfect understanding of the mechanisms, the demonstrated benefits of anti-inflammatory dietary patterns and the apparent lack of harms suggest there is no downside to promoting these diets.</p>
+
+          <h2>The practical translation</h2>
+
+          <p>You don't need a protocol. You need a pattern. One that you can maintain not for four weeks, but for the next forty years. That's the part most programs miss — the research consistently shows that the highest efficacy comes from long-term adherence, not short-term intensity.</p>
+
+          <p>More vegetables than you think you need. Legumes weekly. Fish twice a week if possible. Olive oil as your default fat. Berries, leafy greens, nuts as regular players. And a significant reduction in ultra-processed foods — not because they're evil, but because the evidence linking them to elevated inflammatory markers is growing and consistent.</p>
+
+          <p>This isn't a diet. It's a way of eating that you can build around meals you actually enjoy, adjusted to your preferences, your culture, your budget. The science doesn't demand perfection. It rewards consistency.</p>
+
+        </div>
+
+        <div class="blog-sources">
+          <h3>Sources</h3>
+          <ol>
+            <li>Reyneke, G.L. et al. (2025). Dietary patterns associated with anti-inflammatory effects: An umbrella review. <em>Nutrition Reviews</em>, nuaf104.</li>
+            <li>Jiang, R. et al. (2025). Impact of anti-inflammatory diets on cardiovascular disease risk factors: A systematic review and meta-analysis. <em>Frontiers in Nutrition, 12</em>, 1549831.</li>
+            <li>Scheiber, A. &amp; Mank, V. (2023). Anti-inflammatory diets. <em>StatPearls</em>. Treasure Island, FL: StatPearls Publishing.</li>
+            <li>U.S. Department of Veterans Affairs (2024). Beyond Diabetes, Obesity, and Cardiovascular Disease: An Evidence Map of Anti-Inflammatory Diet. Evidence Synthesis Program.</li>
+            <li>Nutrients (2025). Unraveling the role of foods on chronic anti- and pro-inflammatory cytokines: A systematic review. <em>Nutrients, 17</em>(17), 2834.</li>
+            <li>Kaviani, M. et al. (2024). Overview of anti-inflammatory diets and their promising effects on non-communicable diseases. <em>British Journal of Nutrition, 132</em>(7).</li>
+            <li>Wendels Specker, M. et al. (2024). An anti-inflammatory diet and its potential benefit for individuals with mental disorders and neurodegenerative diseases. <em>Nutrients, 16</em>(16), 2646.</li>
+            <li>Frontiers in Nutrition (2023). The effect of an anti-inflammatory diet on chronic pain: a pilot study. <em>Frontiers in Nutrition, 10</em>, 1205526.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== BLOG POST 3 ==================== -->
+  <div class="blog-article" id="blog-moveless">
+    <section>
+      <div class="container">
+        <div class="blog-article-header">
+          <div class="blog-article-back" onclick="closeBlogPost()">&larr; Back to Journal</div>
+          <div class="blog-article-tag">Movement &amp; Recovery</div>
+          <h1 class="blog-article-title">The Case for Moving Less — But Better</h1>
+          <div class="blog-article-date">February 2026</div>
+        </div>
+        <img src="images/blog-movement.jpg" alt="Woman practicing Pilates on reformer" class="blog-article-hero-img" loading="lazy" width="900" height="643">
+        <div class="blog-article-body">
+
+          <p>We live in a culture that celebrates volume. More reps, more classes, more miles, more sweat. If a little is good, more must be better. And if you're not sore, you didn't work hard enough.</p>
+
+          <p>Except that's not what the research says. Not for longevity. Not for lasting strength. And definitely not for the woman in her forties or fifties who is trying to build something sustainable — a body that serves her well for the next thirty or forty years, not just for the next beach season.</p>
+
+          <h2>The cost of more</h2>
+
+          <p>Overtraining is not just an elite athlete problem. It shows up in the person doing HIIT five days a week whose cortisol is chronically elevated. It shows up in the runner whose joints ache every morning but who pushes through because rest feels like failure. It shows up in the woman who equates intensity with progress and wonders why her body keeps breaking down.</p>
+
+          <p>The body adapts during recovery, not during the work itself. Training provides the stimulus. Sleep, nutrition, and rest provide the environment in which adaptation occurs. Without adequate recovery, the stimulus becomes damage. Muscles don't rebuild stronger. Tendons don't repair. The nervous system stays in a state of heightened alert that affects sleep, digestion, and mood.</p>
+
+          <h2>What "better" actually means</h2>
+
+          <p>Movement quality is a measurable, researchable thing. A 2015 paper in <em>Frontiers in Psychology</em> proposed that mindful movement practice may improve the functional quality of rehearsed procedures — meaning that when you pay deliberate attention to how you move, you don't just move differently in that moment. You build a transferable skill of attention that changes how you move in every moment.</p>
+
+          <p>This has been studied across disciplines. Yoga, tai chi, qigong, and Pilates all fall under the umbrella of mindful movement — practices that integrate deliberate attention, breath regulation, and controlled movement into a single experience. A 2024 study published in <em>Frontiers in Public Health</em> found that a structured mindful movement program produced significant improvements in psychological wellbeing, positive mental health, and interoceptive awareness — your ability to sense what's actually happening inside your body.</p>
+
+          <div class="highlight-stat">Mindful movement training improves not just physical outcomes, but interoceptive awareness — your ability to sense what is happening inside your own body.</div>
+
+          <p>That last point deserves emphasis. Interoceptive awareness is the foundation of knowing when to push and when to rest, when something is a productive discomfort and when it's a warning. It's the skill that prevents injury — not by avoiding movement, but by moving with intelligence.</p>
+
+          <h2>Precision as a strategy</h2>
+
+          <p>In classical Pilates, a single exercise done with correct alignment, appropriate breath, and full attention produces more neuromuscular adaptation than twenty careless repetitions. This isn't philosophy — it's neuroscience. Motor learning research shows that quality of practice, not quantity, determines the strength and durability of neural pathways.</p>
+
+          <p>Skilled movement requires coordination between motor planning, sensory feedback, and cognitive control. Research on the mind-body connection describes this as a model of "skilled attention" — where motor plans, attention, and executive goals are mutually co-defining aspects of skilled behavior. In simpler terms: when you practice moving with precision, you're training your brain and body as a single system.</p>
+
+          <p>The research on breathing supports this further. A 2024 study in <em>Frontiers in Human Neuroscience</em> found that mindful breathing reduced muscle tension, while slow, controlled breathing improved executive function — the cognitive skills responsible for planning, task-switching, and impulse control. These are the same cognitive resources that erode with aging and chronic stress.</p>
+
+          <h2>Less, for longer</h2>
+
+          <p>The most compelling evidence for exercise and longevity doesn't come from extreme protocols. It comes from consistent, moderate, well-structured programs maintained over years. Two to three sessions per week. Resistance training with compound movements. Enough intensity to stimulate adaptation, enough rest to allow it. Mindful attention to form.</p>
+
+          <p>This is not exciting. It doesn't sell programs. It doesn't generate viral transformation content. But it's what works — and what keeps working when everything else leads to burnout, injury, or both.</p>
+
+          <p>The question isn't how much you can tolerate. It's how little you need to do, done with complete precision and consistency, to keep building for the rest of your life. That reframe changes everything.</p>
+
+        </div>
+
+        <div class="blog-sources">
+          <h3>Sources</h3>
+          <ol>
+            <li>Kee, Y.H. &amp; John Wang, C.K. (2015). Mindful movement and skilled attention. <em>Frontiers in Psychology, 6</em>, 532.</li>
+            <li>Spaccapanico Proietti, S. et al. (2024). The role of a mindful movement-based program in health promotion. <em>Frontiers in Public Health, 12</em>, 1372660.</li>
+            <li>Vanutelli, M.E. et al. (2024). Editorial: Moving the mind, thinking the body. <em>Frontiers in Human Neuroscience, 18</em>, 1376909.</li>
+            <li>BMC Complementary Medicine and Therapies (2024). Mind-body interventions: Mindful movement practices. Springer Nature.</li>
+            <li>Müller, C. &amp; Karbach, J. (2021). The effects of acute physical exercise and mindfulness on cognitive performance. Randomized crossover study.</li>
+            <li>García-Hermoso, A. et al. (2020). Safety and effectiveness of long-term exercise interventions in older adults. <em>Sports Medicine, 50</em>(6), 1095–1106.</li>
+            <li>Nascimento, D.D.C. et al. (2022). Progressive resistance training for concomitant increases in muscle strength and bone mineral density in older adults. <em>Sports Medicine, 52</em>, 1939–1960.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </div>
+
 </div>
+
 
 <!-- ===================================================== -->
 <!-- CONTACT PAGE -->
@@ -2241,6 +2616,22 @@ function showPage(page) {
   
   // Close mobile menu
   document.getElementById('navLinks').classList.remove('open');
+}
+
+// ===== BLOG POST TOGGLE =====
+function showBlogPost(postId) {
+  document.getElementById('blog-grid-section').style.display = 'none';
+  document.querySelector('#page-blog .blog-hero').style.display = 'none';
+  document.querySelectorAll('.blog-article').forEach(a => { a.classList.remove('active'); a.style.display = 'none'; });
+  const article = document.getElementById('blog-' + postId);
+  if (article) { article.style.display = 'block'; article.classList.add('active'); }
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+function closeBlogPost() {
+  document.querySelectorAll('.blog-article').forEach(a => { a.classList.remove('active'); a.style.display = 'none'; });
+  document.getElementById('blog-grid-section').style.display = '';
+  document.querySelector('#page-blog .blog-hero').style.display = '';
+  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 // ===== NAV SCROLL EFFECT =====
