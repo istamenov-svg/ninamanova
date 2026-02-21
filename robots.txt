@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://istamenov-svg.github.io/ninamanova/sitemap.xml
+Sitemap: https://ninamanova.com/sitemap.xml
