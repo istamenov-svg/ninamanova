@@ -1,46 +1,2676 @@
-# Nina Manova — Movement & Longevity
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nina Manova — Private Pilates in Fort Lauderdale</title>
+<meta name="description" content="Private and semi-private Pilates sessions in Coral Ridge, The Landings, Bay Colony, Sea Ranch Lakes and nearby Fort Lauderdale neighborhoods. In-home, in-studio, and online. 15+ years experience.">
+<meta name="author" content="Nina Manova">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ninamanova.com/">
 
-Personal website for Nina Manova, a certified Pilates instructor and movement educator based in Fort Lauderdale, FL.
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nina Manova — Private Pilates in Fort Lauderdale">
+<meta property="og:description" content="Personalized Pilates sessions rooted in classical technique. In-home, in-studio, and online sessions in Coral Ridge, The Landings, Bay Colony, Sea Ranch Lakes and nearby neighborhoods.">
+<meta property="og:url" content="https://ninamanova.com/">
+<meta property="og:image" content="https://ninamanova.com/images/og-share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Nina Manova">
+<meta property="og:locale" content="en_US">
 
-## Structure
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nina Manova — Private Pilates in Fort Lauderdale">
+<meta name="twitter:description" content="Personalized Pilates sessions rooted in classical technique. In-home, in-studio, and online.">
+<meta name="twitter:image" content="https://ninamanova.com/images/og-share.jpg">
 
-```
-index.html          — Full multi-page site (client-side routing)
-404.html            — Custom 404 error page
-sitemap.xml         — XML sitemap for search engines
-robots.txt          — Crawler directives
-images/             — All site images
-```
+<!-- Geo -->
+<meta name="geo.region" content="US-FL">
+<meta name="geo.placename" content="Fort Lauderdale">
 
-## Pages
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
 
-- **Home** — Hero, services (Private, Semi-Private, Online), philosophy, nourishment, about preview, CTA
-- **Movement** — Pilates approach, session types, guiding principles
-- **Nourishment** — Nutrition philosophy integrated with movement
-- **About** — Nina's background and credentials
-- **Journal** — Blog (articles coming soon)
-- **Contact** — Consultation request form (powered by Formspree)
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "@id": "https://ninamanova.com/#business",
+    "name": "Nina Manova Pilates",
+    "description": "Private and semi-private Pilates sessions in Fort Lauderdale. In-home, in-studio, and online. Integrating movement and nutritional awareness for lasting health.",
+    "url": "https://ninamanova.com/",
+    "logo": "https://ninamanova.com/images/logo.png",
+    "image": "https://ninamanova.com/images/hero.jpg",
+    "telephone": "",
+    "founder": { "@id": "https://ninamanova.com/#person" },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Fort Lauderdale",
+      "addressRegion": "FL",
+      "postalCode": "33308",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 26.1551,
+      "longitude": -80.1133
+    },
+    "areaServed": [
+      { "@type": "Place", "name": "Coral Ridge, Fort Lauderdale" },
+      { "@type": "Place", "name": "The Landings, Fort Lauderdale" },
+      { "@type": "Place", "name": "Bay Colony, Fort Lauderdale" },
+      { "@type": "Place", "name": "Sea Ranch Lakes, Florida" },
+      { "@type": "Place", "name": "Fort Lauderdale, Florida" }
+    ],
+    "priceRange": "$$",
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Cash, Credit Card, Venmo, Zelle",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "07:00",
+      "closes": "19:00"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Pilates Sessions",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Private Pilates Session",
+            "description": "One-on-one Pilates sessions tailored to your body's needs and overall wellbeing. In-home, in-studio, or your building gym.",
+            "provider": { "@id": "https://ninamanova.com/#person" },
+            "serviceType": "Private Pilates Training",
+            "areaServed": "Fort Lauderdale, FL"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Semi-Private Pilates Session",
+            "description": "Focused two-person Pilates sessions. The same precision and attention as private, with the motivation of shared commitment.",
+            "provider": { "@id": "https://ninamanova.com/#person" },
+            "serviceType": "Semi-Private Pilates Training",
+            "areaServed": "Fort Lauderdale, FL"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Online Pilates Session",
+            "description": "Live one-on-one Pilates guidance over Zoom. Same focused attention as in-person, from wherever you are.",
+            "provider": { "@id": "https://ninamanova.com/#person" },
+            "serviceType": "Online Pilates Training",
+            "availableChannel": {
+              "@type": "ServiceChannel",
+              "serviceType": "Online",
+              "servicePlatform": "Zoom"
+            }
+          }
+        }
+      ]
+    },
+    "sameAs": []
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://ninamanova.com/#person",
+    "name": "Nina Manova",
+    "jobTitle": "Certified Pilates Instructor",
+    "description": "Former competitive athlete from Macedonia with over 15 years of experience teaching Pilates. Specializing in private sessions integrating movement and nutritional awareness.",
+    "image": "https://ninamanova.com/images/nina-park.jpg",
+    "url": "https://ninamanova.com/",
+    "knowsAbout": [
+      "Classical Pilates",
+      "Reformer Pilates",
+      "Strength Training for Longevity",
+      "Anti-Inflammatory Nutrition",
+      "Movement Education",
+      "Postural Correction",
+      "Mobility Training"
+    ],
+    "worksFor": { "@id": "https://ninamanova.com/#business" },
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "Stanford Center for Health Education"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "Vanderbilt University"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Nina Manova Pilates",
+    "url": "https://ninamanova.com/"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where does Nina Manova offer Pilates sessions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nina offers sessions in your home, your building gym, in studio, or online via Zoom. She serves Coral Ridge, The Landings, Bay Colony, Sea Ranch Lakes, and nearby Fort Lauderdale neighborhoods."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between private and semi-private Pilates?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Private sessions are one-on-one, fully tailored to your body and goals. Semi-private sessions accommodate two people — the same precision and attention, with the added motivation of shared commitment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Nina offer online Pilates sessions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Nina offers live, one-on-one Pilates sessions over Zoom with the same focused attention as in-person sessions. Ideal for clients who travel, have busy schedules, or are located outside South Florida."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I book a consultation with Nina Manova?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can request a complimentary 30-minute consultation through the contact form on the website. Nina will respond within 24 hours."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Why Strength Training After 40 Is Non-Negotiable",
+    "description": "Sarcopenia begins in your 30s. By 50, you're losing muscle mass at roughly 1-2% per year. Here's what the research says about reversing that trajectory.",
+    "image": "https://ninamanova.com/images/blog-strength.jpg",
+    "datePublished": "2026-02-20",
+    "author": { "@id": "https://ninamanova.com/#person" },
+    "publisher": { "@id": "https://ninamanova.com/#business" },
+    "mainEntityOfPage": "https://ninamanova.com/#blog",
+    "keywords": ["sarcopenia", "strength training", "muscle loss", "aging", "bone density", "resistance training", "longevity"]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Anti-Inflammatory Eating: What the Science Actually Supports",
+    "description": "Chronic inflammation is linked to nearly every age-related disease. A look at which dietary patterns have the strongest evidence.",
+    "image": "https://ninamanova.com/images/blog-nutrition.jpg",
+    "datePublished": "2026-02-20",
+    "author": { "@id": "https://ninamanova.com/#person" },
+    "publisher": { "@id": "https://ninamanova.com/#business" },
+    "mainEntityOfPage": "https://ninamanova.com/#blog",
+    "keywords": ["anti-inflammatory diet", "Mediterranean diet", "chronic inflammation", "nutrition", "whole foods", "longevity"]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Case for Moving Less — But Better",
+    "description": "Volume is overrated. Precision, consistency, and recovery produce better long-term outcomes than doing more.",
+    "image": "https://ninamanova.com/images/blog-movement.jpg",
+    "datePublished": "2026-02-20",
+    "author": { "@id": "https://ninamanova.com/#person" },
+    "publisher": { "@id": "https://ninamanova.com/#business" },
+    "mainEntityOfPage": "https://ninamanova.com/#blog",
+    "keywords": ["mindful movement", "Pilates", "movement quality", "recovery", "interoceptive awareness", "mind-body connection"]
+  }
+]
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+<style>
+:root {
+  --stone-50: #faf8f9;
+  --stone-100: #f5f0f3;
+  --stone-200: #e8dfe4;
+  --stone-300: #d6cbd0;
+  --stone-400: #b0a0a8;
+  --stone-500: #8a7a82;
+  --stone-600: #6b5c64;
+  --stone-700: #4e4148;
+  --stone-800: #332a2f;
+  --stone-900: #231c20;
+  --sage: #cfb3c1;
+  --sage-light: #deccd5;
+  --sage-pale: #f3ecef;
+  --warm-white: #fcfafb;
+  --linen: #f8f3f6;
+  --accent: #b8879e;
+  --accent-light: #d4b8c7;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Jost', sans-serif;
+  --max-width: 1200px;
+  --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-## SEO
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-- Per-page meta descriptions and title tags (updated dynamically via JS)
-- Open Graph and Twitter Card tags
-- JSON-LD LocalBusiness structured data
-- Canonical tags
-- Hash-based routing with browser history support
-- XML sitemap and robots.txt
+html { scroll-behavior: smooth; font-size: 16px; }
 
-## Deployment
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--stone-700);
+  background: var(--warm-white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
 
-### GitHub Pages
-1. Push to GitHub
-2. Go to repo Settings → Pages
-3. Set source to `main` branch, root (`/`)
-4. Site live at `https://[username].github.io/[repo-name]`
+/* ===== GLOBAL UTILITIES ===== */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
 
-### Custom Domain
-1. Add A records: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
-2. Add CNAME for www → [username].github.io
-3. Add domain in repo Settings → Pages → Custom domain
-4. Create a CNAME file in repo root with your domain
-5. Update all URLs in index.html, sitemap.xml, robots.txt, and 404.html
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(253, 252, 250, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(214, 211, 209, 0.3);
+  transition: var(--transition);
+}
+
+nav.scrolled {
+  background: rgba(253, 252, 250, 0.97);
+  box-shadow: 0 1px 30px rgba(0,0,0,0.04);
+}
+
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--stone-800);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-logo span {
+  font-weight: 300;
+  color: var(--stone-500);
+  margin-left: 0.3em;
+  font-size: 0.75em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+}
+
+.nav-links { display: flex; gap: 2.5rem; align-items: center; list-style: none; }
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-600);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition);
+  cursor: pointer;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--sage);
+  transition: width var(--transition);
+}
+
+.nav-links a:hover { color: var(--stone-800); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--stone-800); }
+.nav-links a.active::after { width: 100%; }
+
+.nav-cta {
+  font-size: 0.78rem !important;
+  letter-spacing: 0.12em !important;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid var(--stone-300);
+  border-radius: 0;
+  transition: all var(--transition) !important;
+}
+
+.nav-cta:hover {
+  background: var(--stone-800) !important;
+  color: var(--warm-white) !important;
+  border-color: var(--stone-800) !important;
+}
+
+.nav-cta::after { display: none !important; }
+
+/* Mobile menu */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--stone-700);
+  transition: var(--transition);
+}
+
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--warm-white);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--stone-200);
+    transform: translateY(-120%);
+    transition: transform var(--transition);
+    z-index: 999;
+  }
+  .nav-links.open { transform: translateY(0); }
+}
+
+/* ===== PAGE CONTAINER ===== */
+.page { display: none; opacity: 0; transition: opacity 0.5s ease; }
+.page.active { display: block; opacity: 1; }
+
+/* ===== HERO (HOME) ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  margin-top: 72px;
+  height: calc(100vh - 72px);
+}
+
+.hero-bg-img {
+  height: 100%;
+  width: auto;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(
+      to right,
+      rgba(35, 28, 32, 0.82) 0%,
+      rgba(35, 28, 32, 0.5) 40%,
+      rgba(35, 28, 32, 0.1) 60%,
+      transparent 75%
+    ),
+    linear-gradient(
+      to top,
+      rgba(35, 28, 32, 0.5) 0%,
+      transparent 30%
+    );
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding-bottom: 0;
+  z-index: 1;
+}
+
+.hero-content .container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage-light);
+  margin-bottom: 0.4rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.3s forwards;
+}
+
+.hero-locations-serving {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.4s forwards;
+}
+
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  max-width: 500px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+
+.hero-h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--sage-light);
+}
+
+.hero-body {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.7);
+  max-width: 420px;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.7s forwards;
+}
+
+.hero-cta {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--stone-800);
+  background: #fff;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  transition: all var(--transition);
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.9s forwards;
+}
+
+.hero-cta:hover {
+  background: var(--sage-light);
+  color: var(--stone-800);
+}
+
+.hero-locations {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.85s forwards;
+}
+
+.hero-location-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.85);
+}
+
+.hero-loc-icon {
+  font-size: 0.9rem;
+  color: var(--sage-light);
+}
+
+.hero-location-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255,255,255,0.25);
+}
+
+@media (max-width: 900px) {
+  .hero-content { padding-bottom: 2rem; }
+  .hero-h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); }
+  .hero-body { font-size: 0.88rem; }
+  .hero-locations { flex-wrap: wrap; gap: 0.8rem; }
+  .hero-location-divider { display: none; }
+}
+
+/* ===== SECTION STYLES ===== */
+section { padding: 7rem 0; }
+
+.section-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--stone-800);
+  margin-bottom: 1.5rem;
+}
+
+.section-title em { font-style: italic; color: var(--sage); }
+
+.section-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--stone-500);
+  max-width: 600px;
+}
+
+/* ===== HOME: SERVICES PREVIEW ===== */
+.services-preview {
+  background: var(--linen);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 3.5rem;
+}
+
+.service-card {
+  background: var(--warm-white);
+  padding: 3rem;
+  border: 1px solid var(--stone-200);
+  transition: all var(--transition);
+}
+
+.service-card:hover {
+  border-color: var(--sage-light);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+}
+
+.service-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  margin-bottom: 1rem;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--stone-500);
+  margin-bottom: 1.5rem;
+}
+
+.service-card .card-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.service-card .card-link:hover { color: var(--stone-800); }
+
+@media (max-width: 700px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== HOME: PHILOSOPHY STRIP ===== */
+.philosophy-strip {
+  background: var(--stone-800);
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.philosophy-strip .section-eyebrow { color: var(--sage-light); }
+
+.philosophy-strip blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--stone-200);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ===== HOME: ABOUT PREVIEW ===== */
+
+.nourishment-preview {
+  background: var(--stone-800);
+  padding: 7rem 0;
+}
+
+.nourishment-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.nourishment-preview .section-eyebrow { color: var(--sage-light); }
+.nourishment-preview .section-title { color: #fff; }
+.nourishment-preview .section-title em { color: var(--sage-light); }
+.nourishment-preview .section-body { color: rgba(255,255,255,0.6); max-width: none; margin-bottom: 2rem; }
+
+.nourishment-certs {
+  margin-bottom: 2rem;
+}
+
+.certs-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage-light);
+  margin-bottom: 0.8rem;
+}
+
+.cert-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.cert-tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.5);
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  font-style: italic;
+}
+
+.nourishment-preview .text-link { color: var(--sage-light); }
+.nourishment-preview .text-link:hover { color: #fff; }
+
+.nourishment-image-area {
+  position: relative;
+}
+
+.nourishment-img-main {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.3);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  padding: 1rem;
+}
+
+.nourishment-img-main .img-note {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(35,28,32,0.85);
+  padding: 0.8rem 1rem;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.5);
+  font-style: normal;
+  letter-spacing: 0.03em;
+  text-align: left;
+}
+
+.nourishment-img-accent {
+  position: absolute;
+  bottom: -2rem;
+  left: -2rem;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.25);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  padding: 0.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.nourishment-img-accent .img-note {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .nourishment-grid { grid-template-columns: 1fr; }
+  .nourishment-img-accent { display: none; }
+}
+
+
+.about-preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.about-preview-image {
+  aspect-ratio: 4/5;
+  background: var(--stone-200);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-preview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-preview-image .img-note {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(253,252,250,0.9);
+  padding: 0.8rem 1rem;
+  font-size: 0.7rem;
+  color: var(--stone-500);
+  letter-spacing: 0.03em;
+}
+
+.about-preview-text .section-body { margin-bottom: 2rem; }
+
+.text-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.text-link:hover { color: var(--stone-800); }
+.text-link::after { content: '→'; transition: transform var(--transition); }
+.text-link:hover::after { transform: translateX(4px); }
+
+@media (max-width: 800px) {
+  .about-preview-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== MOVEMENT PAGE ===== */
+.page-hero {
+  padding-top: calc(72px + 5rem);
+  padding-bottom: 5rem;
+  position: relative;
+}
+
+.page-hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.page-hero-image {
+  aspect-ratio: 4/3;
+  background: var(--stone-200);
+  overflow: hidden;
+  position: relative;
+}
+
+.page-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-hero-image .img-note {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(253,252,250,0.9);
+  padding: 0.8rem 1rem;
+  font-size: 0.7rem;
+  color: var(--stone-500);
+}
+
+@media (max-width: 800px) {
+  .page-hero-inner { grid-template-columns: 1fr; }
+}
+
+/* Sessions layout */
+.sessions-section { background: var(--linen); }
+
+.sessions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.session-card {
+  background: var(--warm-white);
+  padding: 2.5rem;
+  border: 1px solid var(--stone-200);
+}
+
+.session-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  margin-bottom: 0.8rem;
+}
+
+.session-card .session-for {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 1.2rem;
+}
+
+.session-card p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--stone-500);
+}
+
+@media (max-width: 700px) {
+  .sessions-grid { grid-template-columns: 1fr; }
+}
+
+/* Principles */
+.principles-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.principle {
+  padding: 2rem 0;
+  border-top: 1px solid var(--stone-200);
+}
+
+.principle h4 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  margin-bottom: 0.8rem;
+}
+
+.principle p {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--stone-500);
+}
+
+@media (max-width: 700px) {
+  .principles-list { grid-template-columns: 1fr; }
+}
+
+/* ===== NUTRITION PAGE ===== */
+.nutrition-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.nutrition-image {
+  aspect-ratio: 1;
+  background: var(--stone-200);
+  overflow: hidden;
+  position: relative;
+}
+
+.nutrition-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nutrition-image .img-note {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(253,252,250,0.9);
+  padding: 0.8rem 1rem;
+  font-size: 0.7rem;
+  color: var(--stone-500);
+}
+
+@media (max-width: 800px) {
+  .nutrition-intro { grid-template-columns: 1fr; }
+}
+
+.nutrition-pillars {
+  background: var(--linen);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.pillar {
+  background: var(--warm-white);
+  padding: 2.5rem;
+  border: 1px solid var(--stone-200);
+}
+
+.pillar-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--sage-light);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.pillar h4 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  margin-bottom: 0.8rem;
+}
+
+.pillar p {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--stone-500);
+}
+
+@media (max-width: 700px) {
+  .pillars-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== ABOUT PAGE ===== */
+.about-hero {
+  padding-top: calc(72px + 5rem);
+  padding-bottom: 3rem;
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-portrait {
+  aspect-ratio: 3/4;
+  background: var(--stone-200);
+  overflow: hidden;
+  position: sticky;
+  top: 100px;
+}
+
+.about-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-portrait .img-note {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(253,252,250,0.9);
+  padding: 0.8rem 1rem;
+  font-size: 0.7rem;
+  color: var(--stone-500);
+}
+
+.about-text h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 300;
+  color: var(--stone-800);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--stone-500);
+  margin-bottom: 1.5rem;
+}
+
+.about-text p:first-of-type {
+  font-size: 1.1rem;
+  color: var(--stone-600);
+}
+
+.credentials-strip {
+  background: var(--stone-800);
+  padding: 4rem 0;
+}
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.credential-item .credential-number {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--sage-light);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.credential-item .credential-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--stone-400);
+}
+
+@media (max-width: 800px) {
+  .about-hero-grid { grid-template-columns: 1fr; }
+  .about-portrait { position: relative; top: 0; }
+  .credentials-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+/* ===== BLOG PAGE ===== */
+.blog-hero {
+  padding-top: calc(72px + 5rem);
+  padding-bottom: 3rem;
+  text-align: center;
+}
+
+.blog-hero .section-body { margin: 0 auto; }
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  padding-bottom: 5rem;
+}
+
+.blog-card {
+  border: 1px solid var(--stone-200);
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.blog-card:hover {
+  border-color: var(--sage-light);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+}
+
+.blog-card-image {
+  aspect-ratio: 16/10;
+  background: var(--stone-200);
+  overflow: hidden;
+  position: relative;
+}
+
+.blog-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-card-image .img-note {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0.6rem;
+  right: 0.6rem;
+  background: rgba(253,252,250,0.9);
+  padding: 0.5rem 0.7rem;
+  font-size: 0.65rem;
+  color: var(--stone-500);
+}
+
+.blog-card-body { padding: 1.8rem; }
+
+.blog-card-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.8rem;
+}
+
+.blog-card-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  line-height: 1.35;
+  margin-bottom: 0.8rem;
+}
+
+.blog-card-body p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--stone-500);
+}
+
+.blog-card-meta {
+  padding: 1rem 1.8rem;
+  border-top: 1px solid var(--stone-100);
+  font-size: 0.75rem;
+  color: var(--stone-400);
+}
+
+@media (max-width: 900px) {
+  .blog-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
+}
+
+/* ===== CONTACT PAGE ===== */
+.contact-hero {
+  padding-top: calc(72px + 5rem);
+  padding-bottom: 2rem;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+  padding-bottom: 5rem;
+}
+
+.contact-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--stone-500);
+  margin-bottom: 2rem;
+}
+
+.contact-detail {
+  margin-bottom: 1.5rem;
+}
+
+.contact-detail .detail-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.3rem;
+}
+
+.contact-detail .detail-value {
+  font-size: 0.95rem;
+  color: var(--stone-600);
+}
+
+.contact-form { }
+
+.form-group { margin-bottom: 1.5rem; }
+
+.form-group label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--stone-700);
+  padding: 0.9rem 0;
+  border: none;
+  border-bottom: 1px solid var(--stone-300);
+  background: transparent;
+  outline: none;
+  transition: border-color var(--transition);
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-bottom-color: var(--sage);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.7;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-submit {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  background: var(--stone-800);
+  padding: 1rem 2.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  margin-top: 1rem;
+}
+
+.form-submit:hover { background: var(--sage); }
+
+@media (max-width: 800px) {
+  .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--stone-900);
+  padding: 4rem 0 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--stone-300);
+  margin-bottom: 0.8rem;
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  color: var(--stone-500);
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
+.footer-links { display: flex; gap: 2rem; }
+
+.footer-links a {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  text-decoration: none;
+  transition: color var(--transition);
+  cursor: pointer;
+}
+
+.footer-links a:hover { color: var(--stone-300); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--stone-600);
+}
+
+@media (max-width: 700px) {
+  .footer-inner { flex-direction: column; gap: 2rem; }
+}
+
+/* ===== CTA BANNER ===== */
+.cta-banner {
+  background: var(--sage-pale);
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.cta-banner .section-title { margin-bottom: 1rem; }
+
+.cta-banner .section-body {
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.cta-btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  background: var(--stone-800);
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.cta-btn:hover { background: var(--stone-700); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== IMAGE PLACEHOLDER HELPER ===== */
+/* Blog Article View */
+.blog-article { display: none; }
+.blog-article.active { display: block; }
+.blog-article-header { margin-bottom: 3rem; }
+.blog-article-back {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 2rem;
+  transition: color 0.3s;
+}
+.blog-article-back:hover { color: var(--stone-800); }
+.blog-article-tag {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.blog-article-title {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--stone-900);
+  margin-bottom: 1rem;
+}
+.blog-article-date {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--stone-400);
+  margin-bottom: 2rem;
+}
+.blog-article-hero-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 3rem;
+}
+.blog-article-body {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.blog-article-body p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--stone-700);
+  margin-bottom: 1.6rem;
+}
+.blog-article-body h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  margin-top: 3rem;
+  margin-bottom: 1.2rem;
+}
+.blog-article-body blockquote {
+  border-left: 3px solid var(--sage);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--stone-600);
+}
+.blog-article-body .highlight-stat {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--stone-800);
+  text-align: center;
+  padding: 2rem;
+  margin: 2.5rem 0;
+  background: var(--sage-pale);
+  border-radius: 4px;
+}
+.blog-sources {
+  max-width: 700px;
+  margin: 3rem auto 0;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--stone-200);
+}
+.blog-sources h3 {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  margin-bottom: 1.2rem;
+}
+.blog-sources ol {
+  padding-left: 1.2rem;
+}
+.blog-sources li {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--stone-500);
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+}
+.blog-sources li em { color: var(--stone-600); }
+
+.placeholder-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone-400);
+  background: linear-gradient(135deg, var(--stone-200), var(--stone-100));
+}
+
+
+/* ===== COMPREHENSIVE RESPONSIVE ===== */
+
+/* Tablet landscape */
+@media (max-width: 1024px) {
+  .container { padding: 0 1.5rem; }
+  .nav-inner { padding: 0 1.5rem; }
+  section { padding: 5rem 0; }
+  .hero-content .container { padding: 0 1.5rem; }
+  .services-grid { gap: 2rem; }
+  .service-card { padding: 2rem; }
+  .session-card { padding: 2rem; }
+  .about-hero-grid { gap: 3rem; }
+  .contact-layout { gap: 3rem; }
+}
+
+/* Tablet portrait */
+@media (max-width: 900px) {
+  .nav-inner { height: 64px; }
+  .nav-links { top: 64px; }
+  
+  .hero { margin-top: 64px; height: calc(100vh - 64px); }
+  .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    object-position: 55% top;
+  }
+  .hero-content { align-items: flex-end; padding-bottom: 3rem; }
+  .hero-h1 { font-size: clamp(2.2rem, 7vw, 3rem); }
+  .hero-body { font-size: 1.05rem; max-width: 360px; }
+  .hero-locations { gap: 0.8rem; }
+  .hero-location-divider { display: none; }
+  .hero-locations-serving { font-size: 0.85rem; }
+  .hero-cta { padding: 1rem 2.2rem; font-size: 0.85rem; }
+  
+  .page-hero { padding-top: calc(64px + 3rem); padding-bottom: 3rem; }
+  .page-hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+  
+  .about-hero { padding-top: calc(64px + 3rem); }
+  .about-hero-grid { grid-template-columns: 1fr; }
+  .about-portrait { position: relative; top: 0; max-height: 500px; }
+  
+  .blog-hero { padding-top: calc(64px + 3rem); }
+  .blog-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
+  
+  .contact-hero { padding-top: calc(64px + 3rem); }
+  .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+  
+  .credentials-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  
+  .nourishment-preview { padding: 5rem 0; }
+  .nourishment-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .nourishment-img-accent { display: none; }
+  
+  .nutrition-intro { grid-template-columns: 1fr; gap: 2rem; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  
+  .about-preview-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .about-preview-image { max-height: 400px; }
+  
+  .footer-inner { flex-direction: column; gap: 1.5rem; }
+  .footer-links { flex-wrap: wrap; gap: 1.2rem; }
+}
+
+/* Large phone */
+@media (max-width: 600px) {
+  html { font-size: 18px; }
+  .container { padding: 0 1.25rem; }
+  .nav-inner { padding: 0 1.25rem; }
+  
+  section { padding: 3.5rem 0; }
+  
+  .section-title { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+  .section-body { font-size: 1.05rem; }
+  .section-eyebrow { font-size: 0.8rem; }
+  
+  .hero-content .container { padding: 0 1.25rem; }
+  .hero-h1 { font-size: clamp(2rem, 8vw, 2.6rem); max-width: 320px; }
+  .hero-body { font-size: 1rem; max-width: 300px; }
+  .hero-eyebrow { font-size: 0.8rem; letter-spacing: 0.2em; }
+  .hero-locations-serving { font-size: 0.8rem; }
+  .hero-location-item { font-size: 0.85rem; }
+  .hero-cta { font-size: 0.85rem; padding: 1rem 2rem; }
+  .hero-bg-img { object-position: 50% top; }
+  
+  .hero-overlay {
+    background: 
+      linear-gradient(
+        to right,
+        rgba(35, 28, 32, 0.88) 0%,
+        rgba(35, 28, 32, 0.6) 50%,
+        rgba(35, 28, 32, 0.3) 75%,
+        rgba(35, 28, 32, 0.15) 100%
+      ),
+      linear-gradient(
+        to top,
+        rgba(35, 28, 32, 0.7) 0%,
+        transparent 50%
+      );
+  }
+  
+  .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .service-card { padding: 1.8rem; }
+  .service-card h3 { font-size: 1.5rem; }
+  .service-card p { font-size: 1.05rem; }
+  .card-link { font-size: 0.85rem; }
+  
+  .philosophy-strip { padding: 3.5rem 0; }
+  .philosophy-strip blockquote { font-size: clamp(1.4rem, 5vw, 1.8rem); }
+  
+  .nourishment-preview { padding: 3.5rem 0; }
+  .nourishment-certs { margin-bottom: 1.5rem; }
+  .cert-tags { gap: 0.4rem; }
+  .cert-tag { font-size: 0.8rem; padding: 0.5rem 1rem; }
+  .certs-label { font-size: 0.8rem; }
+  .text-link { font-size: 0.85rem; }
+  
+  .sessions-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .session-card { padding: 1.8rem; }
+  .session-card h3 { font-size: 1.5rem; }
+  .session-card p { font-size: 1.05rem; }
+  .session-card .session-for { font-size: 0.8rem; }
+  
+  .principles-list { grid-template-columns: 1fr; gap: 1.5rem; }
+  .principle { padding: 1.5rem 0; }
+  .principle h4 { font-size: 1.4rem; }
+  .principle p { font-size: 1.05rem; }
+  
+  .pillar { padding: 1.8rem; }
+  .pillar h4 { font-size: 1.4rem; }
+  .pillar p { font-size: 1.05rem; }
+  .pillar-number { font-size: 2.8rem; }
+  
+  .blog-card-body { padding: 1.3rem; }
+  .blog-card-body h3 { font-size: 1.3rem; }
+  .blog-card-body p { font-size: 1rem; }
+  .blog-card-tag { font-size: 0.8rem; }
+  .blog-card-meta { padding: 0.8rem 1.3rem; font-size: 0.85rem; }
+  
+  .about-text h1 { font-size: clamp(2.2rem, 8vw, 2.8rem); }
+  .about-text p { font-size: 1.05rem; }
+  
+  .credentials-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .credential-item .credential-number { font-size: 2.4rem; }
+  .credential-item .credential-label { font-size: 0.8rem; }
+  
+  .contact-info h3 { font-size: 1.5rem; }
+  .contact-info p { font-size: 1.05rem; }
+  .contact-detail .detail-label { font-size: 0.8rem; }
+  .contact-detail .detail-value { font-size: 1.05rem; }
+  .form-group label { font-size: 0.8rem; }
+  .form-group input,
+  .form-group textarea,
+  .form-group select { font-size: 16px; }
+  .form-row { grid-template-columns: 1fr; }
+  .form-submit { width: 100%; text-align: center; font-size: 0.85rem; }
+  
+  .cta-banner { padding: 3.5rem 0; }
+  .cta-btn { font-size: 0.85rem; padding: 1rem 2rem; }
+  
+  footer { padding: 3rem 0 1.5rem; }
+  .footer-links { gap: 1rem; }
+  .footer-links a { font-size: 0.8rem; }
+  .footer-tagline { font-size: 0.95rem; }
+  .footer-bottom { font-size: 0.85rem; }
+}
+
+/* Small phone */
+@media (max-width: 400px) {
+  html { font-size: 19px; }
+  .container { padding: 0 1rem; }
+  .nav-inner { padding: 0 1rem; }
+  .nav-logo img { height: 36px !important; }
+  
+  .hero-content .container { padding: 0 1rem; }
+  .hero-h1 { font-size: 1.5rem; }
+  .hero-body { font-size: 0.8rem; }
+  .hero-location-item { font-size: 0.65rem; }
+  .hero-cta { padding: 0.75rem 1.5rem; font-size: 0.7rem; }
+  
+  .section-title { font-size: 1.5rem; }
+  .section-eyebrow { font-size: 0.65rem; }
+  
+  .service-card { padding: 1.5rem; }
+  .session-card { padding: 1.5rem; }
+  .pillar { padding: 1.5rem; }
+  
+  .credentials-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select { font-size: 16px; } /* Prevents iOS zoom on focus */
+}
+
+/* Touch targets - ensure all interactive elements are at least 44px */
+@media (pointer: coarse) {
+  .nav-links a { padding: 0.5rem 0; }
+  .nav-cta { padding: 0.7rem 1.5rem !important; }
+  .nav-toggle { padding: 8px; }
+  .text-link { padding: 0.3rem 0; }
+  .card-link { padding: 0.3rem 0; display: inline-block; }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 1rem 0;
+    min-height: 44px;
+  }
+  
+  .form-submit {
+    min-height: 48px;
+    padding: 1rem 2.5rem;
+  }
+}
+
+/* Landscape phone */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero { height: auto; min-height: 100vh; }
+  .hero-bg-img { height: 100vh; }
+  .hero-content { padding-bottom: 1.5rem; }
+  .hero-h1 { font-size: 1.6rem; margin-bottom: 0.8rem; }
+  .hero-body { font-size: 0.8rem; margin-bottom: 1rem; }
+  .hero-locations { margin-bottom: 1rem; }
+}
+
+/* High-DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-bg-img { image-rendering: -webkit-optimize-contrast; }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* Blog Article Responsive */
+@media (max-width: 900px) {
+  .blog-article-title { font-size: 2.2rem; }
+  .blog-article-body p { font-size: 1rem; }
+  .blog-article-body h2 { font-size: 1.5rem; }
+  .blog-article-hero-img { max-height: 320px; }
+  .blog-sources li { font-size: 0.8rem; }
+}
+@media (max-width: 600px) {
+  .blog-article-title { font-size: 1.8rem; }
+  .blog-article-body p { font-size: 1rem; line-height: 1.75; }
+  .blog-article-body h2 { font-size: 1.35rem; margin-top: 2.2rem; }
+  .blog-article-hero-img { max-height: 240px; }
+  .highlight-stat { font-size: 1.15rem; padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#home"><img src="images/logo.png" alt="Nina Manova" width="159" height="48" style="height:48px;width:auto;display:block;"></a>
+    <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#movement" data-page="movement">Movement</a></li>
+      <li><a href="#nutrition" data-page="nutrition">Nourishment</a></li>
+      <li><a href="#about" data-page="about">About</a></li>
+      <li><a href="#blog" data-page="blog">Journal</a></li>
+      <li><a href="#contact" data-page="contact" class="nav-cta">Begin</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===================================================== -->
+<!-- HOME PAGE -->
+<!-- ===================================================== -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <img src="images/nourishment-bowl.jpg" alt="Nina Manova in her Pilates studio" class="hero-bg-img" fetchpriority="high" width="1400" height="557">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="container">
+        <p class="hero-eyebrow">Private &amp; Semi-Private Pilates</p>
+        <p class="hero-locations-serving">Coral Ridge · The Landings · Bay Colony · Sea Ranch Lakes &amp; nearby neighborhoods</p>
+        <h1 class="hero-h1">Move with <em>intention.</em><br>Age with confidence.</h1>
+        <p class="hero-body">Personalized Pilates sessions rooted in classical technique and designed around your body, your nutrition, your goals, and your life.<br>Fifteen years of teaching distilled into focused, one-on-one guidance.</p>
+        <div class="hero-locations">
+          <div class="hero-location-item">
+            <span class="hero-loc-icon">⌂</span>
+            <span>In Your Home</span>
+          </div>
+          <div class="hero-location-divider"></div>
+          <div class="hero-location-item">
+            <span class="hero-loc-icon">◻</span>
+            <span>Your Building Gym</span>
+          </div>
+          <div class="hero-location-divider"></div>
+          <div class="hero-location-item">
+            <span class="hero-loc-icon">▪</span>
+            <span>In Studio</span>
+          </div>
+        </div>
+        <a class="hero-cta" href="#contact">Book a Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview -->
+  <section class="services-preview">
+    <div class="container">
+      <p class="section-eyebrow">What I Offer</p>
+      <h2 class="section-title">Sessions designed around <em>you</em></h2>
+      <p class="section-body">Every body arrives with its own history. I work with yours — not against it — to build strength, restore mobility, and create movement patterns that serve you for decades.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Private Sessions</h3>
+          <p>One-on-one work tailored entirely to your body's needs and your overall wellbeing. We address specific concerns — posture, pain, stiffness, deconditioning — and build a practice that silently becomes your lifestyle.</p>
+          <a class="card-link" href="#movement">Learn more</a>
+        </div>
+        <div class="service-card">
+          <h3>Semi-Private Sessions</h3>
+          <p>Work alongside a partner or friend in a focused two-person setting. The same precision and attention, with the added motivation of shared commitment.</p>
+          <a class="card-link" href="#movement">Learn more</a>
+        </div>
+        <div class="service-card">
+          <h3>Online Sessions</h3>
+          <p>Live, one-on-one guidance over Zoom — the same focused attention as in-person, from wherever you are. Ideal for travel, busy schedules, or clients outside South Florida.</p>
+          <a class="card-link" href="#contact">Book a session</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Strip -->
+  <section class="philosophy-strip">
+    <div class="container">
+      <p class="section-eyebrow">Philosophy</p>
+      <blockquote>"The body doesn't lie. How you move tells the story of how you live — and that story can always be rewritten."</blockquote>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  
+  <!-- Nourishment Preview -->
+  <section class="nourishment-preview">
+    <div class="container">
+      <div class="nourishment-grid">
+        <div class="nourishment-text">
+          <p class="section-eyebrow">Movement + Nourishment</p>
+          <h2 class="section-title">How you eat shapes<br>how you <em>move</em></h2>
+          <p class="section-body">Strength and mobility don't happen in a vacuum. What you eat affects your energy, your recovery, your inflammation levels, and ultimately how your body responds to the work we do together. Nina integrates nutritional awareness into her practice — not as a diet plan, but as a foundational layer of lasting health.</p>
+          <div class="nourishment-certs">
+            <p class="certs-label">Nutrition Credentials</p>
+            <div class="cert-tags">
+              <span class="cert-tag">Nutrition Science — Stanford Center for Health Education, 2024</span>
+              <span class="cert-tag">Nutrition, Health & Lifestyle — Vanderbilt University, 2024</span>
+            </div>
+          </div>
+          <a class="text-link" href="#nutrition">Explore the approach</a>
+        </div>
+        <div class="nourishment-image-area">
+          <div class="nourishment-img-main" style="aspect-ratio:4/5;">
+            <img src="images/legumes.jpg" alt="Colorful whole food bowl with fresh vegetables" loading="lazy" width="800" height="960" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="nourishment-img-accent" style="aspect-ratio:1;">
+            <img src="images/movement-pilates.jpg" alt="Fresh legumes and lentils" loading="lazy" width="400" height="400" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="about-preview-grid" style="grid-template-columns:1fr;">
+        <div class="about-preview-text">
+          <p class="section-eyebrow">About Nina</p>
+          <h2 class="section-title">Former athlete.<br><em>Lifelong</em> teacher.</h2>
+          <p class="section-body">From professional sport in Macedonia to over fifteen years of teaching movement across private homes, hospitals, corporate programs, and leading Pilates studios — my work has always been about one thing: helping people live in their bodies with less friction and more confidence.</p>
+          <a class="text-link" href="#about">Read my story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="section-title">Begin with a conversation</h2>
+      <p class="section-body">Every new client starts with a complimentary 30-minute movement consultation. No pressure, no commitment — just a chance to understand where you are and where you want to go.</p>
+      <a class="cta-btn" href="#contact">Schedule Your Consultation</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- MOVEMENT PAGE -->
+<!-- ===================================================== -->
+<div class="page" id="page-movement">
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div>
+          <p class="section-eyebrow">Movement</p>
+          <h1 class="section-title" style="font-size:clamp(2.4rem,4vw,3.4rem);">Classical foundation.<br><em>Personal</em> application.</h1>
+          <p class="section-body">Pilates is not a workout — it's a practice. My sessions are built on classical Pilates principles but adapted entirely to the person in front of me. The goal is never to impress. It's to improve how you feel, function, and move through your day.</p>
+        </div>
+        <div class="page-hero-image">
+          <img src="images/hero.jpg" alt="Hands gripping Pilates reformer bar" loading="lazy" width="1200" height="900" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sessions -->
+  <section class="sessions-section">
+    <div class="container">
+      <p class="section-eyebrow">Sessions</p>
+      <h2 class="section-title">Two formats, one standard</h2>
+      <p class="section-body">Whether you work alone or with a partner, the quality of attention remains the same. I don't teach classes — I teach people.</p>
+      <div class="sessions-grid">
+        <div class="session-card">
+          <h3>Private Sessions</h3>
+          <p class="session-for">Best for</p>
+          <p>Individuals with specific goals, injuries, postural concerns, or anyone who wants undivided attention. The session is built entirely around you — your body, your pace, your objectives. This is where the deepest work happens.</p>
+        </div>
+        <div class="session-card">
+          <h3>Semi-Private Sessions</h3>
+          <p class="session-for">Best for</p>
+          <p>Pairs — partners, friends, siblings — who want to train together. You share the space and the time, while each receiving individualized cueing. A good fit for people who are motivated by consistency and companionship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section>
+    <div class="container">
+      <p class="section-eyebrow">Approach</p>
+      <h2 class="section-title">What guides the work</h2>
+      <div class="principles-list">
+        <div class="principle">
+          <h4>Precision Over Intensity</h4>
+          <p>Doing less, correctly, produces more lasting change than doing more with poor form. Every repetition is intentional.</p>
+        </div>
+        <div class="principle">
+          <h4>The Body as a System</h4>
+          <p>A stiff shoulder isn't always a shoulder problem. I look at how your whole body organizes — posture, breathing, alignment — before isolating anything.</p>
+        </div>
+        <div class="principle">
+          <h4>Longevity as the Metric</h4>
+          <p>I don't train people for next week. The question is always: will this serve you in ten years? Twenty? The practice should compound over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultation CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="section-title">Not sure where to start?</h2>
+      <p class="section-body">The complimentary consultation is exactly for that. We'll talk about your history, your goals, and whether this is the right fit — no obligation.</p>
+      <a class="cta-btn" href="#contact">Book Your Free Consultation</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- NUTRITION PAGE -->
+<!-- ===================================================== -->
+<div class="page" id="page-nutrition">
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-eyebrow">Nourishment</p>
+      <h1 class="section-title" style="font-size:clamp(2.4rem,4vw,3.4rem);">What you eat is part of <em>how you move</em></h1>
+      <div class="nutrition-intro">
+        <div>
+          <p class="section-body" style="max-width:none;">Movement doesn't happen in isolation. How you digest, how you sleep, how much energy you carry into a session — these all connect back to what's on your plate. I don't offer nutrition coaching or meal plans. What I do offer is a perspective shaped by years of studying how food, movement, and recovery interact.</p>
+          <p class="section-body" style="max-width:none; margin-top:1.5rem;">This page — and the journal articles linked below — reflect that perspective. Think of it as a shared library of what I've learned, what the research supports, and what I've seen work in my own life and in the lives of my clients.</p>
+        </div>
+        <div class="nutrition-image">
+          <img src="images/farmacy.jpg" alt="Fresh produce at a farmers market" loading="lazy" width="800" height="800" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars -->
+  <section class="nutrition-pillars">
+    <div class="container">
+      <p class="section-eyebrow">Principles</p>
+      <h2 class="section-title">A simple framework</h2>
+      <p class="section-body">Not a diet. Not a program. Just a set of ideas that consistently hold up — in research and in practice.</p>
+      <div class="pillars-grid">
+        <div class="pillar">
+          <div class="pillar-number">01</div>
+          <h4>Eat Whole, Mostly Plants</h4>
+          <p>The simplest nutritional truth that survives every fad cycle. Whole, minimally processed foods — with an emphasis on vegetables, fruits, legumes, nuts, and seeds — form the foundation of durable health.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-number">02</div>
+          <h4>Support Recovery</h4>
+          <p>What you eat after you move matters. Adequate protein, anti-inflammatory foods, and proper hydration aren't performance hacks — they're basic maintenance for a body that works hard.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-number">03</div>
+          <h4>Reduce the Noise</h4>
+          <p>Most nutritional confusion comes from overconsumption of advice, not food. Eat real food. Pay attention to how it makes you feel. Adjust. That's most of the work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connection to Journal -->
+  <section>
+    <div class="container" style="text-align:center;">
+      <p class="section-eyebrow">Go Deeper</p>
+      <h2 class="section-title">From the journal</h2>
+      <p class="section-body" style="margin: 0 auto 2rem;">I write about the intersection of movement, food, and long-term health — with sources. No opinions without evidence.</p>
+      <a class="cta-btn" href="#blog">Read the Journal</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="section-title">Movement and nourishment start together</h2>
+      <p class="section-body">The consultation is a chance to talk about your whole picture — not just how you move, but how you live.</p>
+      <a class="cta-btn" href="#contact">Book Your Free Consultation</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- ABOUT PAGE -->
+<!-- ===================================================== -->
+<div class="page" id="page-about">
+
+  <section class="about-hero">
+    <div class="container">
+      <div class="about-hero-grid">
+        <div class="about-portrait" style="position:relative;">
+          <img src="images/nina-park.jpg" alt="Nina Manova" loading="lazy" width="800" height="889" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="about-text">
+          <p class="section-eyebrow">About</p>
+          <h1>Nina Manova</h1>
+          <p>I grew up in Macedonia as a competitive athlete. Sport taught me discipline, resilience, and an intimate awareness of what a body can and cannot do on any given day. When I moved to the United States, I carried that awareness into a new career — teaching movement.</p>
+          <p>For the past fifteen years, I've taught Pilates in every setting imaginable: in people's living rooms, in residential building gyms, inside corporate wellness programs, in hospital employee health initiatives, and across multiple dedicated Pilates studios. Each environment taught me something different about how people relate to their bodies and what they actually need from a movement practice.</p>
+          <p>What they need, in most cases, is not more intensity. It's more attention. More precision. More honesty about where they are and what will actually help them get to where they want to be.</p>
+          <p>My approach is rooted in classical Pilates — the original system designed by Joseph Pilates — but it's adapted to every individual I work with. I don't follow trends. I follow the body in front of me.</p>
+          <p>Today, I work with private and semi-private clients in my neighborhood community. I'm also a mother, which has reshaped my understanding of energy, recovery, and the importance of building a practice that bends with your life rather than competing with it.</p>
+          <p>If you're looking for someone to help you understand your body and build strength that lasts, I would be more than happy to meet you and help you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials -->
+  <section class="credentials-strip">
+    <div class="container">
+      <div class="credentials-grid">
+        <div class="credential-item">
+          <div class="credential-number">15+</div>
+          <div class="credential-label">Years Teaching</div>
+        </div>
+        <div class="credential-item">
+          <div class="credential-number">5</div>
+          <div class="credential-label">Teaching Environments</div>
+        </div>
+        <div class="credential-item">
+          <div class="credential-number">1</div>
+          <div class="credential-label">Approach — Yours</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="section-title">Let's start with a conversation</h2>
+      <p class="section-body">The 30-minute consultation is free, no-pressure, and entirely about understanding what you need.</p>
+      <a class="cta-btn" href="#contact">Book Your Free Consultation</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- BLOG PAGE -->
+<!-- ===================================================== -->
+<div class="page" id="page-blog">
+
+  <section class="blog-hero">
+    <div class="container">
+      <p class="section-eyebrow">Journal</p>
+      <h1 class="section-title">Movement, nourishment, <em>evidence</em></h1>
+      <p class="section-body">Articles on what the research actually says about how we move, eat, and age — written without hype.</p>
+    </div>
+  </section>
+
+  <!-- Blog Grid (card listing) -->
+  <section style="padding-top:0;" id="blog-grid-section">
+    <div class="container">
+      <div class="blog-grid">
+
+        <div class="blog-card" onclick="showBlogPost('strength')">
+          <div class="blog-card-image">
+            <img src="images/blog-strength.jpg" alt="Older couple dancing outdoors in a park" loading="lazy" width="900" height="600" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Movement &amp; Longevity</div>
+            <h3>Why Strength Training After 40 Is Non-Negotiable</h3>
+            <p>Sarcopenia begins in your 30s. By 50, you're losing muscle mass at roughly 1–2% per year. Here's what the research says about reversing that trajectory.</p>
+          </div>
+          <div class="blog-card-meta">February 2026 &middot; 6 min read</div>
+        </div>
+
+        <div class="blog-card" onclick="showBlogPost('antiinflammatory')">
+          <div class="blog-card-image">
+            <img src="images/blog-nutrition.jpg" alt="Fresh whole foods on a wooden table" loading="lazy" width="900" height="590" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Nourishment</div>
+            <h3>Anti-Inflammatory Eating: What the Science Actually Supports</h3>
+            <p>Chronic inflammation is linked to nearly every age-related disease. A look at which dietary patterns have the strongest evidence — and which are marketing.</p>
+          </div>
+          <div class="blog-card-meta">February 2026 &middot; 7 min read</div>
+        </div>
+
+        <div class="blog-card" onclick="showBlogPost('moveless')">
+          <div class="blog-card-image">
+            <img src="images/blog-movement.jpg" alt="Woman practicing Pilates with magic circle on reformer" loading="lazy" width="900" height="643" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Movement &amp; Recovery</div>
+            <h3>The Case for Moving Less — But Better</h3>
+            <p>Volume is overrated. Precision, consistency, and recovery produce better long-term outcomes than doing more. Here's the evidence.</p>
+          </div>
+          <div class="blog-card-meta">February 2026 &middot; 6 min read</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOG POST 1 ==================== -->
+  <div class="blog-article" id="blog-strength">
+    <section>
+      <div class="container">
+        <div class="blog-article-header">
+          <div class="blog-article-back" onclick="closeBlogPost()">&larr; Back to Journal</div>
+          <div class="blog-article-tag">Movement &amp; Longevity</div>
+          <h1 class="blog-article-title">Why Strength Training After 40 Is Non-Negotiable</h1>
+          <div class="blog-article-date">February 2026</div>
+        </div>
+        <img src="images/blog-strength.jpg" alt="Older couple dancing outdoors" class="blog-article-hero-img" loading="lazy" width="900" height="600">
+        <div class="blog-article-body">
+
+          <p>There's a quiet thief that starts visiting you in your thirties. It doesn't announce itself. It doesn't hurt — not yet. It simply removes, slowly and steadily, the thing you've always taken for granted: the ability to carry, to climb, to catch yourself when you stumble, to stand up from a low chair without thinking about it.</p>
+
+          <p>By the time most people notice, they've already lost years of ground.</p>
+
+          <h2>What the science calls it</h2>
+
+          <p>The medical term is sarcopenia — from the Greek <em>sarx</em> (flesh) and <em>penia</em> (loss). It describes the progressive, age-related decline in skeletal muscle mass, strength, and function. It was first named by Irwin Rosenberg in the late 1980s, and since then, research has only deepened the urgency around it.</p>
+
+          <p>The numbers are stark. You begin losing muscle mass sometime in your thirties. By your forties and fifties, strength declines at roughly 10–15% per decade. After 70, that rate accelerates sharply — 25–40% per decade. By age 80, between 11% and 50% of people meet the clinical criteria for sarcopenia, depending on how it's measured.</p>
+
+          <div class="highlight-stat">Strength declines at roughly 10–15% per decade after 40. After 70, the rate accelerates to 25–40% per decade.</div>
+
+          <p>These aren't just numbers on a chart. They translate directly into whether you can carry your own groceries at 75. Whether you can get off the floor if you fall. Whether a hip fracture is something you recover from — or something that ends your independence.</p>
+
+          <h2>It's not just about muscle</h2>
+
+          <p>Sarcopenia doesn't exist in isolation. As muscle mass decreases, fat mass tends to increase, changing your entire body composition. This shift is associated with greater insulin resistance, higher rates of type 2 diabetes, cardiovascular disease, and osteoporosis. Research from the European Working Group on Sarcopenia in Older People found that people with sarcopenia had significantly higher prevalence of diabetes, chronic kidney disease, and cardiovascular conditions.</p>
+
+          <p>Bone density drops alongside muscle. This is not a coincidence — muscles pull on bones, and that mechanical loading is one of the primary signals that keeps bones rebuilding themselves. When the muscle goes, the bone follows. A 2022 meta-analysis of resistance training in older adults found that consistent training produced a positive effect on bone mineral density at the hip (0.64%) and lumbar spine (0.62%), enough to prevent age-related decline — not reverse it, but hold the line.</p>
+
+          <h2>The intervention that works</h2>
+
+          <p>There's no pharmaceutical replacement for what resistance training does. Hormonal therapies are being investigated, but the evidence remains inconclusive and the side effects significant. The single most effective intervention, backed by decades of randomized controlled trials, is progressive resistance training.</p>
+
+          <p>That doesn't mean CrossFit. It doesn't mean lifting until failure. It means loading your muscles against resistance — bodyweight, bands, springs, machines, free weights — in a progressive, controlled manner, with enough intensity to stimulate adaptation, and enough recovery to let adaptation happen.</p>
+
+          <p>The protocols that show the most consistent results in the literature involve two to three sessions per week, compound movements targeting both upper and lower body, moderate to high intensity (70–90% of one-rep maximum where applicable), and a minimum duration of twelve weeks — though the benefits compound over months and years.</p>
+
+          <p>Pilates-based resistance work, particularly on the reformer, fits squarely within this framework. The spring system provides variable resistance. The exercises are compound. The environment is controlled enough to maintain proper form — which matters more as you age, not less.</p>
+
+          <h2>What this really means</h2>
+
+          <p>This article isn't meant to scare you. It's meant to give you something more useful than fear: information, and the agency that comes with it.</p>
+
+          <p>Sarcopenia is not inevitable in the way we once assumed. It is accelerated by inactivity and poor nutrition, and it is slowed — sometimes substantially — by consistent, structured resistance training. The research is not ambiguous on this point. The question is not whether to start, but when.</p>
+
+          <p>And the answer to that, for anyone reading this, is now.</p>
+
+        </div>
+
+        <div class="blog-sources">
+          <h3>Sources</h3>
+          <ol>
+            <li>Rosenberg, I.H. (1997). Sarcopenia: Origins and clinical relevance. <em>Journal of Nutrition, 127</em>(5), 990S–991S.</li>
+            <li>Cruz-Jentoft, A.J. et al. (2019). Sarcopenia: revised European consensus on definition and diagnosis. <em>Age and Ageing, 48</em>(1), 16–31.</li>
+            <li>Mitchell, W.K. et al. (2012). Sarcopenia, dynapenia, and the impact of advancing age on human skeletal muscle size and strength. <em>Frontiers in Physiology, 3</em>, 260.</li>
+            <li>Şenoymak, C. et al. (2024). Sarcopenia and associated factors in adults aged 40 and above. <em>Cureus, 16</em>(9), e68831.</li>
+            <li>Marques, E.A. et al. (2022). The effect of resistance training on bone mineral density in older adults: A systematic review and meta-analysis. <em>Healthcare, 10</em>(6), 1129.</li>
+            <li>Nowakowska-Lipiec, K. et al. (2025). Progressive loss of muscle strength: The effects of ageing and sarcopenia on muscle function in older females. <em>Applied Sciences, 15</em>(20), 11230.</li>
+            <li>Cleveland Clinic (2025). Sarcopenia (Muscle Loss): Symptoms &amp; Causes.</li>
+            <li>Haque, I. et al. (2024). The effects of high velocity resistance training on bone mineral density in older adults: A systematic review. <em>Bone, 179</em>, 116986.</li>
+            <li>Nascimento, D.D.C. et al. (2022). Progressive resistance training for concomitant increases in muscle strength and bone mineral density in older adults. <em>Sports Medicine, 52</em>, 1939–1960.</li>
+            <li>Nature Bone Research (2025). Research progress on sarcopenia in the musculoskeletal system. <em>Bone Research, 13</em>.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== BLOG POST 2 ==================== -->
+  <div class="blog-article" id="blog-antiinflammatory">
+    <section>
+      <div class="container">
+        <div class="blog-article-header">
+          <div class="blog-article-back" onclick="closeBlogPost()">&larr; Back to Journal</div>
+          <div class="blog-article-tag">Nourishment</div>
+          <h1 class="blog-article-title">Anti-Inflammatory Eating: What the Science Actually Supports</h1>
+          <div class="blog-article-date">February 2026</div>
+        </div>
+        <img src="images/blog-nutrition.jpg" alt="Fresh whole foods on a wooden table" class="blog-article-hero-img" loading="lazy" width="900" height="590">
+        <div class="blog-article-body">
+
+          <p>There's a version of you at 70 that moves easily, thinks clearly, sleeps deeply, and wakes up without stiffness. And there's another version — one who hurts in places that can't be traced to a single injury, who feels heavy even after resting, who watches their world slowly narrow.</p>
+
+          <p>The distance between those two versions is shaped by many things. But one of the most modifiable — the one most under your daily control — is what you eat.</p>
+
+          <h2>The inflammation you don't feel</h2>
+
+          <p>Acute inflammation is your body doing exactly what it should — responding to injury, infection, or damage. It's the redness around a cut, the swelling after a sprain. It's temporary, localized, and purposeful.</p>
+
+          <p>Chronic low-grade inflammation is something different entirely. It operates below the threshold of symptoms for years. You don't feel it happening. But it's measurable — elevated C-reactive protein, interleukin-6, tumor necrosis factor alpha — and it's associated with nearly every major age-related disease: cardiovascular disease, type 2 diabetes, certain cancers, Alzheimer's, and autoimmune conditions.</p>
+
+          <p>Six out of ten adults in the United States have at least one chronic condition, and chronic diseases cause seven in ten deaths each year. Inflammation is a common thread running through almost all of them.</p>
+
+          <div class="highlight-stat">Chronic low-grade inflammation is a common pathological feature linking cardiovascular disease, diabetes, cancer, and neurodegenerative conditions.</div>
+
+          <h2>What actually has evidence</h2>
+
+          <p>The nutrition space is cluttered with claims. Superfoods, detoxes, elimination protocols — most lack rigorous evidence. But a few dietary patterns have been studied extensively and hold up under scrutiny.</p>
+
+          <p>The Mediterranean dietary pattern has the deepest evidence base. A 2025 umbrella review in <em>Nutrition Reviews</em>, synthesizing 30 systematic reviews and over 225 primary studies, found consistent associations between Mediterranean-style eating and reductions in inflammatory biomarkers, particularly C-reactive protein. The DASH diet showed high-certainty evidence for reducing blood pressure and was associated with lower cancer-related and all-cause mortality.</p>
+
+          <p>What these diets share matters more than what differentiates them: high intake of vegetables, fruits, legumes, whole grains, nuts, and fish rich in omega-3 fatty acids. Low intake of processed foods, refined carbohydrates, and added sugars. Moderate use of olive oil. Minimal ultra-processed products.</p>
+
+          <p>A 2025 systematic review of 75 chronic dietary intervention studies found that fruits and vegetables reduced circulating pro-inflammatory cytokines in 80% of studies examined. Fish showed similar results in 78% of trials. The pattern is consistent: whole foods, minimally processed, in variety — not a single magic ingredient.</p>
+
+          <h2>What doesn't hold up</h2>
+
+          <p>The supplement industry has capitalized on anti-inflammatory language. Turmeric pills, concentrated antioxidant capsules, collagen powders marketed for joint health — most have thin clinical evidence when isolated from whole-food contexts. The bioactive compounds in anti-inflammatory foods work synergistically, and that synergy appears to be difficult to replicate in a capsule.</p>
+
+          <p>Extreme elimination diets — removing all grains, all dairy, all nightshades — are popular online but poorly supported by controlled research for general populations. Some individuals with autoimmune conditions may benefit from specific exclusions, but blanket elimination without clinical guidance often leads to nutritional gaps and a difficult-to-sustain relationship with food.</p>
+
+          <p>The VA Evidence Synthesis Program's 2024 evidence map put it plainly: despite lack of perfect understanding of the mechanisms, the demonstrated benefits of anti-inflammatory dietary patterns and the apparent lack of harms suggest there is no downside to promoting these diets.</p>
+
+          <h2>The practical translation</h2>
+
+          <p>You don't need a protocol. You need a pattern. One that you can maintain not for four weeks, but for the next forty years. That's the part most programs miss — the research consistently shows that the highest efficacy comes from long-term adherence, not short-term intensity.</p>
+
+          <p>More vegetables than you think you need. Legumes weekly. Fish twice a week if possible. Olive oil as your default fat. Berries, leafy greens, nuts as regular players. And a significant reduction in ultra-processed foods — not because they're evil, but because the evidence linking them to elevated inflammatory markers is growing and consistent.</p>
+
+          <p>This isn't a diet. It's a way of eating that you can build around meals you actually enjoy, adjusted to your preferences, your culture, your budget. The science doesn't demand perfection. It rewards consistency.</p>
+
+        </div>
+
+        <div class="blog-sources">
+          <h3>Sources</h3>
+          <ol>
+            <li>Reyneke, G.L. et al. (2025). Dietary patterns associated with anti-inflammatory effects: An umbrella review. <em>Nutrition Reviews</em>, nuaf104.</li>
+            <li>Jiang, R. et al. (2025). Impact of anti-inflammatory diets on cardiovascular disease risk factors: A systematic review and meta-analysis. <em>Frontiers in Nutrition, 12</em>, 1549831.</li>
+            <li>Scheiber, A. &amp; Mank, V. (2023). Anti-inflammatory diets. <em>StatPearls</em>. Treasure Island, FL: StatPearls Publishing.</li>
+            <li>U.S. Department of Veterans Affairs (2024). Beyond Diabetes, Obesity, and Cardiovascular Disease: An Evidence Map of Anti-Inflammatory Diet. Evidence Synthesis Program.</li>
+            <li>Nutrients (2025). Unraveling the role of foods on chronic anti- and pro-inflammatory cytokines: A systematic review. <em>Nutrients, 17</em>(17), 2834.</li>
+            <li>Kaviani, M. et al. (2024). Overview of anti-inflammatory diets and their promising effects on non-communicable diseases. <em>British Journal of Nutrition, 132</em>(7).</li>
+            <li>Wendels Specker, M. et al. (2024). An anti-inflammatory diet and its potential benefit for individuals with mental disorders and neurodegenerative diseases. <em>Nutrients, 16</em>(16), 2646.</li>
+            <li>Frontiers in Nutrition (2023). The effect of an anti-inflammatory diet on chronic pain: a pilot study. <em>Frontiers in Nutrition, 10</em>, 1205526.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== BLOG POST 3 ==================== -->
+  <div class="blog-article" id="blog-moveless">
+    <section>
+      <div class="container">
+        <div class="blog-article-header">
+          <div class="blog-article-back" onclick="closeBlogPost()">&larr; Back to Journal</div>
+          <div class="blog-article-tag">Movement &amp; Recovery</div>
+          <h1 class="blog-article-title">The Case for Moving Less — But Better</h1>
+          <div class="blog-article-date">February 2026</div>
+        </div>
+        <img src="images/blog-movement.jpg" alt="Woman practicing Pilates on reformer" class="blog-article-hero-img" loading="lazy" width="900" height="643">
+        <div class="blog-article-body">
+
+          <p>We live in a culture that celebrates volume. More reps, more classes, more miles, more sweat. If a little is good, more must be better. And if you're not sore, you didn't work hard enough.</p>
+
+          <p>Except that's not what the research says. Not for longevity. Not for lasting strength. And definitely not for the woman in her forties or fifties who is trying to build something sustainable — a body that serves her well for the next thirty or forty years, not just for the next beach season.</p>
+
+          <h2>The cost of more</h2>
+
+          <p>Overtraining is not just an elite athlete problem. It shows up in the person doing HIIT five days a week whose cortisol is chronically elevated. It shows up in the runner whose joints ache every morning but who pushes through because rest feels like failure. It shows up in the woman who equates intensity with progress and wonders why her body keeps breaking down.</p>
+
+          <p>The body adapts during recovery, not during the work itself. Training provides the stimulus. Sleep, nutrition, and rest provide the environment in which adaptation occurs. Without adequate recovery, the stimulus becomes damage. Muscles don't rebuild stronger. Tendons don't repair. The nervous system stays in a state of heightened alert that affects sleep, digestion, and mood.</p>
+
+          <h2>What "better" actually means</h2>
+
+          <p>Movement quality is a measurable, researchable thing. A 2015 paper in <em>Frontiers in Psychology</em> proposed that mindful movement practice may improve the functional quality of rehearsed procedures — meaning that when you pay deliberate attention to how you move, you don't just move differently in that moment. You build a transferable skill of attention that changes how you move in every moment.</p>
+
+          <p>This has been studied across disciplines. Yoga, tai chi, qigong, and Pilates all fall under the umbrella of mindful movement — practices that integrate deliberate attention, breath regulation, and controlled movement into a single experience. A 2024 study published in <em>Frontiers in Public Health</em> found that a structured mindful movement program produced significant improvements in psychological wellbeing, positive mental health, and interoceptive awareness — your ability to sense what's actually happening inside your body.</p>
+
+          <div class="highlight-stat">Mindful movement training improves not just physical outcomes, but interoceptive awareness — your ability to sense what is happening inside your own body.</div>
+
+          <p>That last point deserves emphasis. Interoceptive awareness is the foundation of knowing when to push and when to rest, when something is a productive discomfort and when it's a warning. It's the skill that prevents injury — not by avoiding movement, but by moving with intelligence.</p>
+
+          <h2>Precision as a strategy</h2>
+
+          <p>In classical Pilates, a single exercise done with correct alignment, appropriate breath, and full attention produces more neuromuscular adaptation than twenty careless repetitions. This isn't philosophy — it's neuroscience. Motor learning research shows that quality of practice, not quantity, determines the strength and durability of neural pathways.</p>
+
+          <p>Skilled movement requires coordination between motor planning, sensory feedback, and cognitive control. Research on the mind-body connection describes this as a model of "skilled attention" — where motor plans, attention, and executive goals are mutually co-defining aspects of skilled behavior. In simpler terms: when you practice moving with precision, you're training your brain and body as a single system.</p>
+
+          <p>The research on breathing supports this further. A 2024 study in <em>Frontiers in Human Neuroscience</em> found that mindful breathing reduced muscle tension, while slow, controlled breathing improved executive function — the cognitive skills responsible for planning, task-switching, and impulse control. These are the same cognitive resources that erode with aging and chronic stress.</p>
+
+          <h2>Less, for longer</h2>
+
+          <p>The most compelling evidence for exercise and longevity doesn't come from extreme protocols. It comes from consistent, moderate, well-structured programs maintained over years. Two to three sessions per week. Resistance training with compound movements. Enough intensity to stimulate adaptation, enough rest to allow it. Mindful attention to form.</p>
+
+          <p>This is not exciting. It doesn't sell programs. It doesn't generate viral transformation content. But it's what works — and what keeps working when everything else leads to burnout, injury, or both.</p>
+
+          <p>The question isn't how much you can tolerate. It's how little you need to do, done with complete precision and consistency, to keep building for the rest of your life. That reframe changes everything.</p>
+
+        </div>
+
+        <div class="blog-sources">
+          <h3>Sources</h3>
+          <ol>
+            <li>Kee, Y.H. &amp; John Wang, C.K. (2015). Mindful movement and skilled attention. <em>Frontiers in Psychology, 6</em>, 532.</li>
+            <li>Spaccapanico Proietti, S. et al. (2024). The role of a mindful movement-based program in health promotion. <em>Frontiers in Public Health, 12</em>, 1372660.</li>
+            <li>Vanutelli, M.E. et al. (2024). Editorial: Moving the mind, thinking the body. <em>Frontiers in Human Neuroscience, 18</em>, 1376909.</li>
+            <li>BMC Complementary Medicine and Therapies (2024). Mind-body interventions: Mindful movement practices. Springer Nature.</li>
+            <li>Müller, C. &amp; Karbach, J. (2021). The effects of acute physical exercise and mindfulness on cognitive performance. Randomized crossover study.</li>
+            <li>García-Hermoso, A. et al. (2020). Safety and effectiveness of long-term exercise interventions in older adults. <em>Sports Medicine, 50</em>(6), 1095–1106.</li>
+            <li>Nascimento, D.D.C. et al. (2022). Progressive resistance training for concomitant increases in muscle strength and bone mineral density in older adults. <em>Sports Medicine, 52</em>, 1939–1960.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- CONTACT PAGE -->
+<!-- ===================================================== -->
+<div class="page" id="page-contact">
+
+  <section class="contact-hero">
+    <div class="container">
+      <p class="section-eyebrow">Contact</p>
+      <h1 class="section-title">Start with a <em>conversation</em></h1>
+      <p class="section-body">The complimentary 30-minute consultation is a chance for us to talk — about your body, your goals, and whether working together makes sense. No pressure, no commitment.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-info">
+          <h3>What to Expect</h3>
+          <p>We'll spend 30 minutes discussing your movement history, any concerns or goals you have, and what a session with me looks like. This isn't a sales call — it's a genuine conversation to see if we're a good fit.</p>
+
+          <div class="contact-detail">
+            <div class="detail-label">Location</div>
+            <div class="detail-value">Fort Lauderdale, FL — neighborhood-based sessions</div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-label">Sessions</div>
+            <div class="detail-value">Private (1:1) &amp; Semi-Private (2 people)</div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-label">Consultation</div>
+            <div class="detail-value">30 minutes, complimentary</div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form action="https://formspree.io/f/xnjbbked" method="POST">
+            <input type="hidden" name="_subject" value="New consultation request — NinaManova.com">
+            <input type="hidden" name="_next" value="https://ninamanova.com/">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone (optional)</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+              <label for="interest">I'm interested in</label>
+              <select id="interest" name="interest">
+                <option value="">Select one...</option>
+                <option value="private">Private Sessions (1:1)</option>
+                <option value="semi-private">Semi-Private Sessions (2 people)</option>
+                <option value="online">Online Sessions (Zoom)</option>
+                <option value="unsure">Not sure yet — let's talk</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="location">Preferred location</label>
+              <select id="location" name="location">
+                <option value="">Select one...</option>
+                <option value="home">In my home</option>
+                <option value="building">My building gym</option>
+                <option value="studio">In studio</option>
+                <option value="flexible">Flexible — let's discuss</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Anything you'd like me to know?</label>
+              <textarea id="message" name="message" placeholder="Movement goals, injuries, concerns, questions — anything is helpful."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Request Consultation</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Nina Manova</div>
+        <div class="footer-tagline">Movement educator. Longevity practitioner.</div>
+      </div>
+      <div class="footer-links">
+        <a href="#movement">Movement</a>
+        <a href="#nutrition">Nourishment</a>
+        <a href="#about">About</a>
+        <a href="#blog">Journal</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Nina Manova. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== ROUTING =====
+const pageMeta = {
+  home: {
+    title: 'Nina Manova — Private Pilates in Fort Lauderdale',
+    description: 'Private and semi-private Pilates sessions in Coral Ridge, The Landings, Bay Colony, Sea Ranch Lakes and nearby Fort Lauderdale neighborhoods.'
+  },
+  movement: {
+    title: 'Movement — Nina Manova Pilates',
+    description: 'Classical Pilates approach adapted to your body. Private and semi-private sessions focused on strength, mobility, and longevity.'
+  },
+  nutrition: {
+    title: 'Nourishment — Nina Manova Pilates',
+    description: 'Nutritional awareness integrated with movement practice. Anti-inflammatory eating, whole foods, and sustainable habits.'
+  },
+  about: {
+    title: 'About Nina Manova — Pilates Instructor, Fort Lauderdale',
+    description: 'Former competitive athlete with 15+ years teaching Pilates. Certified instructor specializing in private sessions for women 35+.'
+  },
+  blog: {
+    title: 'Journal — Nina Manova Pilates',
+    description: 'Articles on movement, nutrition, and longevity. Evidence-based perspectives on strength training, anti-inflammatory eating, and mindful movement.'
+  },
+  contact: {
+    title: 'Begin — Book a Free Consultation with Nina Manova',
+    description: 'Schedule a complimentary 30-minute consultation. In-home, in-studio, or online Pilates sessions in Fort Lauderdale.'
+  }
+};
+
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
+    p.style.display = 'none';
+  });
+  const target = document.getElementById('page-' + page);
+  if (target) {
+    target.style.display = 'block';
+    requestAnimationFrame(() => { target.classList.add('active'); });
+  }
+  
+  // Update page title and meta description
+  const meta = pageMeta[page] || pageMeta.home;
+  document.title = meta.title;
+  const descTag = document.querySelector('meta[name="description"]');
+  if (descTag) descTag.setAttribute('content', meta.description);
+  
+  // Update canonical
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) {
+    const base = canonical.href.split('#')[0];
+    canonical.href = page === 'home' ? base : base + '#' + page;
+  }
+  
+  // Update hash without triggering hashchange
+  if (page === 'home') {
+    history.replaceState(null, '', window.location.pathname);
+  } else {
+    history.replaceState(null, '', '#' + page);
+  }
+  
+  // Update nav active state
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const navLink = document.querySelector(`.nav-links a[data-page="${page}"]`);
+  if (navLink) navLink.classList.add('active');
+  
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  
+  // Close mobile menu
+  document.getElementById('navLinks').classList.remove('open');
+}
+
+// ===== BLOG POST TOGGLE =====
+function showBlogPost(postId) {
+  document.getElementById('blog-grid-section').style.display = 'none';
+  document.querySelector('#page-blog .blog-hero').style.display = 'none';
+  document.querySelectorAll('.blog-article').forEach(a => { a.classList.remove('active'); a.style.display = 'none'; });
+  const article = document.getElementById('blog-' + postId);
+  if (article) { article.style.display = 'block'; article.classList.add('active'); }
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+function closeBlogPost() {
+  document.querySelectorAll('.blog-article').forEach(a => { a.classList.remove('active'); a.style.display = 'none'; });
+  document.getElementById('blog-grid-section').style.display = '';
+  document.querySelector('#page-blog .blog-hero').style.display = '';
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+// ===== NAV SCROLL EFFECT =====
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  if (window.scrollY > 40) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+// ===== MOBILE MENU =====
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ===== FORM HANDLER =====
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash.replace('#', '');
+  const validPages = ['home', 'movement', 'nutrition', 'about', 'blog', 'contact'];
+  showPage(validPages.includes(hash) ? hash : 'home');
+});
+
+// Handle browser back/forward
+window.addEventListener('hashchange', () => {
+  const hash = window.location.hash.replace('#', '');
+  const validPages = ['home', 'movement', 'nutrition', 'about', 'blog', 'contact'];
+  showPage(validPages.includes(hash) ? hash : 'home');
+});
+</script>
+
+</body>
+</html>
