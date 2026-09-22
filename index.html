@@ -2690,10 +2690,12 @@ function toggleMenu() {
       if (response.ok) {
         // Fire Google Ads conversion only on success
         if (typeof gtag === 'function') {
-          gtag('set', 'user_data', { email: email });
-          gtag('event', 'conversion', {
-            send_to: 'AW-18467051626/REPLACE_WITH_LABEL'
-          });
+          var phoneRaw = (form.querySelector('#phone').value || '').replace(/\D/g, '');
+          if (phoneRaw.length === 11 && phoneRaw.charAt(0) === '1') phoneRaw = phoneRaw.slice(1);
+          var userData = { email: email.trim().toLowerCase() };
+          if (phoneRaw.length === 10) userData.phone_number = '+1' + phoneRaw;
+          gtag('set', 'user_data', userData);
+          gtag('event', 'conversion', { send_to: 'AW-18467051626/zCDyCM_TpYEdEOqw4-VE' });
         }
         form.reset();
         status.textContent = 'Thank you! Nina will be in touch within 24 hours.';
