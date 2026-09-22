@@ -1827,6 +1827,16 @@ footer {
   .highlight-stat { font-size: 1.15rem; padding: 1.5rem; }
 }
 </style>
+
+<!-- Google Ads gtag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18467051626"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18467051626');
+</script>
+
 </head>
 <body>
 
@@ -2480,9 +2490,8 @@ footer {
         </div>
 
         <div class="contact-form">
-          <form action="https://formspree.io/f/xnjbbked" method="POST">
+          <form id="consultationForm" action="https://formspree.io/f/xnjbbked" method="POST">
             <input type="hidden" name="_subject" value="New consultation request — NinaManova.com">
-            <input type="hidden" name="_next" value="https://ninamanova.com/">
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name</label>
@@ -2526,6 +2535,7 @@ footer {
               <textarea id="message" name="message" placeholder="Movement goals, injuries, concerns, questions — anything is helpful."></textarea>
             </div>
             <button type="submit" class="form-submit">Request Consultation</button>
+            <p id="formStatus" style="margin-top:1rem;font-family:var(--font-body);font-size:0.9rem;display:none;"></p>
           </form>
         </div>
       </div>
@@ -2660,6 +2670,51 @@ function toggleMenu() {
 }
 
 // ===== FORM HANDLER =====
+(function() {
+  var form = document.getElementById('consultationForm');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = form.querySelector('.form-submit');
+    var status = document.getElementById('formStatus');
+    var email = form.querySelector('#email').value;
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    status.style.display = 'none';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response) {
+      if (response.ok) {
+        // Fire Google Ads conversion only on success
+        if (typeof gtag === 'function') {
+          gtag('set', 'user_data', { email: email });
+          gtag('event', 'conversion', {
+            send_to: 'AW-18467051626/REPLACE_WITH_LABEL'
+          });
+        }
+        form.reset();
+        status.textContent = 'Thank you! Nina will be in touch within 24 hours.';
+        status.style.color = 'var(--forest)';
+        status.style.display = 'block';
+      } else {
+        status.textContent = 'Something went wrong. Please try again or email directly.';
+        status.style.color = '#c0392b';
+        status.style.display = 'block';
+      }
+      btn.disabled = false;
+      btn.textContent = 'Request Consultation';
+    }).catch(function() {
+      status.textContent = 'Something went wrong. Please try again or email directly.';
+      status.style.color = '#c0392b';
+      status.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Request Consultation';
+    });
+  });
+})();
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
   const hash = window.location.hash.replace('#', '');
