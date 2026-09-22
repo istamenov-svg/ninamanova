@@ -2537,6 +2537,11 @@ footer {
             <button type="submit" class="form-submit">Request Consultation</button>
             <p id="formStatus" style="margin-top:1rem;font-family:var(--font-body);font-size:0.9rem;display:none;"></p>
           </form>
+          <div id="formSuccess" style="display:none;text-align:center;padding:3rem 2rem;">
+            <div style="font-size:2.5rem;margin-bottom:1rem;">✓</div>
+            <h3 style="font-family:var(--font-heading);font-size:1.6rem;font-weight:400;color:var(--forest);margin-bottom:0.75rem;">Thank you</h3>
+            <p style="font-family:var(--font-body);font-size:1rem;color:var(--text);line-height:1.7;max-width:400px;margin:0 auto;">Nina will be in touch within 24 hours. Looking forward to meeting you.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -2698,9 +2703,8 @@ function toggleMenu() {
           gtag('event', 'conversion', { send_to: 'AW-18467051626/zCDyCM_TpYEdEOqw4-VE' });
         }
         form.reset();
-        status.textContent = 'Thank you! Nina will be in touch within 24 hours.';
-        status.style.color = 'var(--forest)';
-        status.style.display = 'block';
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
       } else {
         status.textContent = 'Something went wrong. Please try again or email directly.';
         status.style.color = '#c0392b';
