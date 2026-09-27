@@ -125,7 +125,7 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
     f.addEventListener('submit',function(e){e.preventDefault();var t=ta.value.trim();if(!t)return;ta.value='';
       var pending=say(t,'me');
       api('msg',{sid:live.sid,text:t}).then(function(r){seen[r.id]=1;if(r.id>lastId)lastId=r.id;
-        clearTimeout(waitT);waitT=setTimeout(function(){say('Nina may be with a client right now. She’ll answer here, or by email or text if you’ve left the page.')},120000);
+        clearTimeout(waitT);waitT=setTimeout(function(){say('Nina may be with a client right now. She’ll answer here, or by email or text if you’ve left the page. For anything urgent, call or text (754) 999-0699.')},120000);
         schedule(1500);
       }).catch(function(){pending.classList.add('failed');say('That didn’t send. Please try again.')});
     });
