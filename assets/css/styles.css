@@ -371,3 +371,18 @@ footer .fine{margin-top:48px;padding-top:22px;border-top:1px solid #4A3D44;displ
 @media (max-width:1100px){.nav-cta{gap:14px;margin-left:auto}.nav .btn[data-chat]{display:inline-flex}}
 @media (max-width:760px){.nav .btn[data-chat]{display:none}.chat-btn{display:none!important}}
 .nav ul a{white-space:nowrap}
+
+/* hero parallax in CSS (compositor-driven, smooth on iOS Safari 26+ and Chrome); same motion as the JS fallback */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .hero picture img{animation:heroDrift linear both;animation-timeline:scroll(root block);animation-range:0px 1000px}
+    .hero-copy{animation:heroCopy linear both;animation-timeline:scroll(root block);animation-range:0px 800px}
+    @media (max-width:760px){
+      .hero picture img{animation-name:heroDriftM}
+      .hero-copy{animation:none}
+    }
+  }
+}
+@keyframes heroDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,350px,0)}}
+@keyframes heroDriftM{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,250px,0)}}
+@keyframes heroCopy{from{transform:translate3d(0,0,0);opacity:1}to{transform:translate3d(0,-96px,0);opacity:.1}}

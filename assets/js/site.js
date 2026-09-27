@@ -20,6 +20,10 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
   (function(){
     var pic=document.querySelector('.hero picture'),img=pic&&pic.querySelector('img'),copy=document.querySelector('.hero-copy');
     if(!img||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    // Browsers with CSS scroll-driven animations (Safari 26+, Chrome) run the parallax in CSS, off the main thread.
+    if(window.CSS&&CSS.supports&&CSS.supports('animation-timeline: scroll()'))return;
+    // Older touch browsers (e.g. iOS before 26): JS scroll parallax stutters during momentum scrolling, so keep the image still.
+    if(matchMedia('(pointer: coarse)').matches)return;
     var ticking=false;
     function update(){
       ticking=false;
