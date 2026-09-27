@@ -101,21 +101,24 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
   function say(t,w){var m=document.createElement('div');m.className='m '+(w||'bot');m.textContent=t;msgs.appendChild(m);scroll();return m}
   function options(list,cb){var o=document.createElement('div');o.className='opts';list.forEach(function(x){var b=document.createElement('button');b.type='button';b.textContent=x;b.onclick=function(){o.remove();say(x,'me');cb(x)};o.appendChild(b)});msgs.appendChild(o);scroll()}
   function start(){msgs.replaceChildren();data={};zf.hidden=false;say('Hi, I’m Nina’s assistant. A few quick questions and I’ll pass you to Nina.');say('What’s your zip code?')}
-  function open(){chat.hidden=false;cbtn.setAttribute('aria-expanded','true');cbtn.classList.remove('unread');
+  function open(){chat.hidden=false;cbtn.setAttribute('aria-expanded','true');markUnread(false);
     if(!msgs.children.length){var saved=CHAT_API&&load('nm_chat');if(saved&&saved.sid)resume(saved);else start()}
     var ta=chat.querySelector('.livebar textarea');(ta||zi).focus();if(live&&!bg)schedule(0)}
   function close(){chat.hidden=true;cbtn.setAttribute('aria-expanded','false')}
   cbtn.onclick=function(){chat.hidden?open():close()};
+  var extra=[].slice.call(document.querySelectorAll('[data-chat]'));
+  extra.forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();open()})});
+  function markUnread(on){[cbtn].concat(extra).forEach(function(b){b.classList.toggle('unread',on)})}
   document.getElementById('chatClose').onclick=close;
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!chat.hidden)close()});
 
   function api(path,body){return fetch(CHAT_API.replace(/\/$/,'')+'/api/'+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()})}
   function render(m){if(seen[m.id])return;seen[m.id]=1;if(m.id>lastId)lastId=m.id;
     var el=say(m.text,m.sender==='nina'?'bot nina':'me');
-    if(m.sender==='nina'){clearTimeout(waitT);store('nm_seen',m.id);if(chat.hidden)cbtn.classList.add('unread')}}
+    if(m.sender==='nina'){clearTimeout(waitT);store('nm_seen',m.id);if(chat.hidden)markUnread(true)}}
   function schedule(ms){clearTimeout(pollT);pollT=setTimeout(poll,ms)}
   function poll(){if(!live)return;api('poll',{sid:live.sid,after:bg?(load('nm_seen')||0):lastId}).then(function(r){var ms=r.messages||[];
-    if(bg){if(ms.some(function(m){return m.sender==='nina'}))cbtn.classList.add('unread');return}ms.forEach(render)}).catch(function(){}).then(function(){schedule(chat.hidden||document.hidden?20000:3000)})}
+    if(bg){if(ms.some(function(m){return m.sender==='nina'}))markUnread(true);return}ms.forEach(render)}).catch(function(){}).then(function(){schedule(chat.hidden||document.hidden?20000:3000)})}
   function liveBar(){
     zf.hidden=true;sub.textContent='Nina · replies here personally';
     var f=document.createElement('form');f.className='livebar';
