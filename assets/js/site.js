@@ -3,7 +3,7 @@
    CHAT_API: URL of the nina-chat worker (e.g. 'https://nina-chat.<account>.workers.dev').
    When set, visitors keep chatting in the widget after the questions and Nina replies from Telegram.
    When empty, the chat ends with an email confirmation only. */
-var CHAT_API = '';
+var CHAT_API = 'https://nina-chat.istamenov.workers.dev';
 var FORM_ENDPOINT = 'https://formspree.io/f/xnjbbked';
 var CONVERSION = 'AW-18467051626/zCDyCM_TpYEdEOqw4-VE';
 var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','33064'];
