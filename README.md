@@ -1,46 +1,42 @@
-# Nina Manova — Movement & Longevity
+# ninamanova.com
 
-Personal website for Nina Manova, a certified Pilates instructor and movement educator based in Fort Lauderdale, FL.
+Static site for Nina Manova, hosted on GitHub Pages (repo `istamenov-svg/ninamanova`, custom domain via `CNAME`).
+No build step is needed on GitHub: every page is plain HTML.
 
 ## Structure
 
-```
-index.html          — Full multi-page site (client-side routing)
-404.html            — Custom 404 error page
-sitemap.xml         — XML sitemap for search engines
-robots.txt          — Crawler directives
-images/             — All site images
-```
+| URL | File |
+| --- | --- |
+| / | index.html |
+| /classical-pilates/ | classical-pilates/index.html |
+| /nourishment/ | nourishment/index.html |
+| /about/ | about/index.html |
+| /journal/ | journal/index.html |
+| /journal/<slug>/ | journal/<slug>/index.html (3 articles) |
+| /begin/ | begin/index.html (consultation form) |
+| /privacy/ | privacy/index.html |
+| any unknown path | 404.html |
 
-## Pages
+Assets live in `/assets/css`, `/assets/js`, `/assets/img`.
 
-- **Home** — Hero, services (Private, Semi-Private, Online), philosophy, nourishment, about preview, CTA
-- **Movement** — Pilates approach, session types, guiding principles
-- **Nourishment** — Nutrition philosophy integrated with movement
-- **About** — Nina's background and credentials
-- **Journal** — Blog (articles coming soon)
-- **Contact** — Consultation request form (powered by Formspree)
+## Do not break
 
-## SEO
+- `CNAME` must stay at the repo root.
+- Google tag `AW-18467051626` is in the `<head>` of every page.
+- Form posts to Formspree `f/xnjbbked` with fields firstName, lastName, email, phone, interest, location, message (plus frequency, nourishment, smsConsent, source).
+- Conversion fires only after Formspree returns ok, in this order: `gtag('set','user_data',…)` then `gtag('event','conversion',{send_to:'AW-18467051626/zCDyCM_TpYEdEOqw4-VE'})`. Code: `assets/js/site.js`.
+- The chat submits through the same form endpoint and fires the same conversion. A per-session flag stops one visitor counting twice.
+- Old hash links (#movement, #nutrition, #about, #blog, #contact) redirect from the homepage to the new pages.
+- Google Ads final URL stays https://ninamanova.com/.
 
-- Per-page meta descriptions and title tags (updated dynamically via JS)
-- Open Graph and Twitter Card tags
-- JSON-LD LocalBusiness structured data
-- Canonical tags
-- Hash-based routing with browser history support
-- XML sitemap and robots.txt
+## Settings to fill in
 
-## Deployment
+- `assets/js/site.js` → `CHAT_API`: URL of the chat worker (see `chat-worker/SETUP.md` in the build folder). Empty = the chat ends after the questions with an email confirmation; set = visitors keep chatting and Nina replies from Telegram, invisibly to the visitor.
 
-### GitHub Pages
-1. Push to GitHub
-2. Go to repo Settings → Pages
-3. Set source to `main` branch, root (`/`)
-4. Site live at `https://[username].github.io/[repo-name]`
+## Before launch
 
-### Custom Domain
-1. Add A records: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
-2. Add CNAME for www → [username].github.io
-3. Add domain in repo Settings → Pages → Custom domain
-4. Create a CNAME file in repo root with your domain
-5. Update all URLs in index.html, sitemap.xml, robots.txt, and 404.html
+1. Replace AI placeholder photos in `/assets/img` with the real shoot (same file names, 1600px+ wide).
+2. Submit the form on desktop and phone; in DevTools → Network confirm a request to `googleadservices.com` containing `label=zCDyCM_TpYEdEOqw4-VE` and an `em=` parameter. Repeat through the chat.
+3. Confirm the Formspree email arrives with all fields.
+4. Open https://ninamanova.com/#movement and check it lands on /classical-pilates/.
+5. In Search Console, submit `sitemap.xml`.
