@@ -221,6 +221,8 @@ section.block{padding-block:clamp(72px,10vw,136px)}
 .c1{background:#E9DDE2;color:var(--plum)}
 .c2{background:var(--sage-soft);color:#3D4128}
 .c3{background:var(--plum);color:#F1E7EB}
+.c4{background:#EFE4D8;color:#4A3B33}
+.c5{background:var(--rose);color:#FFF7FA}
 .card .meta{font-size:14px;color:var(--ink-2)}
 .card .ex{font-size:16px;color:var(--ink-2)}
 @media (max-width:860px){.cards{grid-template-columns:1fr}.cover{aspect-ratio:16/10}}
