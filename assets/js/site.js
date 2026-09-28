@@ -104,7 +104,18 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
   function scroll(){msgs.scrollTop=msgs.scrollHeight}
   function say(t,w){var m=document.createElement('div');m.className='m '+(w||'bot');m.textContent=t;msgs.appendChild(m);scroll();return m}
   function options(list,cb){var o=document.createElement('div');o.className='opts';list.forEach(function(x){var b=document.createElement('button');b.type='button';b.textContent=x;b.onclick=function(){o.remove();say(x,'me');cb(x)};o.appendChild(b)});msgs.appendChild(o);scroll()}
-  function start(){msgs.replaceChildren();data={};zf.hidden=false;say('Hi, I’m Nina’s assistant. A few quick questions and I’ll pass you to Nina.');say('What’s your zip code?')}
+  function start(){msgs.replaceChildren();data={};zf.hidden=true;say('Hi, I’m Nina’s assistant. A few quick questions and I’ll pass you to Nina.');askFormat()}
+  function askFormat(){
+    say('What kind of sessions interest you?');
+    options(['Private','Semi-private','Online','Kids / teens','Not sure'],function(v){data.format=v;
+      if(v==='Online'){data.zip='';data.where='Online';say('Online sessions are live, one to one, wherever you are.');askNourish()}
+      else{say('What’s your zip code?');zf.hidden=false;zi.focus()}
+    });
+  }
+  function askNourish(){
+    say('Would you like to add Nourishment guidance to your sessions?');
+    options(['Yes','Maybe later'],function(v){data.nourish=v;contactStep()});
+  }
   function open(){chat.hidden=false;cbtn.setAttribute('aria-expanded','true');markUnread(false);
     if(!msgs.children.length){var saved=CHAT_API&&load('nm_chat');if(saved&&saved.sid)resume(saved);else start()}
     var ta=chat.querySelector('.livebar textarea');(ta||zi).focus();if(live&&!bg)schedule(0)}
@@ -166,14 +177,14 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
       var b=f.querySelector('button');b.disabled=true;
       data.firstName=f.firstName.value.trim();data.lastName=f.lastName.value.trim();data.email=f.email.value.trim();data.phone=f.phone.value.trim();
       data.smsConsent=f.smsConsent.checked?'Yes':'No';
-      var inArea=SERVICE_ZIPS.indexOf(data.zip)>-1;
-      var summary='Zip '+data.zip+(inArea?'':' (confirm area)')+' · '+data.format+' · '+data.where+' · Nourishment: '+data.nourish;
-      submitLead({_subject:'Chat inquiry'+(inArea?'':' · confirm area')+' · ninamanova.com',source:'chat',firstName:data.firstName,lastName:data.lastName,email:data.email,phone:data.phone,
-        interest:data.format,location:data.where,nourishment:data.nourish,zip:data.zip,areaCheck:inArea?'In service area':'Confirm area',smsConsent:data.smsConsent,message:summary})
+      var online=data.format==='Online',inArea=online||SERVICE_ZIPS.indexOf(data.zip)>-1;
+      var summary=(online?'Online (no zip needed)':'Zip '+data.zip+(inArea?'':' (confirm area)'))+' · '+data.format+' · '+data.where+' · Nourishment: '+data.nourish;
+      submitLead({_subject:'Chat inquiry'+(online?' · online':(inArea?'':' · confirm area'))+' · ninamanova.com',source:'chat',firstName:data.firstName,lastName:data.lastName,email:data.email,phone:data.phone,
+        interest:data.format,location:data.where,nourishment:data.nourish,zip:data.zip,areaCheck:online?'Online':(inArea?'In service area':'Confirm area'),smsConsent:data.smsConsent,message:summary})
       .then(function(){
         f.remove();
         if(!CHAT_API){say('Thank you, '+data.firstName+'. Nina has your details and will reply personally, usually within 24 hours.');return}
-        return api('start',{lead:{firstName:data.firstName,lastName:data.lastName,email:data.email,phone:data.phone,zip:data.zip,inArea:inArea,format:data.format,where:data.where,nourish:data.nourish}})
+        return api('start',{lead:{firstName:data.firstName,lastName:data.lastName,email:data.email,phone:data.phone,zip:online?'Online':data.zip,inArea:inArea,format:data.format,where:data.where,nourish:data.nourish}})
           .then(function(r){say('Thank you, '+data.firstName+'. Nina has your details. If you have a question, write it below and she’ll reply here.');goLive(r.sid,[])})
           .catch(function(){say('Thank you, '+data.firstName+'. Nina has your details and will reply personally, usually within 24 hours.')});
       }).catch(function(){b.disabled=false;say('Sorry, that didn’t send. Please try again, or email manova.nina@gmail.com.')});
@@ -184,13 +195,7 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
     e.preventDefault();var z=zi.value.trim();if(!/^\d{5}$/.test(z)){zi.focus();return}
     say(z,'me');zi.value='';zf.hidden=true;data.zip=z;
     say(SERVICE_ZIPS.indexOf(z)>-1?'Lovely, that’s in Nina’s area.':'Nina will confirm whether she can come to you. Online sessions are always an option.');
-    say('Which format interests you?');
-    options(['Private','Semi-private','Online','Kids / teens','Not sure'],function(v){data.format=v;
-      say('Where would sessions happen?');
-      options(['My home','Building gym','Studio','Flexible'],function(v){data.where=v;
-        say('Would you like to add Nourishment guidance to your sessions?');
-        options(['Yes','Maybe later'],function(v){data.nourish=v;contactStep()});
-      });
-    });
+    say('Where would sessions happen?');
+    options(['My home','Building gym','Studio','Flexible'],function(v){data.where=v;askNourish()});
   });
 })();
