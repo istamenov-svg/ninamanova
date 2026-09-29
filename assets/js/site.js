@@ -6,9 +6,13 @@
 var CHAT_API = 'https://nina-chat.istamenov.workers.dev';
 var FORM_ENDPOINT = 'https://formspree.io/f/xnjbbked';
 var CONVERSION = 'AW-18467051626/zCDyCM_TpYEdEOqw4-VE';
+var GA4 = 'G-J1ZRW0LNW8';
+function gaEvent(name,params){try{if(typeof gtag==='function'){params=params||{};params.send_to=GA4;gtag('event',name,params)}}catch(e){}}
 var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','33064'];
 
 (function(){
+  /* ---------- analytics: phone taps ---------- */
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"]');if(a)gaEvent('phone_click',{link_location:a.closest('nav')?'nav':a.closest('.mcta')?'mobile_bar':a.closest('footer')?'footer':'page'})},true);
   /* ---------- nav ---------- */
   var nav=document.querySelector('.nav');
   if(nav)addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>20)},{passive:true});
@@ -64,9 +68,11 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
     var ud={};var em=String(email||'').trim().toLowerCase();if(em)ud.email=em;var ph=e164(phone);if(ph)ud.phone_number=ph;
     gtag('set','user_data',ud);                         // must come before the conversion event
     gtag('event','conversion',{send_to:CONVERSION});
+    gaEvent('generate_lead',{lead_source:LEAD_SOURCE||'form'});
     markConverted();
   }
-  function submitLead(fields){
+  var LEAD_SOURCE='';
+  function submitLead(fields){LEAD_SOURCE=fields.source||'form';
     var fd=new FormData();Object.keys(fields).forEach(function(k){if(fields[k]!==undefined&&fields[k]!=='')fd.append(k,fields[k])});
     return fetch(FORM_ENDPOINT,{method:'POST',body:fd,headers:{Accept:'application/json'}}).then(function(r){
       if(!r.ok)throw new Error('Form error '+r.status);
@@ -116,7 +122,8 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
     say('Would you like to add Nourishment guidance to your sessions?');
     options(['Yes','Maybe later'],function(v){data.nourish=v;contactStep()});
   }
-  function open(){chat.hidden=false;cbtn.setAttribute('aria-expanded','true');markUnread(false);
+  var chatOpened=false;
+  function open(){chat.hidden=false;cbtn.setAttribute('aria-expanded','true');markUnread(false);if(!chatOpened){chatOpened=true;gaEvent('chat_open')}
     if(!msgs.children.length){var saved=CHAT_API&&load('nm_chat');if(saved&&saved.sid)resume(saved);else start()}
     var ta=chat.querySelector('.livebar textarea');(ta||zi).focus();if(live&&!bg)schedule(0)}
   function close(){chat.hidden=true;cbtn.setAttribute('aria-expanded','false')}
