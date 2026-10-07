@@ -12,7 +12,7 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
 
 (function(){
   /* ---------- analytics: phone taps ---------- */
-  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"]');if(a)gaEvent('phone_click',{link_location:a.closest('nav')?'nav':a.closest('.mcta')?'mobile_bar':a.closest('footer')?'footer':'page'})},true);
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"]');if(a)gaEvent('phone_click',{link_location:a.closest('nav')?'nav':a.closest('#chat')?'chat':a.closest('.mcta')?'mobile_bar':a.closest('footer')?'footer':'page'})},true);
   /* ---------- nav ---------- */
   var nav=document.querySelector('.nav');
   if(nav)addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>20)},{passive:true});
@@ -108,6 +108,11 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
   function store(k,v){try{v===null?localStorage.removeItem(k):localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
   function load(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
   function scroll(){msgs.scrollTop=msgs.scrollHeight}
+  // The number in the chat is read from the header call link when the message renders, so it is
+  // whatever the Google Ads call tag put there (a forwarding number for ad traffic, the real one
+  // otherwise) and never depends on the tag swapping text added after page load.
+  function callLink(){var h=document.querySelector('.nav-call span'),t=(h&&h.textContent.trim())||'(754) 999-0699',d=t.replace(/\D/g,'').slice(-10);
+    var a=document.createElement('a');a.className='u';a.href='tel:+1'+d;a.textContent=t;return a}
   function say(t,w){var m=document.createElement('div');m.className='m '+(w||'bot');m.textContent=t;msgs.appendChild(m);scroll();return m}
   function options(list,cb){var o=document.createElement('div');o.className='opts';list.forEach(function(x){var b=document.createElement('button');b.type='button';b.textContent=x;b.onclick=function(){o.remove();say(x,'me');cb(x)};o.appendChild(b)});msgs.appendChild(o);scroll()}
   function start(){msgs.replaceChildren();data={};zf.hidden=true;say('Hi, I’m Nina’s assistant. A few quick questions and I’ll pass you to Nina.');askFormat()}
@@ -150,7 +155,7 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
     f.addEventListener('submit',function(e){e.preventDefault();var t=ta.value.trim();if(!t)return;ta.value='';
       var pending=say(t,'me');
       api('msg',{sid:live.sid,text:t}).then(function(r){seen[r.id]=1;if(r.id>lastId)lastId=r.id;
-        clearTimeout(waitT);waitT=setTimeout(function(){say('Nina may be with a client right now. She’ll answer here, or by email or text if you’ve left the page. For anything urgent, call or text (754) 999-0699.')},120000);
+        clearTimeout(waitT);waitT=setTimeout(function(){var m=say('Nina may be with a client right now. She’ll answer here, or by email or text if you’ve left the page. For anything urgent, call or text ');m.appendChild(callLink());m.appendChild(document.createTextNode('.'))},120000);
         schedule(1500);
       }).catch(function(){pending.classList.add('failed');say('That didn’t send. Please try again.')});
     });

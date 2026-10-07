@@ -29,6 +29,13 @@ Assets live in `/assets/css`, `/assets/js`, `/assets/img`.
 - Old hash links (#movement, #nutrition, #about, #blog, #contact) redirect from the homepage to the new pages.
 - Google Ads final URL stays https://ninamanova.com/.
 
+## Known measurement leaks
+
+Not fixable in code; recorded so the conversion numbers are read correctly.
+
+- **A phone number typed into a chat reply.** If Nina types (754) 999-0699 into a chat reply from Telegram, it reaches the visitor as raw text and is never swapped by the Google Ads call tag (`phone_conversion_number`), so a call made from it is untracked. Mitigation: in chat replies, point the visitor at the call button (header, or the Call bar on mobile) instead of typing the number.
+- The site's own chat prompt does not leak: `assets/js/site.js` reads the number from the header call link at the moment the prompt renders and outputs it as a `tel:` link, so it shows whatever the call tag put in the header (the swapped number for ad traffic, the real one otherwise).
+
 ## Settings to fill in
 
 - `assets/js/site.js` → `CHAT_API`: URL of the chat worker (see `chat-worker/SETUP.md` in the build folder). Empty = the chat ends after the questions with an email confirmation; set = visitors keep chatting and Nina replies from Telegram, invisibly to the visitor.
