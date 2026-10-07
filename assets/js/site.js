@@ -114,7 +114,7 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
   function callLink(){var h=document.querySelector('.nav-call span'),t=(h&&h.textContent.trim())||'(754) 999-0699',d=t.replace(/\D/g,'').slice(-10);
     var a=document.createElement('a');a.className='u';a.href='tel:+1'+d;a.textContent=t;return a}
   function say(t,w){var m=document.createElement('div');m.className='m '+(w||'bot');m.textContent=t;msgs.appendChild(m);scroll();return m}
-  function options(list,cb){var o=document.createElement('div');o.className='opts';list.forEach(function(x){var b=document.createElement('button');b.type='button';b.textContent=x;b.onclick=function(){o.remove();say(x,'me');cb(x)};o.appendChild(b)});msgs.appendChild(o);scroll()}
+  function options(list,cb){var o=document.createElement('div');o.className='opts';list.forEach(function(x){var b=document.createElement('button');b.type='button';b.textContent=x;b.onclick=function(){o.remove();say(x,'me');engaged();cb(x)};o.appendChild(b)});msgs.appendChild(o);scroll()}
   function start(){msgs.replaceChildren();data={};zf.hidden=true;say('Hi, I’m Nina’s assistant. A few quick questions and I’ll pass you to Nina.');askFormat()}
   function askFormat(){
     say('What kind of sessions interest you?');
@@ -127,6 +127,8 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
     say('Would you like to add Nourishment guidance to your sessions?');
     options(['Yes','Maybe later'],function(v){data.nourish=v;contactStep()});
   }
+  // chat_engaged: the visitor answered the first scripted question. Once per browser session. GA4 only.
+  function engaged(){try{if(sessionStorage.getItem('nm_engaged')==='1')return;sessionStorage.setItem('nm_engaged','1')}catch(e){}gaEvent('chat_engaged')}
   var chatOpened=false;
   function open(){chat.hidden=false;cbtn.setAttribute('aria-expanded','true');markUnread(false);if(!chatOpened){chatOpened=true;gaEvent('chat_open')}
     if(!msgs.children.length){var saved=CHAT_API&&load('nm_chat');if(saved&&saved.sid)resume(saved);else start()}

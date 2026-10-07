@@ -26,6 +26,8 @@ Assets live in `/assets/css`, `/assets/js`, `/assets/img`.
 - Form posts to Formspree `f/xnjbbked` with fields firstName, lastName, email, phone, interest, location, message (plus frequency, nourishment, smsConsent, source).
 - Conversion fires only after Formspree returns ok, in this order: `gtag('set','user_data',…)` then `gtag('event','conversion',{send_to:'AW-18467051626/zCDyCM_TpYEdEOqw4-VE'})`. Code: `assets/js/site.js`.
 - The chat submits through the same form endpoint and fires the same conversion. A per-session flag stops one visitor counting twice.
+- Google Ads call tracking: `gtag('config','AW-18467051626/ujg7CJiLvIgdEOqw4-VE',{'phone_conversion_number':'(754) 999-0699'})` in every page head (generated from `build_prod.py`). The number shown must stay exactly `(754) 999-0699`.
+- GA4 (`G-J1ZRW0LNW8`) events, sent only to GA4 via `gaEvent` in `site.js`: `generate_lead` (`lead_source`: `website form` or `chat`, fired inside the conversion function, so at most once per session), `phone_click` (`link_location`: nav, chat, mobile_bar, footer, page), `chat_open` (first open per page), `chat_engaged` (first answer in the chat, once per session). New events go through `gaEvent` and stay outside the conversion function.
 - Old hash links (#movement, #nutrition, #about, #blog, #contact) redirect from the homepage to the new pages.
 - Google Ads final URL stays https://ninamanova.com/.
 
