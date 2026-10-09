@@ -28,6 +28,7 @@ Assets live in `/assets/css`, `/assets/js`, `/assets/img`.
 - The chat submits through the same form endpoint and fires the same conversion. A per-session flag stops one visitor counting twice.
 - Google Ads call tracking: `gtag('config','AW-18467051626/ujg7CJiLvIgdEOqw4-VE',{'phone_conversion_number':'(754) 999-0699'})` in every page head (generated from `build_prod.py`). The number shown must stay exactly `(754) 999-0699`.
 - GA4 (`G-J1ZRW0LNW8`) events, sent only to GA4 via `gaEvent` in `site.js`: `generate_lead` (`lead_source`: `website form` or `chat`, fired inside the conversion function, so at most once per session), `phone_click` (`link_location`: nav, chat, mobile_bar, footer, page), `chat_open` (first open per page), `chat_engaged` (first answer in the chat, once per session). New events go through `gaEvent` and stay outside the conversion function.
+- Formspree auto-response (Professional plan, form `xnjbbked`) emails every form and chat lead; it is sent from Formspree's domain, so it can land in spam. The thank-you text in `site.js` (`CONFIRM_NOTE`) tells the visitor to check spam. If the auto-response is ever switched off, remove that note.
 - Old hash links (#movement, #nutrition, #about, #blog, #contact) redirect from the homepage to the new pages.
 - Google Ads final URL stays https://ninamanova.com/.
 

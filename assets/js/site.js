@@ -8,6 +8,7 @@ var FORM_ENDPOINT = 'https://formspree.io/f/xnjbbked';
 var CONVERSION = 'AW-18467051626/zCDyCM_TpYEdEOqw4-VE';
 var GA4 = 'G-J1ZRW0LNW8';
 function gaEvent(name,params){try{if(typeof gtag==='function'){params=params||{};params.send_to=GA4;gtag('event',name,params)}}catch(e){}}
+var CONFIRM_NOTE = 'A confirmation is on its way to your email; if it isn’t in your inbox, please check your spam folder.';
 var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','33064'];
 
 (function(){
@@ -95,7 +96,7 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
     data.smsConsent=form.smsConsent.checked?'Yes':'No';
     submitLead(data).then(function(){
       var d=document.createElement('div');d.className='sent';d.setAttribute('role','status');
-      d.textContent='Thank you, '+data.firstName+'. Nina will be in touch within 24 hours.';
+      d.textContent='Thank you, '+data.firstName+'. Nina will be in touch within 24 hours. '+CONFIRM_NOTE;
       form.replaceChildren(d);
     }).catch(function(){btn.disabled=false;if(err)err.hidden=false});
   });
@@ -197,10 +198,10 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
         interest:data.format,location:data.where,nourishment:data.nourish,zip:data.zip,areaCheck:online?'Online':(inArea?'In service area':'Confirm area'),smsConsent:data.smsConsent,message:summary})
       .then(function(){
         f.remove();
-        if(!CHAT_API){say('Thank you, '+data.firstName+'. Nina has your details and will reply personally, usually within 24 hours.');return}
+        if(!CHAT_API){say('Thank you, '+data.firstName+'. Nina has your details and will reply personally, usually within 24 hours.');say(CONFIRM_NOTE);return}
         return api('start',{lead:{firstName:data.firstName,lastName:data.lastName,email:data.email,phone:data.phone,zip:online?'Online':data.zip,inArea:inArea,format:data.format,where:data.where,nourish:data.nourish}})
-          .then(function(r){say('Thank you, '+data.firstName+'. Nina has your details. If you have a question, write it below and she’ll reply here.');goLive(r.sid,[])})
-          .catch(function(){say('Thank you, '+data.firstName+'. Nina has your details and will reply personally, usually within 24 hours.')});
+          .then(function(r){say('Thank you, '+data.firstName+'. Nina has your details. If you have a question, write it below and she’ll reply here.');say(CONFIRM_NOTE);goLive(r.sid,[])})
+          .catch(function(){say('Thank you, '+data.firstName+'. Nina has your details and will reply personally, usually within 24 hours.');say(CONFIRM_NOTE)});
       }).catch(function(){b.disabled=false;say('Sorry, that didn’t send. Please try again, or email manova.nina@gmail.com.')});
     });
   }
