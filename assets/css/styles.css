@@ -80,7 +80,7 @@ p{margin:0}
 @media (max-width:760px){
   .hero{display:block;height:auto;min-height:0;background:var(--ivory)}
   .hero picture{position:relative;display:block;inset:auto;aspect-ratio:10/11;height:auto}
-  .hero picture img{top:0;height:auto;aspect-ratio:2/3;object-fit:cover}
+  .hero picture img{top:0;height:100%;object-fit:cover;object-position:75% 50%}
   .hero .container{position:static}
   .hero-copy{padding-block:28px 40px;gap:16px}
   .hero h1{font-size:44px}
