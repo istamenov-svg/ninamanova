@@ -7,7 +7,7 @@ var CHAT_API = 'https://nina-chat.istamenov.workers.dev';
 var FORM_ENDPOINT = 'https://formspree.io/f/xnjbbked';
 var CONVERSION = 'AW-18467051626/zCDyCM_TpYEdEOqw4-VE';
 var GA4 = 'G-J1ZRW0LNW8';
-var LEAD_VALUE = null;     // set to a number (USD) to send value + currency with generate_lead
+var LEAD_VALUE = 230;     // USD; intro package. Sent as value + currency with generate_lead
 var CLARITY_ID = 'zfuo624ro1';   // Microsoft Clarity project; empty = Clarity off
 function gaEvent(name,params){try{if(typeof gtag==='function'){params=params||{};params.send_to=GA4;gtag('event',name,params)}}catch(e){}}
 var CONFIRM_NOTE = 'A confirmation is on its way to your email; if it isn’t in your inbox, please check your spam folder.';

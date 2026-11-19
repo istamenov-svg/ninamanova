@@ -28,7 +28,7 @@ Assets live in `/assets/css`, `/assets/js`, `/assets/img`.
 - The chat submits through the same form endpoint and fires the same conversion. A per-session flag stops one visitor counting twice.
 - Google Ads call tracking: `gtag('config','AW-18467051626/ujg7CJiLvIgdEOqw4-VE',{'phone_conversion_number':'(754) 999-0699'})` in every page head (generated from `build_prod.py`). The number shown must stay exactly `(754) 999-0699`.
 - GA4 (`G-J1ZRW0LNW8`) events, sent only to GA4 via `gaEvent` in `site.js`. New events go through `gaEvent` and stay outside the conversion function (`fireConversion`). No names, emails, phone numbers or messages go to GA4.
-  - `generate_lead` {`lead_source`: `website form` or `chat`; `interest`; `service_location`; `value` + `currency` only when `LEAD_VALUE` is a number}: fired inside the conversion function, so at most once per session. Key event.
+  - `generate_lead` {`lead_source`: `website form` or `chat`; `interest`; `service_location`; `value` 230 + `currency` USD (LEAD_VALUE)}: fired inside the conversion function, so at most once per session. Key event.
   - `phone_click` {`link_location`}: tap on any `tel:` link. Key event.
   - `cta_click` {`cta_type`: `consult_link` | `chat_button`; `link_location`; `link_text` (first 40 chars)}: links to /begin/, `[data-chat]` buttons, and `#chatBtn` when it opens the chat.
   - `form_start` {`form_name`: `consultation`}: first focus or input in `form.lead`, once per page view.
@@ -64,7 +64,7 @@ Not fixable in code; recorded so the conversion numbers are read correctly.
 
 ## Settings to fill in
 
-- `assets/js/site.js` → `LEAD_VALUE`: `null` until Ivan sets a lead value (USD); a number adds `value` and `currency` to `generate_lead` only.
+- `assets/js/site.js` → `LEAD_VALUE`: `230` (USD), the 3-session introductory package most clients start with (decided by Ivan 2026-11-18). Adds `value` and `currency` to `generate_lead` only; `phone_click` carries no value. 10-packs and repeat purchases are not in the value (no data yet). Set to `null` to remove.
 - `assets/js/site.js` → `CLARITY_ID`: Microsoft Clarity project ID; empty turns Clarity off.
 - `assets/js/site.js` → `CHAT_API`: URL of the chat worker (see `chat-worker/SETUP.md` in the build folder). Empty = the chat ends after the questions with an email confirmation; set = visitors keep chatting and Nina replies from Telegram, invisibly to the visitor.
 
