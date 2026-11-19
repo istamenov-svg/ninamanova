@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18467051626"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18467051626');gtag('config','G-J1ZRW0LNW8');gtag('config','AW-18467051626/ujg7CJiLvIgdEOqw4-VE',{'phone_conversion_number':'(754) 999-0699'});</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());try{var q=location.search;if(/[?&]internal=1/.test(q))localStorage.setItem('nm_internal','1');if(/[?&]internal=0/.test(q))localStorage.removeItem('nm_internal');if(localStorage.getItem('nm_internal')==='1')gtag('set',{traffic_type:'internal'})}catch(e){}gtag('config','AW-18467051626');gtag('config','G-J1ZRW0LNW8');gtag('config','AW-18467051626/ujg7CJiLvIgdEOqw4-VE',{'phone_conversion_number':'(754) 999-0699'});</script>
 <title>Privacy Policy · Nina Manova</title>
 <meta name="description" content="How ninamanova.com collects, uses and protects your information.">
 <link rel="canonical" href="https://ninamanova.com/privacy/">
@@ -43,7 +43,7 @@
 <section class="legal"><div class="container narrow">
 <span class="eyebrow">Legal</span>
 <h1>Privacy policy</h1>
-<p><em>Effective date: October 2026</em></p>
+<p><em>Effective date: November 2026</em></p>
 <p>This policy explains what information Nina Manova ("I", "me") collects through ninamanova.com, how I use it, and the choices you have. I am an independent Pilates instructor in Fort Lauderdale, Florida. I collect only what I need to respond to you and to provide sessions, and I do not sell your information.</p>
 
 <h2>Information you give me</h2>
@@ -58,6 +58,7 @@
 <ul>
 <li><strong>Google Ads tag.</strong> The site uses a Google tag to measure whether my ads lead to consultation requests. It uses cookies and similar technologies and records information such as the pages you visit, your browser and device type, and whether you sent a request. When you send a request, your email address and phone number are converted in your browser into a one-way code (hashed) before being sent to Google, so the request can be matched to an ad click. See <a class="u" href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses information from sites that use its services</a>.</li>
 <li><strong>Google Analytics.</strong> The site uses Google Analytics to understand how visitors use it: which pages are viewed, how people arrive (for example from a search or an ad), and which actions they take, such as opening the chat, tapping the phone number or sending a request. It uses cookies and similar technologies. It does not receive your name, email address or messages. You can opt out with the <a class="u" href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics opt-out browser add-on</a>.</li>
+<li><strong>Microsoft Clarity.</strong> The site uses Microsoft Clarity to see how visitors use pages (clicks, scrolling, page layout issues) through anonymised session recordings and heatmaps. Form fields and chat messages are masked and not recorded.</li>
 <li><strong>Hosting and fonts.</strong> The site is hosted on GitHub Pages and uses Google Fonts. Like most web services, they may record technical information such as your IP address for security and operation.</li>
 </ul>
 
@@ -79,6 +80,7 @@
 <tbody>
 <tr><td>Formspree</td><td>Receives form and chat submissions and emails them to me</td></tr>
 <tr><td>Google (Ads, Analytics, Fonts, Voice, Gmail)</td><td>Ad measurement, website analytics, website fonts, my business phone number, email</td></tr>
+<tr><td>Microsoft (Clarity)</td><td>Website usage analytics</td></tr>
 <tr><td>Telegram</td><td>Delivers website chat messages to my phone</td></tr>
 <tr><td>Cloudflare</td><td>Runs the website chat service and stores chat conversations</td></tr>
 <tr><td>GitHub</td><td>Website hosting</td></tr>
@@ -124,9 +126,9 @@
 </div></footer>
 <div class="mcta"><a href="tel:+17549990699"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.1 6.1l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg><span>(754) 999-0699</span></a><button type="button" data-chat><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Chat<span class="wn">&nbsp;with Nina</span></button></div>
 <button class="chat-btn" id="chatBtn" type="button" aria-expanded="false" aria-controls="chat" aria-label="Ask about sessions"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></button>
-<div class="chat" id="chat" role="dialog" aria-label="Ask about sessions" hidden>
+<div class="chat" id="chat" data-clarity-mask="true" role="dialog" aria-label="Ask about sessions" hidden>
 <header><div><b>Ask about sessions</b><small>Automated assistant · Nina replies personally</small></div><button type="button" id="chatClose" aria-label="Close chat">×</button></header>
-<div class="msgs" id="msgs" aria-live="polite"></div>
+<div class="msgs" id="msgs" data-clarity-mask="true" aria-live="polite"></div>
 <form class="zip" id="zipForm"><input id="zipInput" inputmode="numeric" maxlength="5" placeholder="Your zip code" aria-label="Zip code" autocomplete="postal-code"><button class="btn sm solid" type="submit">Send</button></form>
 </div>
 <script src="/assets/js/site.js" defer></script>

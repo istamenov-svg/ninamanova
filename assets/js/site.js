@@ -7,13 +7,40 @@ var CHAT_API = 'https://nina-chat.istamenov.workers.dev';
 var FORM_ENDPOINT = 'https://formspree.io/f/xnjbbked';
 var CONVERSION = 'AW-18467051626/zCDyCM_TpYEdEOqw4-VE';
 var GA4 = 'G-J1ZRW0LNW8';
+var LEAD_VALUE = null;     // set to a number (USD) to send value + currency with generate_lead
+var CLARITY_ID = 'zfuo624ro1';   // Microsoft Clarity project; empty = Clarity off
 function gaEvent(name,params){try{if(typeof gtag==='function'){params=params||{};params.send_to=GA4;gtag('event',name,params)}}catch(e){}}
 var CONFIRM_NOTE = 'A confirmation is on its way to your email; if it isn’t in your inbox, please check your spam folder.';
 var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','33064'];
 
 (function(){
+  /* ---------- Microsoft Clarity (skipped for internal traffic, see ?internal=1 in the page head) ---------- */
+  var internal=false;try{internal=localStorage.getItem('nm_internal')==='1'}catch(e){}
+  if(CLARITY_ID&&!internal){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,'clarity','script',CLARITY_ID)}
+
+  /* ---------- analytics helpers (GA4 only; never inside fireConversion) ---------- */
+  function where(el){return el.closest('nav')?'nav':el.closest('#chat')?'chat':el.closest('.mcta')?'mobile_bar':el.closest('footer')?'footer':el.closest('.hero,.phero')?'hero':'page'}
+  function once(k){try{if(sessionStorage.getItem(k)==='1')return false;sessionStorage.setItem(k,'1')}catch(e){}return true}  // once per browser session
+  var pv={};function oncePV(k){if(pv[k])return false;pv[k]=1;return true}                                                      // once per page view
+  function formError(form,type,field){if(type==='validation'&&!oncePV('fe:'+form+':'+field))return;gaEvent('form_error',{form_name:form,error_type:type,field:field||''})}
+  function chatStep(step,p){if(!once('nm_step_'+step))return;p=p||{};p.step=step;gaEvent('chat_step',p)}
+
   /* ---------- analytics: phone taps ---------- */
-  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"]');if(a)gaEvent('phone_click',{link_location:a.closest('nav')?'nav':a.closest('#chat')?'chat':a.closest('.mcta')?'mobile_bar':a.closest('footer')?'footer':'page'})},true);
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"]');if(a)gaEvent('phone_click',{link_location:where(a)})},true);
+  /* ---------- analytics: CTA clicks (consultation links and chat buttons) ---------- */
+  document.addEventListener('click',function(e){if(!e.target.closest)return;
+    var el=e.target.closest('a[href^="/begin"],[data-chat],#chatBtn');if(!el)return;
+    if(el.id==='chatBtn'){var ch=document.getElementById('chat');if(!ch||!ch.hidden)return}   // only when the click opens the chat
+    var txt=(el.textContent||'').replace(/\s+/g,' ').trim()||el.getAttribute('aria-label')||'';
+    gaEvent('cta_click',{cta_type:el.tagName==='A'?'consult_link':'chat_button',link_location:where(el),link_text:txt.slice(0,40)});
+  },true);
+  /* ---------- analytics: scroll depth 25/50/75 (enhanced measurement already sends 90) ---------- */
+  (function(){var marks=[25,50,75],sent={},tk=false;
+    function check(){tk=false;var d=document.documentElement,h=d.scrollHeight-innerHeight;if(h<=0)return;
+      var pct=(window.pageYOffset||d.scrollTop||0)/h*100;
+      marks.forEach(function(m){if(pct>=m&&!sent[m]){sent[m]=1;gaEvent('scroll_depth',{percent_scrolled:m})}})}
+    addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(check)}},{passive:true});
+  })();
   /* ---------- nav ---------- */
   var nav=document.querySelector('.nav');
   if(nav)addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>20)},{passive:true});
@@ -69,11 +96,13 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
     var ud={};var em=String(email||'').trim().toLowerCase();if(em)ud.email=em;var ph=e164(phone);if(ph)ud.phone_number=ph;
     gtag('set','user_data',ud);                         // must come before the conversion event
     gtag('event','conversion',{send_to:CONVERSION});
-    gaEvent('generate_lead',{lead_source:LEAD_SOURCE||'form'});
+    var gl={lead_source:LEAD_SOURCE||'form',interest:LEAD_INTEREST,service_location:LEAD_LOCATION};
+    if(typeof LEAD_VALUE==='number'){gl.value=LEAD_VALUE;gl.currency='USD'}
+    gaEvent('generate_lead',gl);
     markConverted();
   }
-  var LEAD_SOURCE='';
-  function submitLead(fields){LEAD_SOURCE=fields.source||'form';
+  var LEAD_SOURCE='',LEAD_INTEREST='',LEAD_LOCATION='';
+  function submitLead(fields){LEAD_SOURCE=fields.source||'form';LEAD_INTEREST=fields.interest||'';LEAD_LOCATION=fields.location||'';
     var fd=new FormData();Object.keys(fields).forEach(function(k){if(fields[k]!==undefined&&fields[k]!=='')fd.append(k,fields[k])});
     return fetch(FORM_ENDPOINT,{method:'POST',body:fd,headers:{Accept:'application/json'}}).then(function(r){
       if(!r.ok)throw new Error('Form error '+r.status);
@@ -83,12 +112,13 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
   }
 
   var form=document.querySelector('form.lead');
+  if(form){var fs=function(){if(oncePV('form_start'))gaEvent('form_start',{form_name:'consultation'})};form.addEventListener('focusin',fs);form.addEventListener('input',fs)}
   if(form)form.addEventListener('submit',function(e){
     e.preventDefault();
     var err=form.querySelector('.form-error');if(err)err.hidden=true;
     var req=['firstName','lastName','email'];
-    for(var i=0;i<req.length;i++){var f=form.elements[req[i]];if(!f.value.trim()){f.focus();return}}
-    if(!/^\S+@\S+\.\S+$/.test(form.email.value.trim())){form.email.focus();return}
+    for(var i=0;i<req.length;i++){var f=form.elements[req[i]];if(!f.value.trim()){formError('consultation','validation',req[i]);f.focus();return}}
+    if(!/^\S+@\S+\.\S+$/.test(form.email.value.trim())){formError('consultation','validation','email');form.email.focus();return}
     if(form._gotcha&&form._gotcha.value)return;
     var btn=form.querySelector('button[type=submit]');btn.disabled=true;
     var data={};new FormData(form).forEach(function(v,k){data[k]=v});
@@ -98,7 +128,7 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
       var d=document.createElement('div');d.className='sent';d.setAttribute('role','status');
       d.textContent='Thank you, '+data.firstName+'. Nina will be in touch within 24 hours. '+CONFIRM_NOTE;
       form.replaceChildren(d);
-    }).catch(function(){btn.disabled=false;if(err)err.hidden=false});
+    }).catch(function(){btn.disabled=false;if(err)err.hidden=false;formError('consultation','network','')});
   });
 
   /* ---------- concierge chat: scripted questions, then live chat with Nina ---------- */
@@ -119,14 +149,14 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
   function start(){msgs.replaceChildren();data={};zf.hidden=true;say('Hi, I’m Nina’s assistant. A few quick questions and I’ll pass you to Nina.');askFormat()}
   function askFormat(){
     say('What kind of sessions interest you?');
-    options(['Private','Semi-private','Online','Kids / teens','Not sure'],function(v){data.format=v;
+    options(['Private','Semi-private','Online','Kids / teens','Not sure'],function(v){data.format=v;chatStep('format',v==='Online'?{in_area:'online'}:{});
       if(v==='Online'){data.zip='';data.where='Online';say('Online sessions are live, one to one, wherever you are.');askNourish()}
       else{say('What’s your zip code?');zf.hidden=false;zi.focus()}
     });
   }
   function askNourish(){
     say('Would you like to add Nourishment guidance to your sessions?');
-    options(['Yes','Maybe later'],function(v){data.nourish=v;contactStep()});
+    options(['Yes','Maybe later'],function(v){data.nourish=v;chatStep('nourish');contactStep()});
   }
   // chat_engaged: the visitor answered the first scripted question. Once per browser session. GA4 only.
   function engaged(){try{if(sessionStorage.getItem('nm_engaged')==='1')return;sessionStorage.setItem('nm_engaged','1')}catch(e){}gaEvent('chat_engaged')}
@@ -158,6 +188,7 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
     f.addEventListener('submit',function(e){e.preventDefault();var t=ta.value.trim();if(!t)return;ta.value='';
       var pending=say(t,'me');
       api('msg',{sid:live.sid,text:t}).then(function(r){seen[r.id]=1;if(r.id>lastId)lastId=r.id;
+        if(once('nm_msg_sent'))gaEvent('chat_message_sent');
         clearTimeout(waitT);waitT=setTimeout(function(){var m=say('Nina may be with a client right now. She’ll answer here, or by email or text if you’ve left the page. For anything urgent, call or text ');m.appendChild(callLink());m.appendChild(document.createTextNode('.'))},120000);
         schedule(1500);
       }).catch(function(){pending.classList.add('failed');say('That didn’t send. Please try again.')});
@@ -175,7 +206,7 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
   if(CHAT_API&&load('nm_chat')){bg=true;live={sid:load('nm_chat').sid};schedule(4000)} // returning visitor: quietly check for Nina's replies and show a dot
 
   function contactStep(){
-    say('Last step: how can Nina reach you?');
+    say('Last step: how can Nina reach you?');chatStep('contact_shown');
     var f=document.createElement('form');f.className='lead-mini';f.noValidate=true;
     f.innerHTML='<input type="text" name="firstName" placeholder="First name" autocomplete="given-name" aria-label="First name">'+
       '<input type="text" name="lastName" placeholder="Last name" autocomplete="family-name" aria-label="Last name">'+
@@ -187,8 +218,8 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
     msgs.appendChild(f);scroll();f.firstName.focus();
     f.addEventListener('submit',function(e){
       e.preventDefault();
-      if(!f.firstName.value.trim()){f.firstName.focus();return}
-      if(!/^\S+@\S+\.\S+$/.test(f.email.value.trim())){f.email.focus();return}
+      if(!f.firstName.value.trim()){formError('chat','validation','firstName');f.firstName.focus();return}
+      if(!/^\S+@\S+\.\S+$/.test(f.email.value.trim())){formError('chat','validation','email');f.email.focus();return}
       var b=f.querySelector('button');b.disabled=true;
       data.firstName=f.firstName.value.trim();data.lastName=f.lastName.value.trim();data.email=f.email.value.trim();data.phone=f.phone.value.trim();
       data.smsConsent=f.smsConsent.checked?'Yes':'No';
@@ -197,20 +228,21 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
       submitLead({_subject:'Chat inquiry'+(online?' · online':(inArea?'':' · confirm area'))+' · ninamanova.com',source:'chat',firstName:data.firstName,lastName:data.lastName,email:data.email,phone:data.phone,
         interest:data.format,location:data.where,nourishment:data.nourish,zip:data.zip,areaCheck:online?'Online':(inArea?'In service area':'Confirm area'),smsConsent:data.smsConsent,message:summary})
       .then(function(){
+        chatStep('contact_submitted');
         f.remove();
         if(!CHAT_API){say('Thank you, '+data.firstName+'. Nina has your details and will reply personally, usually within 24 hours.');say(CONFIRM_NOTE);return}
         return api('start',{lead:{firstName:data.firstName,lastName:data.lastName,email:data.email,phone:data.phone,zip:online?'Online':data.zip,inArea:inArea,format:data.format,where:data.where,nourish:data.nourish}})
-          .then(function(r){say('Thank you, '+data.firstName+'. Nina has your details. If you have a question, write it below and she’ll reply here.');say(CONFIRM_NOTE);goLive(r.sid,[])})
+          .then(function(r){say('Thank you, '+data.firstName+'. Nina has your details. If you have a question, write it below and she’ll reply here.');say(CONFIRM_NOTE);goLive(r.sid,[]);chatStep('live_started')})
           .catch(function(){say('Thank you, '+data.firstName+'. Nina has your details and will reply personally, usually within 24 hours.');say(CONFIRM_NOTE)});
-      }).catch(function(){b.disabled=false;say('Sorry, that didn’t send. Please try again, or email manova.nina@gmail.com.')});
+      }).catch(function(){b.disabled=false;formError('chat','network','');say('Sorry, that didn’t send. Please try again, or email manova.nina@gmail.com.')});
     });
   }
 
   zf.addEventListener('submit',function(e){
-    e.preventDefault();var z=zi.value.trim();if(!/^\d{5}$/.test(z)){zi.focus();return}
-    say(z,'me');zi.value='';zf.hidden=true;data.zip=z;
+    e.preventDefault();var z=zi.value.trim();if(!/^\d{5}$/.test(z)){formError('chat','validation','zip');zi.focus();return}
+    say(z,'me');zi.value='';zf.hidden=true;data.zip=z;chatStep('zip',{in_area:SERVICE_ZIPS.indexOf(z)>-1?'yes':'no'});
     say(SERVICE_ZIPS.indexOf(z)>-1?'Lovely, that’s in Nina’s area.':'Nina will confirm whether she can come to you. Online sessions are always an option.');
     say('Where would sessions happen?');
-    options(['My home','Building gym','Studio','Flexible'],function(v){data.where=v;askNourish()});
+    options(['My home','Building gym','Studio','Flexible'],function(v){data.where=v;chatStep('where');askNourish()});
   });
 })();
