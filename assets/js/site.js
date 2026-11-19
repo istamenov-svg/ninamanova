@@ -30,7 +30,7 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
   /* ---------- analytics: CTA clicks (consultation links and chat buttons) ---------- */
   document.addEventListener('click',function(e){if(!e.target.closest)return;
     var el=e.target.closest('a[href^="/begin"],[data-chat],#chatBtn');if(!el)return;
-    if(el.id==='chatBtn'){var ch=document.getElementById('chat');if(!ch||!ch.hidden)return}   // only when the click opens the chat
+    if(el.tagName!=='A'){var ch=document.getElementById('chat');if(ch&&!ch.hidden)return}   // chat buttons count only when the click opens the chat
     var txt=(el.textContent||'').replace(/\s+/g,' ').trim()||el.getAttribute('aria-label')||'';
     gaEvent('cta_click',{cta_type:el.tagName==='A'?'consult_link':'chat_button',link_location:where(el),link_text:txt.slice(0,40)});
   },true);
