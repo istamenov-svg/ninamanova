@@ -34,6 +34,10 @@ var SERVICE_ZIPS = ['33301','33304','33305','33306','33308','33316','33062','330
     var txt=(el.textContent||'').replace(/\s+/g,' ').trim()||el.getAttribute('aria-label')||'';
     gaEvent('cta_click',{cta_type:el.tagName==='A'?'consult_link':'chat_button',link_location:where(el),link_text:txt.slice(0,40)});
   },true);
+  /* ---------- analytics: Google review links (home_reviews | begin_reviews; read_all | leave_review | card) ---------- */
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-review-link]');if(!a)return;
+    var box=a.closest('[data-reviews]');gaEvent('review_click',{link_location:box?box.getAttribute('data-reviews'):'page',link_text:a.getAttribute('data-review-link')});
+  },true);
   /* ---------- analytics: scroll depth 25/50/75 (enhanced measurement already sends 90) ---------- */
   (function(){var marks=[25,50,75],sent={},tk=false;
     function check(){tk=false;var d=document.documentElement,h=d.scrollHeight-innerHeight;if(h<=0)return;

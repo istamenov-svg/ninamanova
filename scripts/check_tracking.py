@@ -16,7 +16,7 @@ CALL_CFG = "gtag('config','AW-18467051626/ujg7CJiLvIgdEOqw4-VE',{'phone_conversi
 ADS_CFG = "gtag('config','AW-18467051626')"
 INTERNAL = "localStorage.getItem('nm_internal')==='1')gtag('set',{traffic_type:'internal'})"
 EVENTS = ['generate_lead', 'phone_click', 'chat_open', 'chat_engaged', 'cta_click', 'form_start',
-          'form_error', 'chat_step', 'chat_message_sent', 'scroll_depth']
+          'form_error', 'chat_step', 'chat_message_sent', 'scroll_depth', 'review_click']
 STEPS = ['format', 'zip', 'where', 'nourish', 'contact_shown', 'contact_submitted', 'live_started']
 
 errors = []
