@@ -398,15 +398,15 @@ footer .fine{margin-top:48px;padding-top:22px;border-top:1px solid #4A3D44;displ
 .rating{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:15px;letter-spacing:.04em;color:var(--ink-2)}
 .reviews .head{margin-bottom:clamp(28px,4vw,48px)}
 .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,28px)}
-.review{position:relative;margin:0;display:grid;gap:18px;align-content:start;grid-template-rows:auto 1fr auto;background:var(--paper);border:1px solid var(--line);padding:clamp(24px,3vw,36px);transition:border-color .5s var(--ease),transform .6s var(--ease)}
-.review:hover,.review:focus-within{border-color:var(--mauve);transform:translateY(-4px)}
+.review{position:relative;cursor:pointer;margin:0;display:grid;gap:18px;align-content:start;grid-template-rows:auto 1fr auto;background:var(--paper);border:1px solid var(--line);padding:clamp(24px,3vw,36px);transition:border-color .5s var(--ease),transform .6s var(--ease)}
+.review:hover,.review:focus-within{border-color:var(--mauve)}
+@media (prefers-reduced-motion:no-preference){.review:hover,.review:focus-within{transform:translateY(-4px)}}
 .review blockquote{margin:0;font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(21px,1.9vw,25px);line-height:1.38;color:var(--ink)}
 .review figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-top:1px solid var(--line);padding-top:14px}
 .review figcaption b{font-weight:400;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase}
 .review-src{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);text-decoration:none}
 .review-src::after{content:"";position:absolute;inset:0}
-.review-src:focus-visible{outline:none}
-.review:has(.review-src:focus-visible){outline:2px solid var(--rose);outline-offset:3px}
+@supports selector(:has(*)){.review-src:focus-visible{outline:none}.review:has(.review-src:focus-visible){outline:2px solid var(--rose);outline-offset:3px}}
 .review-links{display:flex;flex-wrap:wrap;gap:16px 36px;margin-top:clamp(28px,4vw,44px)}
 @media (max-width:760px){.review-grid{grid-template-columns:1fr}}
 /* /begin/ strip above the form */
