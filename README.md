@@ -36,6 +36,7 @@ Assets live in `/assets/css`, `/assets/js`, `/assets/img`.
   - `chat_open` (first open per page), `chat_engaged` (first answer in the chat, once per session; no longer a key event).
   - `chat_step` {`step`; `in_area`}: `format` (`in_area: online` when Online), `zip` (`in_area`: `yes` | `no`), `where`, `nourish`, `contact_shown`, `contact_submitted`, `live_started`. Each once per session.
   - `chat_message_sent`: first live message the visitor sends, once per session.
+  - `review_click` {`link_location`: `home_reviews` | `begin_reviews`; `link_text`: `read_all` | `leave_review` | `card`}: clicks on `[data-review-link]` in the Google reviews section (homepage) and strip (/begin/).
   - `scroll_depth` {`percent_scrolled`: 25 | 50 | 75}: once per threshold per page view (enhanced measurement sends `scroll` at 90).
   - `link_location` values (shared `where()` helper): nav, hero, mobile_bar, footer, chat, page.
 - Internal traffic: every page head sets `traffic_type: internal` before the first `gtag('config')` when localStorage `nm_internal` is `1`. Open any page with `?internal=1` once per browser to mark it, `?internal=0` to clear. Internal browsers also skip Microsoft Clarity. Head markup is applied by `scripts/apply_tracking_markup.py` (idempotent).
